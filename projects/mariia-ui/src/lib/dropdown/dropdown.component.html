@@ -1,0 +1,45 @@
+<div *ngIf="visible" class="mui">
+  <div class="mui__container">
+    <div *ngIf="label" class="mui__label">{{ label }}</div>
+
+    <div class="mui__input" (click)="changeOptionsVisibility(true, $event)">
+      <div *ngIf="hasValue" class="mui__input-value">
+        {{ formControl.value.value }}
+      </div>
+      <div *ngIf="!hasValue" class="mui__input-placeholder">
+        {{ placeholder }}
+      </div>
+    </div>
+
+    <input style="display: none" type="text" [formControl]="formControl" />
+
+    <div *ngIf="isOpened" class="mui__options">
+      <div
+        *ngFor="let option of options"
+        class="mui__option"
+        (click)="optionClicked(option)">
+        {{ option.value }}
+      </div>
+    </div>
+
+    <div
+      *ngIf="isOpened"
+      class="mui__up-arrow-btn"
+      (click)="changeOptionsVisibility(false, $event)">
+      <mui-chevron-up></mui-chevron-up>
+    </div>
+    <div
+      *ngIf="!isOpened"
+      class="mui__down-arrow-btn"
+      (click)="changeOptionsVisibility(true, $event)">
+      <mui-chevron-down></mui-chevron-down>
+    </div>
+
+    <div *ngIf="showClearButton" class="mui__clear-btn" (click)="clearInput()">
+      <mui-xmark></mui-xmark>
+    </div>
+    <div *ngIf="formControl | showError" class="mui__error">
+      {{ formControl | errorMessage: errorMessages }}
+    </div>
+  </div>
+</div>
