@@ -1,0 +1,37 @@
+<div class="mui__calendar">
+  <div class="mui__calendar-header">
+    <div class="mui__calendar-btn" (click)="prevYear()">
+      <mui-circle-chevron-left-icon></mui-circle-chevron-left-icon>
+    </div>
+    <div class="mui__calendar-btn" (click)="prevMonth()">
+      <mui-chevron-left-icon></mui-chevron-left-icon>
+    </div>
+
+    <span>{{ currentMonthName }} {{ currentMonth | date: 'yyyy' }}</span>
+
+    <div class="mui__calendar-btn" (click)="nextMonth()">
+      <mui-chevron-right-icon></mui-chevron-right-icon>
+    </div>
+    <div class="mui__calendar-btn" (click)="nextYear()">
+      <mui-circle-chevron-right-icon></mui-circle-chevron-right-icon>
+    </div>
+  </div>
+  <div class="mui__calendar-week-days">
+    <div class="mui__calendar-week-day" *ngFor="let day of weekDays">
+      {{ day }}
+    </div>
+  </div>
+  <div class="mui__calendar-days">
+    <div
+      *ngFor="let day of daysInMonth; let i = index"
+      class="mui__calendar-day"
+      [ngClass]="{
+        current: day | isCurrentDate,
+        selected: { day, selectedDate } | isSelectedDate
+      }"
+      [ngStyle]="{ 'grid-column-start': i === 0 ? this.firstDayIndex : 'auto' }"
+      (click)="selectDate(day)">
+      {{ day | date: 'd' }}
+    </div>
+  </div>
+</div>

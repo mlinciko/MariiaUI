@@ -1,0 +1,14 @@
+@import '../../styles/font-style.css';
+
+:host ::ng-deep {
+  /* Disabled */
+  .mui__radio-group.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  /* Readonly */
+  .mui__radio-group.readonly {
+    pointer-events: none;
+  }
+}

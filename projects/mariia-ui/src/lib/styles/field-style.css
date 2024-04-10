@@ -1,6 +1,11 @@
 /* Стили для контейнера ввода */
-.mui__container {
+.mui__container,
+.mui__input {
   position: relative;
+}
+
+.mui__container {
+  padding-bottom: 15px;
 }
 
 /* Стили для метки ввода */
@@ -16,36 +21,58 @@
   position: absolute;
   width: 18px;
   height: 18px;
-  top: 18px;
+  top: 4px;
   right: 5px;
   cursor: pointer;
-  border-radius:50%;
+  border-radius: 50%;
 }
 
 .mui__clear-btn:hover {
   background-color: #ececec;
 }
 
-
 ::placeholder {
-  color: #999; 
+  color: #999;
   font-size: 14px;
 }
 
 /* Internet Explorer 10-11 */
-.mui__input-placeholder, input:-ms-input-placeholder {
-  color: #999; 
+.mui__input-placeholder,
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: #999;
   font-size: 14px;
 }
 
 /* Firefox */
-.mui__input-placeholder, input::-moz-placeholder {
-  color: #999; 
+.mui__input-placeholder,
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: #999;
   font-size: 14px;
 }
 
 /* Safari, Chrome и Edge */
-.mui__input-placeholder, input::-webkit-input-placeholder {
-  color: #999; 
+.mui__input-placeholder,
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #999;
   font-size: 14px;
 }
+
+/* Disabled */
+.mui__input.disabled {
+  opacity:0.5;
+  pointer-events: none;
+}
+
+input:disabled, textarea:disabled  {
+  color: unset;
+  background-color: unset;
+}
+
+/* Readonly */
+.mui__input.readonly {
+  pointer-events: none;
+}
+

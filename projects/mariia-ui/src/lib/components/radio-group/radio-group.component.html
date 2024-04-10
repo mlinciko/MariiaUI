@@ -1,0 +1,10 @@
+<div *ngIf="visible" class="mui">
+  <div class="mui__container">
+    <div *ngIf="label" class="mui__label">{{ label }}</div>
+    <div
+      class="mui__radio-group"
+      [ngClass]="{ disabled: disabled, readonly: readOnly }">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

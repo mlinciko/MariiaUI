@@ -1,18 +1,29 @@
 /* Стили для элемента ввода в состоянии ошибки */
 .mui__error {
+  position: absolute;
+  top: 25px;
+  left:0;
   color: #d32f2f;
   font-size: 11px;
   padding-top: 2px;
 }
 
-.mui__container input[type='text'].ng-invalid {
+.mui__container .mui__input input.ng-invalid.ng-touched {
   border-color: #d32f2f!important;
 }
 
-.mui__container input[type='text'].ng-invalid:hover {
+.mui__container .mui__input input.ng-invalid.ng-touched:hover {
   border-color: #fb1515!important;
 }
 
-.mui__container:has(> input[type='text'].ng-invalid) .mui-input__label {
+.mui__container:has(> .mui__input input.ng-invalid.ng-touched) .mui__label {
   color: #d32f2f!important;
+}
+
+.mui__container:has(> .mui__input input.ng-invalid.ng-touched) .mui__input {
+  border-color: #d32f2f!important;
+}
+
+.mui__container:has(> .mui__input input.ng-invalid.ng-touched) .mui__input:hover {
+  border-color: #fb1515!important;
 }

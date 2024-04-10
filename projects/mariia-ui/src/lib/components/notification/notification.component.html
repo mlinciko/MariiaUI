@@ -1,0 +1,8 @@
+<div class="mui__notifications">
+  <div
+    *ngFor="let notification of notifications"
+    class="mui__notification"
+    [class]="getTypeClass(notification)">
+    {{ notification.message }}
+  </div>
+</div>

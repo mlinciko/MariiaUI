@@ -1,0 +1,15 @@
+<div
+  *ngIf="visible"
+  class="mui__spinner"
+  [ngStyle]="{ width: width, height: height }">
+  <ng-container [ngSwitch]="mode">
+    <ng-container *ngSwitchCase="'line'">
+      <mui-spinner-line-icon
+        [width]="width"
+        [height]="height"></mui-spinner-line-icon>
+    </ng-container>
+    <ng-container *ngSwitchCase="'bubbles'">
+      <mui-spinner-icon [width]="width" [height]="height"></mui-spinner-icon>
+    </ng-container>
+  </ng-container>
+</div>

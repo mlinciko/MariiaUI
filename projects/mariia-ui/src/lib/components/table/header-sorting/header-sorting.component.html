@@ -1,0 +1,19 @@
+<div class="mui__sorting">
+  <div class="mui__sorting-btn" (click)="changeSorting()">
+    <mui-arrow-up-down-icon
+      *ngIf="noDirection"
+      [color]="'#fff'"
+      [width]="'14px'"
+      [height]="'14px'"></mui-arrow-up-down-icon>
+    <mui-arrow-up-icon
+      *ngIf="isAsc"
+      [color]="'#fff'"
+      [width]="'14px'"
+      [height]="'14px'"></mui-arrow-up-icon>
+    <mui-arrow-down-icon
+      *ngIf="isDesc"
+      [color]="'#fff'"
+      [width]="'14px'"
+      [height]="'14px'"></mui-arrow-down-icon>
+  </div>
+</div>

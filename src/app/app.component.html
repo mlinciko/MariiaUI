@@ -1,17 +1,170 @@
 <div class="container" width="600px">
-  <mui-text-field
-    [formControl]="inputControl"
-    [label]="'Label'"
-    [showClearButton]="true"
-    [placeholder]="'Input placeholder'"
-    (onInput)="onInput($event)"></mui-text-field>
+  <div class="element" [muiTooltip]="'Это подсказка'">
+    Этот текст имеет всплывающую подсказку
+  </div>
+  <div class="element"><mui-spinner [visible]="true"></mui-spinner></div>
+  <div class="element">
+    <mui-accordion>
+      <mui-accordion-item [label]="'Accordion item 1'" [isExpanded]="true">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia,
+        eligendi rerum cupiditate ad ut recusandae obcaecati commodi non
+        consequuntur neque dolor. Quae perspiciatis odit harum sequi sint
+        exercitationem. Officia, sapiente.
+      </mui-accordion-item>
+      <mui-accordion-item [label]="'Accordion item 2'">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia,
+        eligendi rerum cupiditate ad ut recusandae obcaecati commodi non
+        consequuntur neque dolor. Quae perspiciatis odit harum sequi sint
+        exercitationem. Officia, sapiente.
+      </mui-accordion-item>
+      <mui-accordion-item [label]="'Accordion item 3'">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia,
+        eligendi rerum cupiditate ad ut recusandae obcaecati commodi non
+        consequuntur neque dolor. Quae perspiciatis odit harum sequi sint
+        exercitationem. Officia, sapiente.
+      </mui-accordion-item>
+    </mui-accordion>
+  </div>
+  <div class="element">
+    <mui-list [items]="listItems" [accessor]="listAccessor"></mui-list>
+    <mui-list
+      [items]="listItems"
+      [accessor]="listAccessor"
+      [isNumbered]="true"></mui-list>
+  </div>
+  <div class="element">
+    <mui-date-picker
+      [formControl]="datePickerControl"
+      (onChange)="onDateChanged()"></mui-date-picker>
+  </div>
+  <div class="element">
+    <mui-numberbox [formControl]="numberBoxControl"></mui-numberbox>
+  </div>
+  <div class="element">
+    <mui-radio-group [readOnly]="true">
+      <mui-radio-button [label]="'Radio option 1'"></mui-radio-button>
+      <mui-radio-button [label]="'Radio option 2'"></mui-radio-button>
+    </mui-radio-group>
+  </div>
+  <div class="element">
+    <mui-slide-toggle
+      [label]="'Slide toggle'"
+      [formControl]="slideToggleControl"></mui-slide-toggle>
+  </div>
 
-  <mui-dropdown
-    [formControl]="dropdownControl"
-    [options]="options"
-    [label]="'Label 2'"
-    [showClearButton]="true"
-    [placeholder]="dropdownPlaceholder"
-    (onSelectionChange)="onSelectionChange($event)">
-  </mui-dropdown>
+  <div class="element">
+    <mui-button [label]="'Кнопка'" [type]="ButtonTypeEnum.Default"></mui-button>
+    <mui-button [label]="'Кнопка'" [type]="ButtonTypeEnum.Warning"></mui-button>
+    <mui-button [label]="'Кнопка'" [type]="ButtonTypeEnum.Error"></mui-button>
+    <mui-button [label]="'Кнопка'" [type]="ButtonTypeEnum.Success"></mui-button>
+    <mui-button [label]="'Кнопка'" [type]="ButtonTypeEnum.Flat"></mui-button>
+
+    <mui-button
+      [label]="'Кнопка'"
+      [type]="ButtonTypeEnum.Default"
+      [disabled]="true"></mui-button>
+    <mui-button
+      [label]="'Кнопка'"
+      [type]="ButtonTypeEnum.Warning"
+      [disabled]="true"></mui-button>
+    <mui-button
+      [label]="'Кнопка'"
+      [type]="ButtonTypeEnum.Error"
+      [disabled]="true"></mui-button>
+    <mui-button
+      [label]="'Кнопка'"
+      [type]="ButtonTypeEnum.Success"
+      [disabled]="true"></mui-button>
+    <mui-button
+      [label]="'Кнопка'"
+      [type]="ButtonTypeEnum.Flat"
+      [disabled]="true"></mui-button>
+  </div>
+
+  <div class="element">
+    <button (click)="showNotification()">Show notification</button>
+  </div>
+
+  <div class="element">
+    <mui-textarea
+      [formControl]="texareaControl"
+      [label]="'Описание'"
+      [showClearButton]="true"
+      [placeholder]="'Введите текст'"
+      [maxLength]="1000"
+      [showCounter]="true"></mui-textarea>
+  </div>
+
+  <div class="element">
+    <mui-input
+      [formControl]="inputControl"
+      [label]="'Label'"
+      [showClearButton]="true"
+      [placeholder]="'Input placeholder'"
+      (onInput)="onInput($event)"></mui-input>
+  </div>
+
+  <div class="element">
+    <mui-dropdown
+      [formControl]="dropdownControl"
+      [options]="options"
+      [label]="'Label 2'"
+      [showClearButton]="true"
+      [placeholder]="dropdownPlaceholder"
+      (onSelectionChange)="onSelectionChange($event)">
+    </mui-dropdown>
+  </div>
+
+  <div class="element">
+    <mui-table
+      [data]="tableData"
+      [columns]="columns"
+      [height]="'200px'"
+      [addingEnabled]="true"
+      [editingEnabled]="true"
+      [deletingEnabled]="true"
+      [filteringEnabled]="true"
+      [sortingEnabled]="true"></mui-table>
+  </div>
+
+  <div class="element">
+    <mui-checkbox
+      [label]="'Label 3'"
+      [formControl]="checkboxControl"></mui-checkbox>
+  </div>
+
+  <div class="element">
+    <mui-tabs>
+      <mui-tab [label]="'Tab 1'" [active]="false">
+        <p>
+          1 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto
+          placeat fugit omnis maxime dolore obcaecati doloribus perspiciatis
+          dolorum repudiandae, facilis at blanditiis, enim numquam quos.
+          Deserunt, possimus. Quisquam, delectus et.
+        </p>
+      </mui-tab>
+      <mui-tab [label]="'Tab 2'" [active]="false">
+        <p>
+          2 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto
+          placeat fugit omnis maxime dolore obcaecati doloribus perspiciatis
+          dolorum repudiandae, facilis at blanditiis, enim numquam quos.
+          Deserunt, possimus. Quisquam, delectus et.
+        </p>
+      </mui-tab>
+      <mui-tab [label]="'Tab 3'" [active]="false">
+        <p>
+          3 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto
+          placeat fugit omnis maxime dolore obcaecati doloribus perspiciatis
+          dolorum repudiandae, facilis at blanditiis, enim numquam quos.
+          Deserunt, possimus. Quisquam, delectus et.
+        </p>
+      </mui-tab>
+    </mui-tabs>
+  </div>
+
+  <div class="element">
+    <mui-pie-chart
+      [label]="'Заголовок круговой диаграммы'"
+      [series]="pieChartSiries"></mui-pie-chart>
+  </div>
 </div>

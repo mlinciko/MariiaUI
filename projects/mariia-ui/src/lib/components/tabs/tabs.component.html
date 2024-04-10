@@ -1,0 +1,15 @@
+<div class="mui__tabs">
+  <div class="mui__tabs-header">
+    <div
+      *ngFor="let tab of tabs"
+      class="mui_tab"
+      [ngClass]="{ active: tab.active }">
+      <div class="mui_tab-label" (click)="selectTab(tab)">
+        {{ tab.label }}
+      </div>
+    </div>
+  </div>
+  <div class="mui__tabs-content">
+    <ng-content></ng-content>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div *ngIf="visible" class="mui">
+  <div class="mui__container" (click)="changeState()">
+    <div class="mui__input">
+      <input
+        style="display: none"
+        type="checkbox"
+        [formControl]="formControl" />
+      <div class="mui__checkbox" [ngClass]="{ checked: checked }">
+        <mui-check-icon *ngIf="checked" [color]="'#113d6a'"></mui-check-icon>
+      </div>
+
+      <div *ngIf="formControl | showError" class="mui__error">
+        {{ formControl | errorMessage: errorMessages }}
+      </div>
+    </div>
+
+    <div *ngIf="label" class="mui__label">{{ label }}</div>
+  </div>
+</div>

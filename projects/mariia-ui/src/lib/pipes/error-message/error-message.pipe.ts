@@ -27,7 +27,6 @@ export class ErrorMessagePipe implements PipeTransform {
 }
 
 function getDefaultErrorMessage(key: string, error: any): string {
-  console.log(key, error);
   switch (key) {
     case 'required':
       return REQUIRED_ERROR;

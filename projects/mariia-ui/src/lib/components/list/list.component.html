@@ -1,0 +1,10 @@
+<div class="mui__list">
+  <div *ngIf="label" class="mui__label">{{ label }}</div>
+  <ng-container *ngFor="let item of items; let i = index">
+    <div class="mui__list-item">
+      <div *ngIf="isNumbered" class="mui__list-num-marker">{{ i + 1 }}.</div>
+      <div *ngIf="!isNumbered" class="mui__list-marker"></div>
+      <div class="mui__list-value">{{ accessor(item) }}</div>
+    </div>
+  </ng-container>
+</div>

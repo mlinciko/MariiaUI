@@ -1,0 +1,24 @@
+<div *ngIf="visible" class="mui">
+  <div class="mui__container">
+    <div *ngIf="label" class="mui__label">{{ label }}</div>
+
+    <div
+      class="mui__input"
+      [ngClass]="{ disabled: disabled, readonly: readOnly }">
+      <input style="display: none" type="text" [formControl]="formControl" />
+
+      <div
+        class="mui__slide-toggle"
+        [ngClass]="{ checked: checked }"
+        (click)="changeState()">
+        <div class="mui__slide-toggle-line">
+          <div class="mui__slide-toggle-circle"></div>
+        </div>
+      </div>
+
+      <div *ngIf="formControl | showError" class="mui__error">
+        {{ formControl | errorMessage: errorMessages }}
+      </div>
+    </div>
+  </div>
+</div>

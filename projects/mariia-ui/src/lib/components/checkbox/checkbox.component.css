@@ -1,0 +1,27 @@
+@import '../../styles/font-style.css';
+@import '../../styles/error-style.css';
+
+.mui__container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 26px;
+  cursor: pointer;
+}
+
+.mui__checkbox {
+  width: 18px;
+  height: 18px;
+  border: 1px solid #ccc;
+  cursor:pointer;
+  border-radius: 6px;
+}
+
+.mui__checkbox:hover {
+  border-color: #113d6a;
+}
+
+.mui__checkbox.checked {
+  border-color: #113d6a;
+}

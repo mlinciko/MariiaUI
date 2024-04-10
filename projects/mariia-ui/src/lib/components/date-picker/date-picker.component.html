@@ -1,0 +1,44 @@
+<div *ngIf="visible" class="mui">
+  <div class="mui__container">
+    <div *ngIf="label" class="mui__label">{{ label }}</div>
+    <div
+      class="mui__input"
+      [ngClass]="{ disabled: disabled, readonly: readOnly }"
+      (click)="onClick.emit($event)">
+      <input
+        style="display: none"
+        #input
+        type="text"
+        [formControl]="formControl" />
+      <div *ngIf="hasValue" class="mui__input-value">
+        {{ formControl.value | date: dateMask }}
+      </div>
+      <div *ngIf="!hasValue" class="mui__input-placeholder">
+        {{ placeholder }}
+      </div>
+
+      <div
+        *ngIf="showClearButtonByState"
+        class="mui__calendar-btn"
+        (click)="changeCalendarVisibility(true, $event)">
+        <mui-calendar-icon></mui-calendar-icon>
+      </div>
+
+      <div
+        *ngIf="showClearButtonByState"
+        class="mui__clear-btn"
+        (click)="clearInput()">
+        <mui-xmark-icon></mui-xmark-icon>
+      </div>
+
+      <div *ngIf="formControl | showError" class="mui__error">
+        {{ formControl | errorMessage: errorMessages }}
+      </div>
+
+      <mui-calendar
+        *ngIf="isCalendarOpen"
+        [selectedDate]="formControl.value"
+        (dateSelected)="dateSelected($event)"></mui-calendar>
+    </div>
+  </div>
+</div>

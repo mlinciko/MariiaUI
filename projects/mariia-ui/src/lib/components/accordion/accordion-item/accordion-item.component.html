@@ -1,0 +1,10 @@
+<div class="mui__accordion-item" [ngClass]="{ expanded: isExpanded }">
+  <div class="mui__accordion-item-header" (click)="onChange.emit()">
+    <div class="mui__accordion-item-label">{{ label }}</div>
+    <div class="mui__accordion-item-btn"></div>
+  </div>
+
+  <div class="mui__accordion-item-content">
+    <ng-content></ng-content>
+  </div>
+</div>
