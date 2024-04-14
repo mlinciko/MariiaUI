@@ -16,28 +16,31 @@ import {
   NG_VALUE_ACCESSOR,
 } from '@angular/forms';
 import { Subject, debounceTime, takeUntil, tap } from 'rxjs';
-import { TDropdownOption } from './option';
+import { TDropdownOption } from '../dropdown/option';
 
 const DEFAULT_VALUE = null;
 
 @Component({
-  selector: 'mui-dropdown',
-  templateUrl: './dropdown.component.html',
-  styleUrls: ['./dropdown.component.css'],
+  selector: 'mui-lookup',
+  templateUrl: './lookup.component.html',
+  styleUrls: ['./lookup.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => DropdownComponent),
+      useExisting: forwardRef(() => LookupComponent),
       multi: true,
     },
   ],
 })
-export class DropdownComponent
+export class LookupComponent
   implements ControlValueAccessor, OnInit, OnDestroy
 {
   /*Input params */
-  @Input() options: TDropdownOption[] = [];
+  @Input() set options(value: TDropdownOption[]) {
+    this.rawOptions = structuredClone(value);
+    this.refreshOptions();
+  }
   @Input() label = '';
   @Input() disabled = false;
   @Input() placeholder = '';
@@ -49,6 +52,7 @@ export class DropdownComponent
   /*Output events */
   @Output() onSelectionChange: EventEmitter<TDropdownOption> =
     new EventEmitter();
+  @Output() onSearchChange: EventEmitter<string> = new EventEmitter();
   @Output() onOptionsVisibilityChanged: EventEmitter<boolean> =
     new EventEmitter();
 
@@ -57,6 +61,11 @@ export class DropdownComponent
     null
   );
   destroy$: Subject<boolean> = new Subject();
+
+  _options: TDropdownOption[] = [];
+  rawOptions: TDropdownOption[] = [];
+  searchControl: FormControl<string | null> = new FormControl(null);
+  searctControlPlaceholder = 'Поиск...';
   isOpened = false;
 
   ngOnInit(): void {
@@ -78,8 +87,9 @@ export class DropdownComponent
     this.onOptionsVisibilityChanged.emit(isVisible);
   }
 
-  @HostListener('document:click')
-  closeOptions(): void {
+  @HostListener('document:click', ['$event.target'])
+  closeOptions(target: HTMLElement): void {
+    if (target.closest('.mui__lookup-search')) return;
     this.changeOptionsVisibility(false);
   }
 
@@ -91,6 +101,20 @@ export class DropdownComponent
     e.stopPropagation();
     this.formControl.setValue(DEFAULT_VALUE);
     this.formControl.markAsTouched();
+  }
+
+  onSearch(value: string): void {
+    if (value) {
+      this._options = this.rawOptions.filter(option =>
+        option.value.toLocaleLowerCase().includes(value.toLocaleLowerCase())
+      );
+    } else this.refreshOptions();
+
+    this.onSearchChange.emit(value);
+  }
+
+  refreshOptions(): void {
+    this._options = this.rawOptions;
   }
 
   get hasValue(): boolean {

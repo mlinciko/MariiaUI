@@ -25,6 +25,13 @@ export * from './lib/components/accordion/accordion.component';
 export * from './lib/components/accordion/accordion-item/accordion-item.component';
 export * from './lib/components/spinner/spinner.component';
 export * from './lib/directives/tooltip/tooltip.directive';
+export * from './lib/components/lookup/lookup.component';
+export * from './lib/components/file-picker/file-picker.component';
+export * from './lib/components/scroll-layout/scroll-layout.component';
+export * from './lib/components/slider/slider.component';
+export * from './lib/components/slider/slider-item/slider-item.component';
+export * from './lib/components/bar-chart/bar-chart.component';
+export * from './lib/components/line-chart/line-chart.component';
 
 /*Icons */
 export * from './lib/icons/xmark-icon/xmark-icon.component';

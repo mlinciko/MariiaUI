@@ -60,3 +60,9 @@
 .mui__up-arrow-btn:hover, .mui__down-arrow-btn:hover {
   background-color: #ececec;
 }
+
+:host ::ng-deep {
+  .mui__lookup-search .mui__container {
+    padding:0;
+  }
+}

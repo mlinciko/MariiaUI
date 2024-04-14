@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { TBarChartSeries } from 'projects/mariia-ui/src/lib/components/bar-chart/bar-chart';
 import { ButtonTypeEnum } from 'projects/mariia-ui/src/lib/components/button/button';
 import { TDropdownOption } from 'projects/mariia-ui/src/lib/components/dropdown/option';
+import { TLineChartSeries } from 'projects/mariia-ui/src/lib/components/line-chart/line-chart';
 import { TPieChartSeries } from 'projects/mariia-ui/src/lib/components/pie-chart/pie-chart';
 import {
   ColumnTypes,
@@ -50,6 +52,30 @@ export class AppComponent {
 
   /*Table */
   tableData = [
+    { id: 1, name: 'Mariia', age: 22, sex: { key: 1, value: 'F' } },
+    { id: 2, name: 'Kristina', age: 22, sex: { key: 1, value: 'F' } },
+    { id: 3, name: 'Karina', age: 21, sex: { key: 1, value: 'F' } },
+    { id: 4, name: 'Ulyana', age: 21, sex: { key: 1, value: 'F' } },
+    { id: 1, name: 'Mariia', age: 22, sex: { key: 1, value: 'F' } },
+    { id: 2, name: 'Kristina', age: 22, sex: { key: 1, value: 'F' } },
+    { id: 3, name: 'Karina', age: 21, sex: { key: 1, value: 'F' } },
+    { id: 4, name: 'Ulyana', age: 21, sex: { key: 1, value: 'F' } },
+    { id: 1, name: 'Mariia', age: 22, sex: { key: 1, value: 'F' } },
+    { id: 2, name: 'Kristina', age: 22, sex: { key: 1, value: 'F' } },
+    { id: 3, name: 'Karina', age: 21, sex: { key: 1, value: 'F' } },
+    { id: 4, name: 'Ulyana', age: 21, sex: { key: 1, value: 'F' } },
+    { id: 1, name: 'Mariia', age: 22, sex: { key: 1, value: 'F' } },
+    { id: 2, name: 'Kristina', age: 22, sex: { key: 1, value: 'F' } },
+    { id: 3, name: 'Karina', age: 21, sex: { key: 1, value: 'F' } },
+    { id: 4, name: 'Ulyana', age: 21, sex: { key: 1, value: 'F' } },
+    { id: 1, name: 'Mariia', age: 22, sex: { key: 1, value: 'F' } },
+    { id: 2, name: 'Kristina', age: 22, sex: { key: 1, value: 'F' } },
+    { id: 3, name: 'Karina', age: 21, sex: { key: 1, value: 'F' } },
+    { id: 4, name: 'Ulyana', age: 21, sex: { key: 1, value: 'F' } },
+    { id: 1, name: 'Mariia', age: 22, sex: { key: 1, value: 'F' } },
+    { id: 2, name: 'Kristina', age: 22, sex: { key: 1, value: 'F' } },
+    { id: 3, name: 'Karina', age: 21, sex: { key: 1, value: 'F' } },
+    { id: 4, name: 'Ulyana', age: 21, sex: { key: 1, value: 'F' } },
     { id: 1, name: 'Mariia', age: 22, sex: { key: 1, value: 'F' } },
     { id: 2, name: 'Kristina', age: 22, sex: { key: 1, value: 'F' } },
     { id: 3, name: 'Karina', age: 21, sex: { key: 1, value: 'F' } },
@@ -162,4 +188,63 @@ export class AppComponent {
     },
   ];
   listAccessor = (item: any) => item.name;
+
+  /*Lookup */
+  lookupControl = new FormControl(options[0], [Validators.required]);
+  onLookupSelectionChange(e: any): void {
+    console.log(e);
+  }
+
+  /*FilePicker */
+  filePlaceholder = 'Выберите файл';
+  fileControl = new FormControl(null, [Validators.required]);
+
+  /*BarChart */
+  barChartSiries: TBarChartSeries[] = [
+    {
+      value: 10,
+      label: 'Студент получил оценку 1',
+    },
+    {
+      value: 20,
+      label: 'Студент получил оценку 2',
+    },
+    {
+      value: 30,
+      label: 'Студент получил оценку 3',
+    },
+    {
+      value: 40,
+      label: 'Студент получил оценку 4',
+    },
+    {
+      value: 50,
+      label: 'Студент получил оценку 5',
+    },
+  ];
+
+  /*LineChart */
+  lineChartSiries: TLineChartSeries[][] = [
+    [
+      { value: 8, label: 'Январь' },
+      { value: 17, label: 'Февраль' },
+      { value: 32, label: 'Март' },
+      { value: 9, label: 'Апрель' },
+      { value: 56, label: 'Июнь' },
+    ],
+    [
+      { value: 15, label: 'Январь' },
+      { value: 26, label: 'Февраль' },
+      { value: 90, label: 'Март' },
+      { value: 13, label: 'Апрель' },
+      { value: 26, label: 'Июнь' },
+    ],
+    [
+      { value: 29, label: 'Январь' },
+      { value: 80, label: 'Февраль' },
+      { value: 17, label: 'Март' },
+      { value: 45, label: 'Апрель' },
+      { value: 78, label: 'Июнь' },
+    ],
+  ];
 }

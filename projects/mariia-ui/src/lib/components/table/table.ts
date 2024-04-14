@@ -33,3 +33,10 @@ export const INITIAL_SORTING: TSorting = {
   columnKey: '',
   direction: '',
 };
+
+export const DEFAULT_PAGES_AMOUNT: number[] = [10, 25, 50, 100];
+
+export type TPageParams = {
+  skip: number;
+  take: number;
+};

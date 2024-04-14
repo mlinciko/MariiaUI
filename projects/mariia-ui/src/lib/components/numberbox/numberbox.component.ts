@@ -14,7 +14,6 @@ import {
   ControlValueAccessor,
   FormControl,
 } from '@angular/forms';
-import { InputComponent } from '../input/input.component';
 import { Subject, debounceTime, tap, takeUntil } from 'rxjs';
 
 const DEFAULT_VALUE = 0;
@@ -27,7 +26,7 @@ const DEFAULT_VALUE = 0;
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => InputComponent),
+      useExisting: forwardRef(() => NumberboxComponent),
       multi: true,
     },
   ],

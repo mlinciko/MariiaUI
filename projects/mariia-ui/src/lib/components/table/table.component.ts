@@ -9,7 +9,15 @@ import {
   WritableSignal,
   signal,
 } from '@angular/core';
-import { ColumnTypes, TCell, TColumn, TRow, TSorting } from './table';
+import {
+  ColumnTypes,
+  DEFAULT_PAGES_AMOUNT,
+  TCell,
+  TColumn,
+  TPageParams,
+  TRow,
+  TSorting,
+} from './table';
 import { TableUtils } from './table-utils';
 import { FormControl } from '@angular/forms';
 import { TableService } from '../../services/table/table.service';
@@ -30,6 +38,8 @@ export class TableComponent implements OnInit {
   @Input() deletingEnabled = false;
   @Input() sortingEnabled = false;
   @Input() filteringEnabled = false;
+  @Input() paginationEnabled = false;
+  @Input() pageSizes: number[] = DEFAULT_PAGES_AMOUNT;
   @Input() height = '300px';
   @Input() width = '100%';
 
@@ -52,7 +62,9 @@ export class TableComponent implements OnInit {
 
   ngOnInit(): void {
     this._rawData.set(this.data);
-    this.refreshTable();
+    if (this.paginationEnabled) {
+      this.setPagination(0, this.pageSizes[0]);
+    } else this.refreshTable();
     this.setColumns();
   }
 
@@ -163,6 +175,15 @@ export class TableComponent implements OnInit {
     });
   }
 
+  paginationChanged(pageParams: TPageParams): void {
+    this.setPagination(pageParams.skip, pageParams.take);
+  }
+
+  setPagination(skip: number, take: number): void {
+    const cutArray = this._rawData().slice(skip, skip + take);
+    this._tableData.set(structuredClone(cutArray));
+  }
+
   isRowEditing(row: TRow): boolean {
     return row.id === this._editingRowId;
   }
@@ -185,5 +206,9 @@ export class TableComponent implements OnInit {
 
   get isAnyActionEnabled(): boolean {
     return this.addingEnabled || this.editingEnabled || this.editingEnabled;
+  }
+
+  get totalCount(): number {
+    return this.data.length;
   }
 }

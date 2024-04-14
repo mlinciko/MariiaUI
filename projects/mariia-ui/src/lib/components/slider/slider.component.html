@@ -1,0 +1,15 @@
+<div class="mui__slider" [ngStyle]="{ width: width }">
+  <div
+    class="mui__slider-content"
+    [ngStyle]="{ gap: gap + 'px' }"
+    [style.transform]="translateX">
+    <ng-content></ng-content>
+  </div>
+  <div class="mui__slider-dots" [ngStyle]="{ width: dotsWidth }">
+    <div
+      *ngFor="let dot of sliderNavigationDots"
+      class="mui__slider-dot"
+      [ngClass]="{ active: dot.isActive }"
+      (click)="goToSlide(dot.index)"></div>
+  </div>
+</div>

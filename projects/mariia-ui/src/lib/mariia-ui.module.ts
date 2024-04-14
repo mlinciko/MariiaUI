@@ -53,6 +53,14 @@ import { SpinnerIconComponent } from './icons/spinner-icon/spinner-icon.componen
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { SpinnerLineIconComponent } from './icons/spinner-line-icon/spinner-line-icon.component';
 import { TooltipDirective } from './directives/tooltip/tooltip.directive';
+import { LookupComponent } from './components/lookup/lookup.component';
+import { FilePickerComponent } from './components/file-picker/file-picker.component';
+import { ScrollLayoutComponent } from './components/scroll-layout/scroll-layout.component';
+import { SliderComponent } from './components/slider/slider.component';
+import { SliderItemComponent } from './components/slider/slider-item/slider-item.component';
+import { BarChartComponent } from './components/bar-chart/bar-chart.component';
+import { LineChartComponent } from './components/line-chart/line-chart.component';
+import { PaginationComponent } from './components/table/pagination/pagination.component';
 
 function initializeLib(initializeService: InitializeService) {
   return () => initializeService.renderInitialComponents();
@@ -111,6 +119,14 @@ function initializeLib(initializeService: InitializeService) {
     SpinnerComponent,
     SpinnerLineIconComponent,
     TooltipDirective,
+    LookupComponent,
+    FilePickerComponent,
+    ScrollLayoutComponent,
+    SliderComponent,
+    SliderItemComponent,
+    BarChartComponent,
+    LineChartComponent,
+    PaginationComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule],
   exports: [
@@ -152,6 +168,13 @@ function initializeLib(initializeService: InitializeService) {
     SpinnerIconComponent,
     SpinnerComponent,
     TooltipDirective,
+    LookupComponent,
+    FilePickerComponent,
+    ScrollLayoutComponent,
+    SliderComponent,
+    SliderItemComponent,
+    BarChartComponent,
+    LineChartComponent,
   ],
   providers: [
     {

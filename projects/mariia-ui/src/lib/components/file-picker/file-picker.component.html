@@ -1,0 +1,42 @@
+<div *ngIf="visible" class="mui">
+  <div class="mui__container">
+    <div *ngIf="label" class="mui__label">{{ label }}</div>
+
+    <div
+      class="mui__input"
+      [ngClass]="{ disabled: disabled, readonly: readOnly }">
+      <input
+        #fileInput
+        style="display: none"
+        type="file"
+        [formControl]="fileControl"
+        [accept]="accept"
+        (click)="fileInput.value = ''"
+        (change)="onFileChanged($event)" />
+      <div *ngIf="hasValue" class="mui__input-value">
+        <div class="mui__input-file">
+          {{ fileName }}
+
+          <div
+            *ngIf="fileDeletingEnabled"
+            class="mui__input-file-clear-btn"
+            (click)="deleteFile()">
+            <mui-xmark-icon></mui-xmark-icon>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!hasValue" class="mui__input-placeholder">
+        {{ placeholder }}
+      </div>
+
+      <mui-button
+        [label]="buttonLabel || DEFAULT_BUTTON_LABEL"
+        [type]="BUTTON_TYPE"
+        (onClick)="fileInput.click()"></mui-button>
+
+      <div *ngIf="formControl | showError" class="mui__error">
+        {{ formControl | errorMessage: errorMessages }}
+      </div>
+    </div>
+  </div>
+</div>

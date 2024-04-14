@@ -1,0 +1,27 @@
+/* Стили для самого ввода */
+.mui__container .mui__input {
+  width: 100%;
+  height: 26px;
+  padding: 4px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+/* Стили для элемента ввода при фокусировке */
+.mui__container .mui__input:focus {
+  outline: none;
+  border-color: #113d6a;
+}
+
+/* Стили для элемента ввода при наведении */
+.mui__container .mui__input:hover {
+  border-color: #113d6a;
+}
+
+/* Стили для элемента ввода при активации */
+.mui__container .mui__input:active {
+  border-color: #113d6a;
+}

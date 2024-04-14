@@ -1,0 +1,42 @@
+<div class="mui__pagination">
+  <div class="mui__pagination-page-sizes">
+    <div
+      *ngFor="let size of pageSizes"
+      class="mui__pagination-page-size"
+      [ngClass]="{ active: size === currentPageSize }"
+      (click)="setPageAmount(size)">
+      {{ size }}
+    </div>
+  </div>
+  <div class="mui__pagination-pages">
+    <div
+      class="mui__pagination-pages-btn"
+      [ngClass]="{ disabled: isPrevBtnDisabled }"
+      (click)="goToPage(1)">
+      <mui-circle-chevron-left-icon></mui-circle-chevron-left-icon>
+    </div>
+    <div
+      class="mui__pagination-pages-btn"
+      [ngClass]="{ disabled: isPrevBtnDisabled }"
+      (click)="goToPage(currentPage - 1)">
+      <mui-chevron-left-icon></mui-chevron-left-icon>
+    </div>
+
+    <div class="mui__pagination-page">
+      {{ currentPage }}
+    </div>
+
+    <div
+      class="mui__pagination-pages-btn"
+      [ngClass]="{ disabled: isNextBtnDisabled }"
+      (click)="goToPage(currentPage + 1)">
+      <mui-chevron-right-icon></mui-chevron-right-icon>
+    </div>
+    <div
+      class="mui__pagination-pages-btn"
+      [ngClass]="{ disabled: isNextBtnDisabled }"
+      (click)="goToPage(pages.length)">
+      <mui-circle-chevron-right-icon></mui-circle-chevron-right-icon>
+    </div>
+  </div>
+</div>

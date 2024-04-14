@@ -12,6 +12,7 @@ import {
 export class TooltipDirective {
   @Input('muiTooltip') tooltipText = '';
   tooltipElement!: HTMLElement;
+  rootElement!: HTMLElement;
 
   constructor(
     private elementRef: ElementRef,
@@ -30,38 +31,37 @@ export class TooltipDirective {
   }
 
   private showTooltip(): void {
-    if (!this.tooltipElement) {
-      this.createTooltip();
-    }
-    this.tooltipElement.style.visibility = 'visible';
+    this.createTooltip();
   }
 
   private hideTooltip(): void {
     if (this.tooltipElement) {
-      this.tooltipElement.style.visibility = 'hidden';
+      this.renderer.removeChild(this.rootElement, this.tooltipElement);
     }
   }
 
   private createTooltip(): void {
+    this.rootElement = this.renderer.selectRootElement('.mui-root');
+
     this.tooltipElement = this.renderer.createElement('div');
     const text = this.renderer.createText(this.tooltipText);
     this.renderer.appendChild(this.tooltipElement, text);
     this.renderer.addClass(this.tooltipElement, 'tooltip');
 
     const hostElement = this.elementRef.nativeElement;
-    const hostPosition = hostElement.getBoundingClientRect();
 
-    this.addStyle(hostPosition);
+    this.addStyle(hostElement);
 
-    this.renderer.appendChild(document.body, this.tooltipElement);
+    this.renderer.appendChild(this.rootElement, this.tooltipElement);
   }
 
-  addStyle(hostPosition: any): void {
+  addStyle(hostElement: any): void {
+    const hostPosition = hostElement.getBoundingClientRect();
     this.renderer.setStyle(this.tooltipElement, 'position', 'absolute');
     this.renderer.setStyle(
       this.tooltipElement,
       'top',
-      `${hostPosition.top + window.scrollY}px`
+      `${hostPosition.top + window.scrollY - 30}px`
     );
     this.renderer.setStyle(
       this.tooltipElement,

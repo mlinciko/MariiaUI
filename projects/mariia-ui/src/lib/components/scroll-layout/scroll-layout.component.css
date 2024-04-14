@@ -1,0 +1,14 @@
+.mui__scroll {
+  scrollbar-gutter: stable;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 3px solid #fff;
+  border-radius: 6px;
+  background-color: rgba(102, 102, 102, 0.5);
+}

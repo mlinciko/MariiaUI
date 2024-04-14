@@ -63,7 +63,7 @@ export class InputComponent implements ControlValueAccessor, OnInit, OnDestroy {
     this.formControl.valueChanges
       .pipe(
         debounceTime(200),
-        tap(value => this.onControlChange(value)),
+        tap(value => this.onInput.emit(value)),
         takeUntil(this.destroy$)
       )
       .subscribe();
@@ -89,7 +89,7 @@ export class InputComponent implements ControlValueAccessor, OnInit, OnDestroy {
 
   /*ControlValueAccessor methods */
   onControlChange: (value: string) => void = (value: string) => {
-    this.onInput.emit(value);
+    //this.onInput.emit(value);
   };
 
   onControlTouch: () => void = () => {

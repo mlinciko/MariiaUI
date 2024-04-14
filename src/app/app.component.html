@@ -1,4 +1,66 @@
 <div class="container" width="600px">
+  <div class="element">
+    <mui-table
+      [data]="tableData"
+      [columns]="columns"
+      [height]="'600px'"
+      [addingEnabled]="true"
+      [editingEnabled]="true"
+      [deletingEnabled]="true"
+      [filteringEnabled]="true"
+      [sortingEnabled]="true"></mui-table>
+  </div>
+  <div class="element">
+    <mui-line-chart
+      [label]="'Заголовок линейной диаграммы'"
+      [series]="lineChartSiries"></mui-line-chart>
+  </div>
+  <div class="element">
+    <mui-bar-chart
+      [label]="'Заголовок столбчатой диаграммы'"
+      [series]="barChartSiries"></mui-bar-chart>
+  </div>
+  <div class="element">
+    <mui-slider [width]="'400px'">
+      <mui-slider-item>
+        <div class="slider-element-1"></div>
+      </mui-slider-item>
+      <mui-slider-item>
+        <div class="slider-element-2"></div>
+      </mui-slider-item>
+      <mui-slider-item>
+        <div class="slider-element-3"></div>
+      </mui-slider-item>
+    </mui-slider>
+  </div>
+  <div class="element">
+    <mui-scroll-layout [width]="'300px'" [height]="'100px'">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit dolorum,
+      aliquam eveniet dolore accusamus similique sed maiores aperiam nemo
+      voluptates modi quaerat placeat culpa possimus. Placeat exercitationem
+      quis provident beatae. Lorem ipsum dolor, sit amet consectetur adipisicing
+      elit. Sit dolorum, aliquam eveniet dolore accusamus similique sed maiores
+      aperiam nemo voluptates modi quaerat placeat culpa possimus. Placeat
+      exercitationem quis provident beatae. Lorem ipsum dolor, sit amet
+      consectetur adipisicing elit. Sit dolorum, aliquam eveniet dolore
+      accusamus similique sed maiores aperiam nemo voluptates modi quaerat
+      placeat culpa possimus. Placeat exercitationem quis provident beatae.
+    </mui-scroll-layout>
+  </div>
+  <div class="element">
+    <mui-file-picker
+      [formControl]="fileControl"
+      [placeholder]="filePlaceholder"></mui-file-picker>
+  </div>
+  <div class="element">
+    <mui-lookup
+      [formControl]="lookupControl"
+      [options]="options"
+      [label]="'Lookup'"
+      [showClearButton]="true"
+      [placeholder]="dropdownPlaceholder"
+      (onSelectionChange)="onLookupSelectionChange($event)"></mui-lookup>
+  </div>
   <div class="element" [muiTooltip]="'Это подсказка'">
     Этот текст имеет всплывающую подсказку
   </div>
@@ -113,18 +175,6 @@
       [placeholder]="dropdownPlaceholder"
       (onSelectionChange)="onSelectionChange($event)">
     </mui-dropdown>
-  </div>
-
-  <div class="element">
-    <mui-table
-      [data]="tableData"
-      [columns]="columns"
-      [height]="'200px'"
-      [addingEnabled]="true"
-      [editingEnabled]="true"
-      [deletingEnabled]="true"
-      [filteringEnabled]="true"
-      [sortingEnabled]="true"></mui-table>
   </div>
 
   <div class="element">
