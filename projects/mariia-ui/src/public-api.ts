@@ -32,6 +32,7 @@ export * from './lib/components/slider/slider.component';
 export * from './lib/components/slider/slider-item/slider-item.component';
 export * from './lib/components/bar-chart/bar-chart.component';
 export * from './lib/components/line-chart/line-chart.component';
+export * from './lib/components/popup/popup.component';
 
 /*Icons */
 export * from './lib/icons/xmark-icon/xmark-icon.component';

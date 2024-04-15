@@ -1,5 +1,14 @@
 <div class="container" width="600px">
   <div class="element">
+    <button (click)="changePopupVisibility()">Show popup</button>
+    <mui-popup
+      [(visible)]="isPopupVisible"
+      [title]="'Заголовок модального окна'"
+      [buttons]="popupButtons">
+      Вы уверены, что хотите закрыть модальное окно?
+    </mui-popup>
+  </div>
+  <div class="element">
     <mui-table
       [data]="tableData"
       [columns]="columns"

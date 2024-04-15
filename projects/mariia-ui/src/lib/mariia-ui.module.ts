@@ -61,6 +61,7 @@ import { SliderItemComponent } from './components/slider/slider-item/slider-item
 import { BarChartComponent } from './components/bar-chart/bar-chart.component';
 import { LineChartComponent } from './components/line-chart/line-chart.component';
 import { PaginationComponent } from './components/table/pagination/pagination.component';
+import { PopupComponent } from './components/popup/popup.component';
 
 function initializeLib(initializeService: InitializeService) {
   return () => initializeService.renderInitialComponents();
@@ -127,6 +128,7 @@ function initializeLib(initializeService: InitializeService) {
     BarChartComponent,
     LineChartComponent,
     PaginationComponent,
+    PopupComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule],
   exports: [
@@ -175,6 +177,7 @@ function initializeLib(initializeService: InitializeService) {
     SliderItemComponent,
     BarChartComponent,
     LineChartComponent,
+    PopupComponent,
   ],
   providers: [
     {

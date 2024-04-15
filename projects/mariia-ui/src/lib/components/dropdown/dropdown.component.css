@@ -1,7 +1,7 @@
 @import '../../styles/font-style.css';
 @import '../../styles/error-style.css';
 @import '../../styles/field-style.css';
-@import '../../styles//custom-field-style.css';
+@import '../../styles/custom-field-style.css';
 
 /* Стили для options */
 .mui__options {

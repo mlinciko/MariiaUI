@@ -1,0 +1,30 @@
+<ng-template #popup>
+  <div class="mui__popup-overlay">
+    <div
+      class="mui__popup"
+      [ngStyle]="{ width: width, height: height, top: top, left: left }">
+      <div class="mui__popup-header">
+        <div class="mui__popup-title">{{ title }}</div>
+        <div
+          *ngIf="showCloseBtn"
+          class="mui__popup-close-btn"
+          (click)="closeDialog()">
+          <mui-xmark-icon [color]="'#fff'"></mui-xmark-icon>
+        </div>
+      </div>
+
+      <div class="mui__popup-content">
+        <ng-content></ng-content>
+      </div>
+      <div class="mui__popup-btns">
+        <div *ngFor="let btn of buttons" class="mui__popup-btn">
+          <mui-button
+            [label]="btn.label"
+            [type]="btn.type"
+            [disabled]="!!btn.disabled"
+            (onClick)="btn.callback($event)"></mui-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

@@ -5,6 +5,7 @@ import { ButtonTypeEnum } from 'projects/mariia-ui/src/lib/components/button/but
 import { TDropdownOption } from 'projects/mariia-ui/src/lib/components/dropdown/option';
 import { TLineChartSeries } from 'projects/mariia-ui/src/lib/components/line-chart/line-chart';
 import { TPieChartSeries } from 'projects/mariia-ui/src/lib/components/pie-chart/pie-chart';
+import { TPopupButton } from 'projects/mariia-ui/src/lib/components/popup/popup';
 import {
   ColumnTypes,
   TColumn,
@@ -247,4 +248,23 @@ export class AppComponent {
       { value: 78, label: 'Июнь' },
     ],
   ];
+
+  /*Popup */
+  isPopupVisible = false;
+  popupButtons: TPopupButton[] = [
+    {
+      label: 'Сохранить',
+      type: ButtonTypeEnum.Flat,
+      callback: (e: any) => console.log('Сохранить', e),
+    },
+    {
+      label: 'Отменить',
+      type: ButtonTypeEnum.Default,
+      callback: (e: any) => console.log('Отменить', e),
+    },
+  ];
+
+  changePopupVisibility(): void {
+    this.isPopupVisible = !this.isPopupVisible;
+  }
 }
