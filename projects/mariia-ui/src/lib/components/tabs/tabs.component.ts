@@ -25,19 +25,19 @@ export class TabsComponent implements AfterContentInit {
 
   selectTab(activeTab: TabComponent): void {
     this.tabs.forEach(item => {
-      item.active = false;
+      item.isActive = false;
     });
-    activeTab.active = true;
+    activeTab.isActive = true;
 
     this.onSelectionChange.emit({
       id: activeTab.id,
       label: activeTab.label,
-      active: activeTab.active,
+      isActive: activeTab.isActive,
     });
   }
 
   ngAfterContentInit(): void {
-    const activeTab = this.tabs.find(item => item.active) || this.tabs.first;
+    const activeTab = this.tabs.find(item => item.isActive) || this.tabs.first;
     this.selectTab(activeTab);
   }
 }

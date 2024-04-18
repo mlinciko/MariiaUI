@@ -1,4 +1,11 @@
-<div class="container" width="600px">
+<div class="wrapper">
+  <app-header></app-header>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<!-- <div class="container" width="600px">
   <div class="element">
     <button (click)="changePopupVisibility()">Show popup</button>
     <mui-popup
@@ -194,7 +201,7 @@
 
   <div class="element">
     <mui-tabs>
-      <mui-tab [label]="'Tab 1'" [active]="false">
+      <mui-tab [label]="'Tab 1'" [isActive]="false">
         <p>
           1 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto
           placeat fugit omnis maxime dolore obcaecati doloribus perspiciatis
@@ -202,7 +209,7 @@
           Deserunt, possimus. Quisquam, delectus et.
         </p>
       </mui-tab>
-      <mui-tab [label]="'Tab 2'" [active]="false">
+      <mui-tab [label]="'Tab 2'" [isActive]="false">
         <p>
           2 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto
           placeat fugit omnis maxime dolore obcaecati doloribus perspiciatis
@@ -210,7 +217,7 @@
           Deserunt, possimus. Quisquam, delectus et.
         </p>
       </mui-tab>
-      <mui-tab [label]="'Tab 3'" [active]="false">
+      <mui-tab [label]="'Tab 3'" [isActive]="false">
         <p>
           3 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto
           placeat fugit omnis maxime dolore obcaecati doloribus perspiciatis
@@ -226,4 +233,4 @@
       [label]="'Заголовок круговой диаграммы'"
       [series]="pieChartSiries"></mui-pie-chart>
   </div>
-</div>
+</div> -->

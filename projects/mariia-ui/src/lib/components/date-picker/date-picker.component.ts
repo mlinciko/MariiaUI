@@ -44,17 +44,9 @@ export class DatePickerComponent
   @Input() showClearButton = true;
   @Input() visible = true;
   @Input() dateMask = 'dd.MM.YYYY';
-  @Input() errorMessages: Record<string, string> = {};
 
   /*Output events */
   @Output() onChange: EventEmitter<Date> = new EventEmitter();
-  @Output() onFocus: EventEmitter<Event> = new EventEmitter();
-  @Output() onBlur: EventEmitter<Event> = new EventEmitter();
-  @Output() onKeydown: EventEmitter<Event> = new EventEmitter();
-  @Output() onKeyup: EventEmitter<Event> = new EventEmitter();
-  @Output() onKeypress: EventEmitter<Event> = new EventEmitter();
-  @Output() onMousedown: EventEmitter<Event> = new EventEmitter();
-  @Output() onMouseup: EventEmitter<Event> = new EventEmitter();
   @Output() onClick: EventEmitter<Event> = new EventEmitter();
   @Output() onCalendarVisibilityChanged: EventEmitter<boolean> =
     new EventEmitter();

@@ -6,7 +6,7 @@
       [ngClass]="{ disabled: disabled, readonly: readOnly }">
       <textarea
         [formControl]="formControl"
-        [ngStyle]="{ height: height + 'px' }"
+        [ngStyle]="{ height: height }"
         [placeholder]="placeholder"
         (change)="onChange.emit($event)"
         (focus)="onFocus.emit($event)"
@@ -29,7 +29,7 @@
       </div>
 
       <div *ngIf="formControl | showError" class="mui__error">
-        {{ formControl | errorMessage: errorMessages }}
+        {{ formControl | errorMessage }}
       </div>
     </div>
   </div>

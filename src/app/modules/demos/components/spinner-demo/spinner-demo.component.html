@@ -1,0 +1,21 @@
+<app-demo-page
+  [title]="title"
+  [showService]="false"
+  [templateCode]="templateCode"
+  [componentCode]="componentCode">
+  <div class="states">
+    <div class="state">
+      <div class="state__title">Bubbles spinner</div>
+      <div class="state__content">
+        <mui-spinner [visible]="visible" [mode]="'bubbles'"></mui-spinner>
+      </div>
+    </div>
+
+    <div class="state">
+      <div class="state__title">Line spinner</div>
+      <div class="state__content">
+        <mui-spinner [visible]="visible"></mui-spinner>
+      </div>
+    </div>
+  </div>
+</app-demo-page>

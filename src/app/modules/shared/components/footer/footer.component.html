@@ -1,0 +1,22 @@
+<div class="footer-wrapper">
+  <div class="footer-container">
+    <div class="footer-desc">
+      <div class="footer-logo">
+        <img src="../../../../../assets/lib-icon.svg" alt="logo" />
+      </div>
+      <div class="footer-title">UI solutions that inspire</div>
+      <div class="footer-network">
+        <img src="../../../../../assets/github-icon.png" alt="logo" />
+      </div>
+    </div>
+    <div class="footer-menu-items">
+      <div
+        *ngFor="let item of menuItems"
+        class="menu-item"
+        [routerLink]="[item.route]"
+        routerLinkActive="menu-item-active">
+        <div class="menu-item-title">{{ item.title }}</div>
+      </div>
+    </div>
+  </div>
+</div>

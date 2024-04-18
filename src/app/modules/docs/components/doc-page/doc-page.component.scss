@@ -1,0 +1,59 @@
+.component-doc__code {
+  width: 800px;
+  max-width: 800px;
+}
+
+.component-doc__code-title {
+  font-size: 20px;
+  font-weight: 500;
+  padding-bottom: 12px;
+}
+
+.component-doc__title {
+  font-size: 30px;
+  font-weight: 500;
+  padding-bottom: 20px;
+}
+
+.component-doc__description {
+  padding-bottom: 12px;
+}
+
+.component-doc__inputs, .component-doc__outputs {
+  padding-top: 20px;
+}
+
+.component-doc__inputs-title, .component-doc__outputs-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.component-doc__input-name, .component-doc__output-name {
+  font-size: 18px;
+  color: #2764b8;
+  font-family: Poppins;
+  padding-bottom: 12px;
+}
+
+.component-doc__input, .component-doc__output {
+  border-bottom: 1px solid #cecece;
+  padding: 12px 0;
+}
+
+.component-doc__output-property, .component-doc__input-property {
+  color: #787878;
+}
+
+.component-doc__view-demo {
+  padding-top: 12px;
+}
+
+.component-doc__output-type span a, .component-doc__input-type span a {
+  color: #4b91f1;
+  text-decoration: underline;
+}
+
+.component-doc__no-properties {
+  flex: 16px;
+  padding:20px 0;
+}

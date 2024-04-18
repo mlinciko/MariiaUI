@@ -1,0 +1,36 @@
+<div class="docs-menu">
+  <div class="docs-menu__items">
+    <ng-container
+      [ngTemplateOutlet]="menu"
+      [ngTemplateOutletContext]="{ items: menuItems }"></ng-container>
+  </div>
+</div>
+
+<ng-template #menu let-items="items">
+  <div
+    *ngFor="let item of items"
+    class="docs-menu__item"
+    [ngStyle]="{ 'padding-left': getItemPadding(item) }">
+    <div
+      class="docs-menu__header"
+      [ngClass]="{ active: item.isActive }"
+      (click)="setActiveItem(item)">
+      <div *ngIf="item.children" class="docs-menu__expand-btns">
+        <mui-chevron-right-icon
+          *ngIf="!item.isExpanded"
+          [color]="'#676767'"></mui-chevron-right-icon>
+        <mui-chevron-down-icon
+          *ngIf="item.isExpanded"
+          [color]="'#676767'"></mui-chevron-down-icon>
+      </div>
+      <div class="docs-menu__title">
+        {{ item.title }}
+      </div>
+    </div>
+
+    <ng-container
+      *ngIf="item.children && item.isExpanded"
+      [ngTemplateOutlet]="menu"
+      [ngTemplateOutletContext]="{ items: item.children }"></ng-container>
+  </div>
+</ng-template>

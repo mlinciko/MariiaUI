@@ -1,0 +1,15 @@
+<app-demo-page
+  [title]="titlePage"
+  [showService]="false"
+  [componentCode]="componentCode"
+  [templateCode]="templateCode">
+  <mui-button
+    [label]="'Show popup'"
+    (onClick)="changePopupVisibility()"></mui-button>
+  <mui-popup
+    [(visible)]="isPopupVisible"
+    [title]="title"
+    [buttons]="popupButtons">
+    Are you sure you want to exit?
+  </mui-popup>
+</app-demo-page>

@@ -5,6 +5,7 @@
   border: 0;
   border-radius: 4px;
   cursor: pointer;
+  user-select: none;
 }
 
 .mui__button.default button {

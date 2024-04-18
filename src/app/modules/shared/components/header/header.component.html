@@ -1,0 +1,20 @@
+<div class="header-wrapper">
+  <div class="header-container">
+    <div class="header-left-side">
+      <div class="header-logo">
+        <img src="../.././.././.././../assets/lib-icon.svg" alt="logo" />
+      </div>
+      <div class="header-title">Mariia UI</div>
+    </div>
+
+    <div class="header-menu-items">
+      <div
+        *ngFor="let item of menuItems"
+        class="menu-item"
+        [routerLink]="[item.route]"
+        routerLinkActive="menu-item-active">
+        <div class="menu-item-title">{{ item.title }}</div>
+      </div>
+    </div>
+  </div>
+</div>

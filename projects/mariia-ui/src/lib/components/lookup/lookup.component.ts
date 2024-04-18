@@ -47,13 +47,12 @@ export class LookupComponent
   @Input() readOnly = false;
   @Input() showClearButton = true;
   @Input() visible = true;
-  @Input() errorMessages: Record<string, string> = {};
 
   /*Output events */
   @Output() onSelectionChange: EventEmitter<TDropdownOption> =
     new EventEmitter();
   @Output() onSearchChange: EventEmitter<string> = new EventEmitter();
-  @Output() onOptionsVisibilityChanged: EventEmitter<boolean> =
+  @Output() onOptionsVisibilityChange: EventEmitter<boolean> =
     new EventEmitter();
 
   /*Form control */
@@ -84,7 +83,7 @@ export class LookupComponent
     e?.stopPropagation();
 
     this.isOpened = isVisible;
-    this.onOptionsVisibilityChanged.emit(isVisible);
+    this.onOptionsVisibilityChange.emit(isVisible);
   }
 
   @HostListener('document:click', ['$event.target'])

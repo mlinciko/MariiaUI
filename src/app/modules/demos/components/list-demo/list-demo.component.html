@@ -1,0 +1,24 @@
+<app-demo-page
+  [title]="title"
+  [showService]="false"
+  [componentCode]="componentCode"
+  [templateCode]="templateCode">
+  <div class="states">
+    <div class="state">
+      <div class="state__title">Unnumbered list</div>
+      <div class="state__content">
+        <mui-list [items]="listItems" [accessor]="listAccessor"></mui-list>
+      </div>
+    </div>
+
+    <div class="state">
+      <div class="state__title">Numbered list</div>
+      <div class="state__content">
+        <mui-list
+          [items]="listItems"
+          [accessor]="listAccessor"
+          [isNumbered]="true"></mui-list>
+      </div>
+    </div>
+  </div>
+</app-demo-page>

@@ -3,8 +3,6 @@
  */
 
 /*Components */
-export * from './lib/mariia-ui.service';
-export * from './lib/mariia-ui.component';
 export * from './lib/mariia-ui.module';
 export * from './lib/components/input/input.component';
 export * from './lib/components/dropdown/dropdown.component';
@@ -36,9 +34,23 @@ export * from './lib/components/popup/popup.component';
 
 /*Icons */
 export * from './lib/icons/xmark-icon/xmark-icon.component';
-
-/*Pipes */
-export * from './lib/pipes/show-error/show-error.pipe';
+export * from './lib/icons/chevron-up-icon/chevron-up-icon.component';
+export * from './lib/icons/chevron-down-icon/chevron-down-icon.component';
+export * from './lib/icons/add-icon/add-icon.component';
+export * from './lib/icons/edit-icon/edit-icon.component';
+export * from './lib/icons/delete-icon/delete-icon.component';
+export * from './lib/icons/save-icon/save-icon.component';
+export * from './lib/icons/cancel-icon/cancel-icon.component';
+export * from './lib/icons/check-icon/check-icon.component';
+export * from './lib/icons/filter-icon/filter-icon.component';
+export * from './lib/icons/arrow-down-icon/arrow-down-icon.component';
+export * from './lib/icons/arrow-up-down-icon/arrow-up-down-icon.component';
+export * from './lib/icons/arrow-up-icon/arrow-up-icon.component';
+export * from './lib/icons/calendar-icon/calendar-icon.component';
+export * from './lib/icons/chevron-left-icon/chevron-left-icon.component';
+export * from './lib/icons/chevron-right-icon/chevron-right-icon.component';
+export * from './lib/icons/circle-chevron-left-icon/circle-chevron-left-icon.component';
+export * from './lib/icons/circle-chevron-right-icon/circle-chevron-right-icon.component';
 
 /*Services */
 export * from './lib/services/notification/notification.service';

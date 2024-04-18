@@ -1,0 +1,45 @@
+<app-demo-page
+  [title]="title"
+  [showService]="false"
+  [componentCode]="componentCode"
+  [templateCode]="templateCode">
+  <div class="states">
+    <div class="state">
+      <div class="state__title">Normal state</div>
+      <div class="state__content">
+        <mui-numberbox
+          [label]="label"
+          [placeholder]="placeholder"
+          [showClearButton]="true"
+          [formControl]="numberBoxControl"
+          (onInput)="onInput($event)"></mui-numberbox>
+      </div>
+    </div>
+
+    <div class="state">
+      <div class="state__title">Disabled state</div>
+      <div class="state__content">
+        <mui-numberbox
+          [label]="label"
+          [placeholder]="placeholder"
+          [showClearButton]="true"
+          [disabled]="true"
+          [formControl]="numberBoxDisabledControl"
+          (onInput)="onInput($event)"></mui-numberbox>
+      </div>
+    </div>
+
+    <div class="state">
+      <div class="state__title">ReadOnly state</div>
+      <div class="state__content">
+        <mui-numberbox
+          [label]="label"
+          [placeholder]="placeholder"
+          [showClearButton]="true"
+          [readOnly]="true"
+          [formControl]="numberBoxReadOnlyControl"
+          (onInput)="onInput($event)"></mui-numberbox>
+      </div>
+    </div>
+  </div>
+</app-demo-page>

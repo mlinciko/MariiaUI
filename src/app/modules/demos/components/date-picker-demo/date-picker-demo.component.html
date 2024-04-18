@@ -1,0 +1,48 @@
+<app-demo-page
+  [title]="title"
+  [showService]="false"
+  [componentCode]="componentCode"
+  [templateCode]="templateCode">
+  <div class="states">
+    <div class="state">
+      <div class="state__title">Normal state</div>
+      <div class="state__content">
+        <mui-date-picker
+          [label]="label"
+          [placeholder]="placeholder"
+          [showClearButton]="true"
+          [dateMask]="dateMask"
+          [formControl]="datePickerControl"
+          (onChange)="onDateChanged($event)"></mui-date-picker>
+      </div>
+    </div>
+
+    <div class="state">
+      <div class="state__title">Disabled state</div>
+      <div class="state__content">
+        <mui-date-picker
+          [label]="label"
+          [placeholder]="placeholder"
+          [showClearButton]="true"
+          [dateMask]="dateMask"
+          [disabled]="true"
+          [formControl]="datePickerControl"
+          (onChange)="onDateChanged($event)"></mui-date-picker>
+      </div>
+    </div>
+
+    <div class="state">
+      <div class="state__title">ReadOnly state</div>
+      <div class="state__content">
+        <mui-date-picker
+          [label]="label"
+          [placeholder]="placeholder"
+          [showClearButton]="true"
+          [dateMask]="dateMask"
+          [readOnly]="true"
+          [formControl]="datePickerControl"
+          (onChange)="onDateChanged($event)"></mui-date-picker>
+      </div>
+    </div>
+  </div>
+</app-demo-page>

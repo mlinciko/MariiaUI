@@ -41,10 +41,9 @@ export class TextareaComponent
   @Input() readOnly = false;
   @Input() showClearButton = true;
   @Input() visible = true;
-  @Input() height = 80;
+  @Input() height = '80px';
   @Input() maxLength: number | null = null;
   @Input() showCounter = false;
-  @Input() errorMessages: Record<string, string> = {};
 
   /*Output events */
   @Output() onInput: EventEmitter<string> = new EventEmitter();

@@ -18,7 +18,7 @@
           {{ fileName }}
 
           <div
-            *ngIf="fileDeletingEnabled"
+            *ngIf="showClearButtonByState"
             class="mui__input-file-clear-btn"
             (click)="deleteFile()">
             <mui-xmark-icon></mui-xmark-icon>
@@ -30,12 +30,13 @@
       </div>
 
       <mui-button
+        *ngIf="isEditable"
         [label]="buttonLabel || DEFAULT_BUTTON_LABEL"
         [type]="BUTTON_TYPE"
         (onClick)="fileInput.click()"></mui-button>
 
       <div *ngIf="formControl | showError" class="mui__error">
-        {{ formControl | errorMessage: errorMessages }}
+        {{ formControl | errorMessage }}
       </div>
     </div>
   </div>

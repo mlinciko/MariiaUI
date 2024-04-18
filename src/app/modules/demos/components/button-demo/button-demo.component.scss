@@ -1,0 +1,17 @@
+:host ::ng-deep {
+  .normal-btns__title,
+  .disabled-btns__title {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0 0 12px 0;
+  }
+  .normal-btns__content,
+  .disabled-btns__content {
+    display: flex;
+    gap: 10px;
+  }
+
+  .disabled-btns {
+    padding-top: 12px;
+  }
+}

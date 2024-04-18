@@ -1,0 +1,48 @@
+<app-demo-page
+  [title]="title"
+  [showService]="false"
+  [templateCode]="templateCode"
+  [componentCode]="componentCode">
+  <div class="states">
+    <div class="state">
+      <div class="state__title">Normal state</div>
+      <div class="state__content">
+        <mui-textarea
+          [label]="label"
+          [showClearButton]="true"
+          [placeholder]="placeholder"
+          [maxLength]="maxLength"
+          [showCounter]="true"
+          [formControl]="texareaControl"></mui-textarea>
+      </div>
+    </div>
+
+    <div class="state">
+      <div class="state__title">Disabled state</div>
+      <div class="state__content">
+        <mui-textarea
+          [label]="label"
+          [showClearButton]="true"
+          [placeholder]="placeholder"
+          [maxLength]="maxLength"
+          [showCounter]="true"
+          [disabled]="true"
+          [formControl]="texareaControl"></mui-textarea>
+      </div>
+    </div>
+
+    <div class="state">
+      <div class="state__title">ReadOnly state</div>
+      <div class="state__content">
+        <mui-textarea
+          [label]="label"
+          [showClearButton]="true"
+          [placeholder]="placeholder"
+          [maxLength]="maxLength"
+          [showCounter]="true"
+          [readOnly]="true"
+          [formControl]="texareaControl"></mui-textarea>
+      </div>
+    </div>
+  </div>
+</app-demo-page>

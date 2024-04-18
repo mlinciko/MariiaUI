@@ -3,8 +3,6 @@ import {
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
-  Inject,
-  Injector,
   Input,
   OnDestroy,
   OnInit,
@@ -14,10 +12,9 @@ import {
 import {
   ControlValueAccessor,
   FormControl,
-  NG_VALIDATORS,
   NG_VALUE_ACCESSOR,
 } from '@angular/forms';
-import { Subject, debounceTime, tap, takeUntil } from 'rxjs';
+import { Subject } from 'rxjs';
 import { ButtonTypeEnum } from '../button/button';
 
 @Component({
@@ -40,12 +37,11 @@ export class FilePickerComponent
   @Input() label = '';
   @Input() buttonLabel = '';
   @Input() allowedTypes: string[] = [];
-  @Input() fileDeletingEnabled = true;
+  @Input() showClearButton = true;
   @Input() disabled = false;
   @Input() placeholder = '';
   @Input() readOnly = false;
   @Input() visible = true;
-  @Input() errorMessages: Record<string, string> = {};
 
   /*Output events */
   @Output() onFileSelected: EventEmitter<File | null> = new EventEmitter();
@@ -99,6 +95,14 @@ export class FilePickerComponent
     if (this.allowedTypes.length)
       return this.allowedTypes.map(type => `.${type}`).join(',');
     return '*';
+  }
+
+  get showClearButtonByState(): boolean {
+    return this.showClearButton && this.isEditable;
+  }
+
+  get isEditable(): boolean {
+    return !this.disabled && !this.readOnly;
   }
 
   ngOnDestroy(): void {

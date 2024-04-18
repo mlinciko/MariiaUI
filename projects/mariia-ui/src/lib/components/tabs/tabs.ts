@@ -1,5 +1,5 @@
 export type Tab = {
   id?: string | number | null;
-  active?: boolean;
+  isActive?: boolean;
   label: string;
 };

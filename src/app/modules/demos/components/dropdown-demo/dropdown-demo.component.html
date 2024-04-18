@@ -1,0 +1,51 @@
+<app-demo-page
+  [title]="title"
+  [showService]="false"
+  [componentCode]="componentCode"
+  [templateCode]="templateCode">
+  <div class="states">
+    <div class="state">
+      <div class="state__title">Normal state</div>
+      <div class="state__content">
+        <mui-dropdown
+          [options]="options"
+          [label]="label"
+          [showClearButton]="true"
+          [placeholder]="placeholder"
+          [formControl]="dropdownControl"
+          (onSelectionChange)="onSelectionChange($event)">
+        </mui-dropdown>
+      </div>
+    </div>
+
+    <div class="state">
+      <div class="state__title">Disabled state</div>
+      <div class="state__content">
+        <mui-dropdown
+          [options]="options"
+          [label]="label"
+          [showClearButton]="true"
+          [placeholder]="placeholder"
+          [disabled]="true"
+          [formControl]="dropdownControl"
+          (onSelectionChange)="onSelectionChange($event)">
+        </mui-dropdown>
+      </div>
+    </div>
+
+    <div class="state">
+      <div class="state__title">ReadOnly state</div>
+      <div class="state__content">
+        <mui-dropdown
+          [options]="options"
+          [label]="label"
+          [showClearButton]="true"
+          [placeholder]="placeholder"
+          [readOnly]="true"
+          [formControl]="dropdownControl"
+          (onSelectionChange)="onSelectionChange($event)">
+        </mui-dropdown>
+      </div>
+    </div>
+  </div>
+</app-demo-page>

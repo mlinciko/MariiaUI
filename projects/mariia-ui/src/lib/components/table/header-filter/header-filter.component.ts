@@ -24,7 +24,7 @@ export class HeaderFilterComponent implements OnInit {
   @Input({ required: true }) column!: TColumn;
   @Input({ required: true }) data: TRow[] = [];
 
-  @Output() onChange: EventEmitter<TCell[]> = new EventEmitter();
+  @Output() onFilterChange: EventEmitter<TCell[]> = new EventEmitter();
 
   options: TCell[] = [];
   optionControls: FormControl[] = [];
@@ -70,6 +70,6 @@ export class HeaderFilterComponent implements OnInit {
       if (control.value) selectedOptions.push(this.options[index]);
     });
 
-    this.onChange.emit(selectedOptions);
+    this.onFilterChange.emit(selectedOptions);
   }
 }

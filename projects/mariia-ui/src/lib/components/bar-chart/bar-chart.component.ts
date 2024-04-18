@@ -27,9 +27,9 @@ export class BarChartComponent implements OnInit {
   @Input() height = 400;
 
   /*Output events */
-  @Output() onSectorMouseover: EventEmitter<TBarChartMouseEvent> =
+  @Output() onBarMouseover: EventEmitter<TBarChartMouseEvent> =
     new EventEmitter();
-  @Output() onSectorMouseout: EventEmitter<TBarChartMouseEvent> =
+  @Output() onBarMouseout: EventEmitter<TBarChartMouseEvent> =
     new EventEmitter();
 
   constructor(private elRef: ElementRef) {}
@@ -147,7 +147,7 @@ export class BarChartComponent implements OnInit {
       .style('font-weight', 'bold')
       .text(data.value);
 
-    this.onSectorMouseover.emit({ event, data });
+    this.onBarMouseover.emit({ event, data });
   }
 
   onMouseout(
@@ -164,6 +164,6 @@ export class BarChartComponent implements OnInit {
 
     svg.selectAll('.value').remove();
 
-    this.onSectorMouseout.emit({ event, data });
+    this.onBarMouseout.emit({ event, data });
   }
 }

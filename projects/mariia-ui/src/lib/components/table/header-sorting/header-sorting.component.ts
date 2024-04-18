@@ -16,7 +16,7 @@ import { INITIAL_SORTING, TColumn, TSorting } from '../table';
 })
 export class HeaderSortingComponent {
   @Input({ required: true }) column!: TColumn;
-  @Output() onChange: EventEmitter<TSorting> = new EventEmitter();
+  @Output() onSortingChange: EventEmitter<TSorting> = new EventEmitter();
 
   activeSorting: TSorting = INITIAL_SORTING;
 
@@ -28,7 +28,7 @@ export class HeaderSortingComponent {
     else if (this.activeSorting.direction === 'desc')
       this.activeSorting.direction = '';
 
-    this.onChange.emit({
+    this.onSortingChange.emit({
       ...this.activeSorting,
       columnKey: this.column.key,
     });

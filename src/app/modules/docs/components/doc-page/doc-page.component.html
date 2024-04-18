@@ -1,0 +1,64 @@
+<div class="component-doc">
+  <div class="component-doc__title">{{ title }}</div>
+  <div class="component-doc__description">{{ description }}</div>
+  <div class="component-doc__code">
+    <div class="component-doc__code-title">Properties</div>
+    <app-code [code]="code"></app-code>
+  </div>
+  <div class="component-doc__view-demo">
+    <mui-button
+      [label]="'View demo'"
+      [type]="btnType"
+      (click)="goToDemo()"></mui-button>
+  </div>
+  <div class="component-doc__inputs">
+    <div class="component-doc__inputs-title">Inputs</div>
+    <ng-container *ngIf="inputs.length; else noInputs">
+      <div *ngFor="let input of inputs" class="component-doc__input">
+        <div class="component-doc__input-name">{{ input.name }}</div>
+        <div class="component-doc__input-about">
+          <div class="component-doc__input-type">
+            <span class="component-doc__input-property">Type: </span>
+            <span [innerHTML]="input.type"></span>
+          </div>
+          <div class="component-doc__input-default">
+            <span class="component-doc__input-property">Default value: </span>
+            {{ input.defaultValue }}
+          </div>
+          <div class="component-doc__input-description">
+            <span class="component-doc__input-property">Description: </span>
+            {{ input.descr }}
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #noInputs>
+      <div class="component-doc__no-properties">
+        Component doesn't have any inputs...
+      </div>
+    </ng-template>
+  </div>
+  <div class="component-doc__outputs">
+    <div class="component-doc__outputs-title">Outputs</div>
+    <ng-container *ngIf="outputs.length; else noOutputs">
+      <div *ngFor="let output of outputs" class="component-doc__output">
+        <div class="component-doc__output-name">{{ output.name }}</div>
+        <div class="component-doc__output-about">
+          <div class="component-doc__output-type">
+            <span class="component-doc__output-property">Return type: </span>
+            <span [innerHTML]="output.returnType"></span>
+          </div>
+          <div class="component-doc__output-description">
+            <span class="component-doc__output-property">Description: </span>
+            {{ output.descr }}
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #noOutputs>
+      <div class="component-doc__no-properties">
+        Component doesn't have any outputs...
+      </div>
+    </ng-template>
+  </div>
+</div>

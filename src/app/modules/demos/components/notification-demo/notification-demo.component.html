@@ -1,0 +1,36 @@
+<app-demo-page
+  [title]="title"
+  [showService]="false"
+  [componentCode]="componentCode"
+  [templateCode]="templateCode">
+  <div class="states">
+    <div class="state">
+      <div class="state__content">
+        <mui-button
+          [label]="'Show Default Notification'"
+          (onClick)="showDefaultNotification()"></mui-button>
+      </div>
+    </div>
+    <div class="state">
+      <div class="state__content">
+        <mui-button
+          [label]="'Show Warning Notification'"
+          (onClick)="showWarningNotification()"></mui-button>
+      </div>
+    </div>
+    <div class="state">
+      <div class="state__content">
+        <mui-button
+          [label]="'Show Error Notification'"
+          (onClick)="showErrorNotification()"></mui-button>
+      </div>
+    </div>
+    <div class="state">
+      <div class="state__content">
+        <mui-button
+          [label]="'Show Success Notification'"
+          (onClick)="showSuccessNotification()"></mui-button>
+      </div>
+    </div>
+  </div>
+</app-demo-page>

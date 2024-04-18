@@ -3,7 +3,7 @@
     <div
       *ngFor="let tab of tabs"
       class="mui_tab"
-      [ngClass]="{ active: tab.active }">
+      [ngClass]="{ active: tab.isActive }">
       <div class="mui_tab-label" (click)="selectTab(tab)">
         {{ tab.label }}
       </div>

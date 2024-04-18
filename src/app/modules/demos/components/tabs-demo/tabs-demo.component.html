@@ -1,0 +1,19 @@
+<app-demo-page
+  [title]="title"
+  [showService]="false"
+  [templateCode]="templateCode"
+  [componentCode]="componentCode">
+  <mui-tabs>
+    <mui-tab
+      *ngFor="let tab of tabs"
+      [label]="tab.label"
+      [isActive]="!!tab.isActive">
+      <p>
+        1 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto
+        placeat fugit omnis maxime dolore obcaecati doloribus perspiciatis
+        dolorum repudiandae, facilis at blanditiis, enim numquam quos. Deserunt,
+        possimus. Quisquam, delectus et.
+      </p>
+    </mui-tab>
+  </mui-tabs>
+</app-demo-page>

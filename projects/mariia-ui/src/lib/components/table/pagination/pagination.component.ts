@@ -18,7 +18,7 @@ import { TPageParams } from '../table';
 export class PaginationComponent implements OnInit {
   @Input({ required: true }) pageSizes!: number[];
   @Input({ required: true }) totalCount!: number;
-  @Output() onPaginationChanged: EventEmitter<TPageParams> = new EventEmitter();
+  @Output() onPaginationChange: EventEmitter<TPageParams> = new EventEmitter();
 
   currentPageSize!: number;
   currentPage!: number;
@@ -49,7 +49,7 @@ export class PaginationComponent implements OnInit {
   }
 
   paginationChanged(): void {
-    this.onPaginationChanged.emit({
+    this.onPaginationChange.emit({
       skip: (this.currentPage - 1) * this.currentPageSize,
       take: this.currentPageSize,
     });

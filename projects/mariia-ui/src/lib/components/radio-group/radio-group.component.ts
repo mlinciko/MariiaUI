@@ -25,7 +25,6 @@ export class RadioGroupComponent implements AfterContentInit, OnDestroy {
   @Input() disabled = false;
   @Input() readOnly = false;
   @Input() visible = true;
-  @Input() errorMessages: Record<string, string> = {};
 
   /*Output events */
   @Output() onChange: EventEmitter<string | null> = new EventEmitter();

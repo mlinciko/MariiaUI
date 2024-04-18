@@ -11,11 +11,13 @@ import {
   REQUIRED_TRUE_ERROR,
 } from './default-messages';
 
+const messages: Record<string, string> = {};
+
 @Pipe({
   name: 'errorMessage',
 })
 export class ErrorMessagePipe implements PipeTransform {
-  transform(control: FormControl, messages: Record<string, string>): string {
+  transform(control: FormControl): string {
     const errorKey = Object.keys(control.errors || {})[0];
     const error = control.errors?.[errorKey];
 

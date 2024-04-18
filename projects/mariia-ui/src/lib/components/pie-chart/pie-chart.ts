@@ -7,5 +7,5 @@ export type TPieChartSeries = {
 
 export type TPieChartMouseEvent = {
   event: Event;
-  data: PieArcDatum<any>;
+  data: PieArcDatum<TPieChartSeries>;
 };

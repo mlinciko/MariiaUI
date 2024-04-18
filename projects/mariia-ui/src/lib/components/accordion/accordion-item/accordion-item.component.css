@@ -3,6 +3,7 @@
   cursor: pointer;
   border-radius: 6px;
   padding: 10px 20px;
+  user-select: none;
 }
 
 .mui__accordion-item.expanded .mui__accordion-item-header {
@@ -11,6 +12,10 @@
   background-color: #59acff38;
   border-bottom-left-radius: unset;
   border-bottom-right-radius: unset;
+}
+
+.mui__accordion-item-label {
+  user-select: none;
 }
 
 .mui__accordion-item-content {

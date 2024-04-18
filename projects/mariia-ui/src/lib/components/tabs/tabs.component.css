@@ -8,13 +8,13 @@
 }
 
 .mui_tab {
-  width: 120px;
+  width: auto;
   text-align: center;
   background-color: #ececec;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
   cursor: pointer;
-  padding: 6px 2px;
+  padding: 6px 10px;
 }
 
 .mui_tab.active {

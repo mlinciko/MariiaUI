@@ -1,5 +1,8 @@
 <div *ngIf="visible" class="mui">
-  <div class="mui__container" (click)="changeState()">
+  <div
+    class="mui__container"
+    [ngClass]="{ disabled: disabled, readonly: readOnly }"
+    (click)="changeState()">
     <div class="mui__input">
       <input
         style="display: none"
@@ -10,7 +13,7 @@
       </div>
 
       <div *ngIf="formControl | showError" class="mui__error">
-        {{ formControl | errorMessage: errorMessages }}
+        {{ formControl | errorMessage }}
       </div>
     </div>
 

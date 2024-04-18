@@ -2,7 +2,7 @@ import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { MariiaUiComponent } from './mariia-ui.component';
 import { InputComponent } from './components/input/input.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CommonModule, DatePipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { XmarkIconComponent } from './icons/xmark-icon/xmark-icon.component';
 import { ShowErrorPipe } from './pipes/show-error/show-error.pipe';
 import { ErrorMessagePipe } from './pipes/error-message/error-message.pipe';
@@ -132,25 +132,11 @@ function initializeLib(initializeService: InitializeService) {
   ],
   imports: [CommonModule, ReactiveFormsModule],
   exports: [
-    MariiaUiComponent,
+    /*Components */
     InputComponent,
     DropdownComponent,
-    XmarkIconComponent,
-    ChevronDownIconComponent,
     TableComponent,
-    ChevronUpIconComponent,
-    AddIconComponent,
-    EditIconComponent,
-    DeleteIconComponent,
-    SaveIconComponent,
-    CancelIconComponent,
-    CellValuePipe,
     CheckboxComponent,
-    CheckIconComponent,
-    FilterIconComponent,
-    ArrowUpIconComponent,
-    ArrowDownIconComponent,
-    ArrowUpDownIconComponent,
     TabsComponent,
     TabComponent,
     PieChartComponent,
@@ -161,13 +147,9 @@ function initializeLib(initializeService: InitializeService) {
     RadioButtonComponent,
     NumberboxComponent,
     DatePickerComponent,
-    ChevronLeftIconComponent,
-    ChevronRightIconComponent,
-    CalendarIconComponent,
     ListComponent,
     AccordionComponent,
     AccordionItemComponent,
-    SpinnerIconComponent,
     SpinnerComponent,
     TooltipDirective,
     LookupComponent,
@@ -178,6 +160,26 @@ function initializeLib(initializeService: InitializeService) {
     BarChartComponent,
     LineChartComponent,
     PopupComponent,
+
+    /*Icons */
+    XmarkIconComponent,
+    ChevronDownIconComponent,
+    ChevronUpIconComponent,
+    AddIconComponent,
+    EditIconComponent,
+    DeleteIconComponent,
+    SaveIconComponent,
+    CancelIconComponent,
+    CheckIconComponent,
+    FilterIconComponent,
+    ArrowUpIconComponent,
+    ArrowDownIconComponent,
+    ArrowUpDownIconComponent,
+    ChevronLeftIconComponent,
+    ChevronRightIconComponent,
+    CalendarIconComponent,
+    CircleChevronLeftIconComponent,
+    CircleChevronRightIconComponent,
   ],
   providers: [
     {

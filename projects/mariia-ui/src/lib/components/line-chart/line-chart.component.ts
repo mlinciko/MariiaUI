@@ -28,9 +28,9 @@ export class LineChartComponent implements OnInit {
   @Input() height = 400;
 
   /*Output events */
-  @Output() onSectorMouseover: EventEmitter<TLineChartMouseEvent> =
+  @Output() onPointMouseover: EventEmitter<TLineChartMouseEvent> =
     new EventEmitter();
-  @Output() onSectorMouseout: EventEmitter<TLineChartMouseEvent> =
+  @Output() onPointMouseout: EventEmitter<TLineChartMouseEvent> =
     new EventEmitter();
 
   constructor(private elRef: ElementRef) {}
@@ -116,7 +116,7 @@ export class LineChartComponent implements OnInit {
         .on('mouseover', (event, data) =>
           this.onMouseover(event, data, svg, x, y)
         )
-        .on('mouseout', (event, data) => this.onMouseout(event, svg));
+        .on('mouseout', (event, data) => this.onMouseout(event, data, svg));
     });
   }
 
@@ -145,6 +145,8 @@ export class LineChartComponent implements OnInit {
       .attr('fill', (d3.color(this.color(index)) as any).darker(2))
       .style('font-size', '16px')
       .style('font-weight', 'bold');
+
+    this.onPointMouseover.emit({ event, data });
   }
 
   addGrid(
@@ -171,6 +173,7 @@ export class LineChartComponent implements OnInit {
 
   onMouseout(
     event: Event,
+    data: TLineChartSeries,
     svg: d3.Selection<SVGGElement, unknown, null, undefined>
   ): void {
     d3.select(event.target as HTMLElement)
@@ -179,6 +182,8 @@ export class LineChartComponent implements OnInit {
       .attr('r', 4);
     // Удаление подсказки
     svg.select('#tooltip').remove();
+
+    this.onPointMouseout.emit({ event, data });
   }
 
   color(index: number): string {

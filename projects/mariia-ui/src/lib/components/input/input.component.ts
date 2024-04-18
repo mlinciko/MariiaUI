@@ -39,7 +39,6 @@ export class InputComponent implements ControlValueAccessor, OnInit, OnDestroy {
   @Input() readOnly = false;
   @Input() showClearButton = true;
   @Input() visible = true;
-  @Input() errorMessages: Record<string, string> = {};
 
   /*Output events */
   @Output() onInput: EventEmitter<string> = new EventEmitter();

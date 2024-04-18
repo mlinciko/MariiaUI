@@ -1,0 +1,29 @@
+<div class="demo__title">{{ title }}</div>
+<div class="demo__sandbox">
+  <mui-button
+    label="Go to SandBox"
+    [type]="btnType"
+    (click)="goToSandBox()"></mui-button>
+</div>
+<div class="demo__component">
+  <ng-content></ng-content>
+</div>
+<div class="demo__code">
+  <mui-tabs>
+    <mui-tab
+      *ngIf="showComponent"
+      [label]="'demo.component.ts'"
+      [isActive]="true">
+      <app-code [code]="componentCode"></app-code>
+    </mui-tab>
+    <mui-tab *ngIf="showTemplate" [label]="'demo.component.html'">
+      <app-code [code]="templateCode"></app-code>
+    </mui-tab>
+    <mui-tab *ngIf="showService" [label]="'demo.service.ts'">
+      <app-code [code]="serviceCode"></app-code>
+    </mui-tab>
+    <mui-tab *ngIf="showCSS" [label]="'demo.component.css'">
+      <app-code [code]="cssCode"></app-code>
+    </mui-tab>
+  </mui-tabs>
+</div>

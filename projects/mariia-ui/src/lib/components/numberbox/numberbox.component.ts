@@ -41,10 +41,9 @@ export class NumberboxComponent
   @Input() readOnly = false;
   @Input() showClearButton = true;
   @Input() visible = true;
-  @Input() errorMessages: Record<string, string> = {};
 
   /*Output events */
-  @Output() onInput: EventEmitter<string> = new EventEmitter();
+  @Output() onInput: EventEmitter<number> = new EventEmitter();
   @Output() onChange: EventEmitter<Event> = new EventEmitter();
   @Output() onFocus: EventEmitter<Event> = new EventEmitter();
   @Output() onBlur: EventEmitter<Event> = new EventEmitter();
@@ -56,7 +55,7 @@ export class NumberboxComponent
   @Output() onClick: EventEmitter<Event> = new EventEmitter();
 
   /*Form control */
-  @Input() formControl: FormControl = new FormControl<string>('');
+  @Input() formControl: FormControl = new FormControl<number>(0);
   destroy$: Subject<boolean> = new Subject();
 
   ngOnInit(): void {
@@ -90,7 +89,7 @@ export class NumberboxComponent
   }
 
   /*ControlValueAccessor methods */
-  onControlChange: (value: string) => void = (value: string) => {
+  onControlChange: (value: number) => void = (value: number) => {
     this.onInput.emit(value);
   };
 

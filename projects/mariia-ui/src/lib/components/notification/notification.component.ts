@@ -12,7 +12,6 @@ import { Subject, takeUntil, tap } from 'rxjs';
   selector: 'mui-notification',
   templateUrl: './notification.component.html',
   styleUrls: ['./notification.component.css'],
-  //changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NotificationComponent implements OnInit, OnDestroy {
   notifications: TNotification[] = [];

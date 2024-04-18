@@ -1,0 +1,43 @@
+<app-demo-page
+  [title]="titlePage"
+  [showService]="false"
+  [componentCode]="componentCode"
+  [templateCode]="templateCode">
+  <div class="states">
+    <div class="state">
+      <div class="state__title">Normal state</div>
+      <div class="state__content">
+        <mui-radio-group [label]="label">
+          <mui-radio-button
+            *ngFor="let radionButton of radionButtons"
+            [label]="radionButton.label"
+            [isChecked]="radionButton.isChecked"></mui-radio-button>
+        </mui-radio-group>
+      </div>
+    </div>
+
+    <div class="state">
+      <div class="state__title">Disabled state</div>
+      <div class="state__content">
+        <mui-radio-group [label]="label" [disabled]="true">
+          <mui-radio-button
+            *ngFor="let radionButton of radionButtons"
+            [label]="radionButton.label"
+            [isChecked]="radionButton.isChecked"></mui-radio-button>
+        </mui-radio-group>
+      </div>
+    </div>
+
+    <div class="state">
+      <div class="state__title">ReadOnly state</div>
+      <div class="state__content">
+        <mui-radio-group [label]="label" [readOnly]="true">
+          <mui-radio-button
+            *ngFor="let radionButton of radionButtons"
+            [label]="radionButton.label"
+            [isChecked]="radionButton.isChecked"></mui-radio-button>
+        </mui-radio-group>
+      </div>
+    </div>
+  </div>
+</app-demo-page>

@@ -40,7 +40,7 @@ export class TableComponent implements OnInit {
   @Input() filteringEnabled = false;
   @Input() paginationEnabled = false;
   @Input() pageSizes: number[] = DEFAULT_PAGES_AMOUNT;
-  @Input() height = '300px';
+  @Input() height = 'auto';
   @Input() width = '100%';
 
   /*Output events */
@@ -48,6 +48,9 @@ export class TableComponent implements OnInit {
   @Output() onRowSaved: EventEmitter<TRow> = new EventEmitter();
   @Output() onRowEdited: EventEmitter<TRow> = new EventEmitter();
   @Output() onRowDeleted: EventEmitter<TRow> = new EventEmitter();
+  @Output() onFilterChange: EventEmitter<TCell[]> = new EventEmitter();
+  @Output() onSortingChange: EventEmitter<TSorting> = new EventEmitter();
+  @Output() onPaginationChange: EventEmitter<TPageParams> = new EventEmitter();
 
   protected _rawData: WritableSignal<TRow[]> = signal([]);
   protected _tableData: WritableSignal<TRow[]> = signal([]);
@@ -144,6 +147,8 @@ export class TableComponent implements OnInit {
         return selectedOptions.includes(row[column.key]);
       })
     );
+
+    this.onFilterChange.emit(selectedOptions);
   }
 
   onSortingChanged(sorting: TSorting): void {
@@ -173,10 +178,13 @@ export class TableComponent implements OnInit {
         (valueA < valueB ? -1 : 1) * (sorting.direction === 'asc' ? 1 : -1)
       );
     });
+
+    this.onSortingChange.emit(sorting);
   }
 
   paginationChanged(pageParams: TPageParams): void {
     this.setPagination(pageParams.skip, pageParams.take);
+    this.onPaginationChange.emit(pageParams);
   }
 
   setPagination(skip: number, take: number): void {

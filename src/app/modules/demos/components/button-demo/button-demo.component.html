@@ -1,0 +1,56 @@
+<app-demo-page
+  [title]="title"
+  [showService]="false"
+  [componentCode]="componentCode"
+  [templateCode]="templateCode">
+  <div class="normal-btns">
+    <div class="normal-btns__title">Normal state</div>
+    <div class="normal-btns__content">
+      <mui-button
+        [label]="'Click'"
+        [type]="ButtonTypeEnum.Default"
+        (onClick)="handleBtnClick($event)"></mui-button>
+      <mui-button
+        [label]="'Click'"
+        [type]="ButtonTypeEnum.Warning"
+        (onClick)="handleBtnClick($event)"></mui-button>
+      <mui-button
+        [label]="'Click'"
+        [type]="ButtonTypeEnum.Error"
+        (onClick)="handleBtnClick($event)"></mui-button>
+      <mui-button
+        [label]="'Click'"
+        [type]="ButtonTypeEnum.Success"
+        (onClick)="handleBtnClick($event)"></mui-button>
+      <mui-button
+        [label]="'Click'"
+        [type]="ButtonTypeEnum.Flat"
+        (onClick)="handleBtnClick($event)"></mui-button>
+    </div>
+  </div>
+  <div class="disabled-btns">
+    <div class="disabled-btns__title">Disabled state</div>
+    <div class="disabled-btns__content">
+      <mui-button
+        [label]="'Click'"
+        [type]="ButtonTypeEnum.Default"
+        [disabled]="true"></mui-button>
+      <mui-button
+        [label]="'Click'"
+        [type]="ButtonTypeEnum.Warning"
+        [disabled]="true"></mui-button>
+      <mui-button
+        [label]="'Click'"
+        [type]="ButtonTypeEnum.Error"
+        [disabled]="true"></mui-button>
+      <mui-button
+        [label]="'Click'"
+        [type]="ButtonTypeEnum.Success"
+        [disabled]="true"></mui-button>
+      <mui-button
+        [label]="'Click'"
+        [type]="ButtonTypeEnum.Flat"
+        [disabled]="true"></mui-button>
+    </div>
+  </div>
+</app-demo-page>

@@ -26,10 +26,10 @@ export class PopupComponent implements OnChanges {
   @Input() buttons: TPopupButton[] = [];
   @Input() showCloseBtn = true;
   @Input() visible = false;
-  @Input() width = '400px';
-  @Input() height = '200px';
-  @Input() top = '40%';
-  @Input() left = '38%';
+  @Input() width = 400;
+  @Input() height = 200;
+  @Input() top = 40;
+  @Input() left = 38;
 
   /*Output events */
   @Output() onPopupClose: EventEmitter<void> = new EventEmitter();

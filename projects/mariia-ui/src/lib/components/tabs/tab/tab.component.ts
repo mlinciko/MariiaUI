@@ -8,6 +8,6 @@ import { Component, Input } from '@angular/core';
 export class TabComponent {
   /*Input params */
   @Input() label = '';
-  @Input() active = false;
+  @Input() isActive = false;
   @Input() id: string | number | null = null;
 }
