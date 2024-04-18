@@ -1,27 +1,62 @@
-# MariiaUiDoc
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.12.
+# MariiaUI is an Angular UI Components Library
 
-## Development server
+This library provides a set of reusable UI components for Angular applications. These components are designed to enhance the user experience and accelerate development by providing consistent and customizable UI elements.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Installation
 
-## Code scaffolding
+To install the library, you can use npm or yarn:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```bash
+npm install mariia-ui@latest --save
+```
+or
+```bash
+yarn add mariia-ui@latest
+```
 
-## Build
+## Usage
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Import the `MariiaUiModule` into your Angular application module:
 
-## Running unit tests
+```typescript
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { MariiaUiModule } from '@mariia-ui';
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+@NgModule({
+  declarations: [
+    // your components
+  ],
+  imports: [
+    BrowserModule,
+    MariiaUiModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
 
-## Running end-to-end tests
+2. Use the components in your templates:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```html
+<mui-button
+	[label]="'Click'"
+	[type]="ButtonTypeEnum.Default"
+	(onClick)="handleBtnClick($event)"></mui-button>
+```
 
-## Further help
+## Documentation and demos
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Documentation and example of usage (demos) are presented at official doc Web site: 
+http://
+
+## Customization
+
+All components support customization through input properties and CSS classes. You can adjust the appearance and behavior of each component to fit your application's design requirements.
+More information: http://
+
+## Contribution
+
+Contributions are welcome! If you encounter any issues or have suggestions for new features, please open an issue on GitHub. Pull requests are also appreciated.

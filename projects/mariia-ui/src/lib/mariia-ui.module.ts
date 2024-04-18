@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { APP_INITIALIZER, InjectionToken, NgModule } from '@angular/core';
 import { MariiaUiComponent } from './mariia-ui.component';
 import { InputComponent } from './components/input/input.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -62,9 +62,30 @@ import { BarChartComponent } from './components/bar-chart/bar-chart.component';
 import { LineChartComponent } from './components/line-chart/line-chart.component';
 import { PaginationComponent } from './components/table/pagination/pagination.component';
 import { PopupComponent } from './components/popup/popup.component';
+import { HttpClientModule } from '@angular/common/http';
+import { TranslationService } from './services/translation/translation.service';
+import { TranslatePipe } from './pipes/translate/translate.pipe';
 
-function initializeLib(initializeService: InitializeService) {
-  return () => initializeService.renderInitialComponents();
+// Создаем InjectionToken для языка библиотеки
+export const MUI_LANGUAGE = new InjectionToken<string>('Library Language');
+export const DEFAULT_LANG = 'en';
+
+// Создаем InjectionToken для ссылки на файл переводов
+export const MUI_TRANSLATION_FILE_URL = new InjectionToken<string>(
+  'Translation File URL'
+);
+
+function initializeLib(
+  initializeService: InitializeService,
+  translationService: TranslationService,
+  language: string,
+  translationFileUrl: string
+) {
+  return () => {
+    initializeService.renderInitialComponents();
+
+    return translationService.getTranslations(language, translationFileUrl);
+  };
 }
 
 @NgModule({
@@ -129,10 +150,11 @@ function initializeLib(initializeService: InitializeService) {
     LineChartComponent,
     PaginationComponent,
     PopupComponent,
+    TranslatePipe,
   ],
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, HttpClientModule],
   exports: [
-    /*Components */
+    /*UI Components */
     InputComponent,
     DropdownComponent,
     TableComponent,
@@ -182,10 +204,20 @@ function initializeLib(initializeService: InitializeService) {
     CircleChevronRightIconComponent,
   ],
   providers: [
+    { provide: MUI_LANGUAGE, useValue: DEFAULT_LANG },
+    {
+      provide: MUI_TRANSLATION_FILE_URL,
+      useValue: null,
+    },
     {
       provide: APP_INITIALIZER,
       useFactory: initializeLib,
-      deps: [InitializeService],
+      deps: [
+        InitializeService,
+        TranslationService,
+        MUI_LANGUAGE,
+        MUI_TRANSLATION_FILE_URL,
+      ],
       multi: true,
     },
   ],

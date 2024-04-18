@@ -1,15 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import {
-  EMAIL_ERROR,
-  MAX_ERROR,
-  MAX_LENGTH_ERROR,
-  MIN_ERROR,
-  MIN_LENGTH_ERROR,
-  PATTERN_ERROR,
-  REQUIRED_ERROR,
-  REQUIRED_TRUE_ERROR,
-} from './default-messages';
+import { TranslationService } from '../../services/translation/translation.service';
 
 const messages: Record<string, string> = {};
 
@@ -17,36 +8,55 @@ const messages: Record<string, string> = {};
   name: 'errorMessage',
 })
 export class ErrorMessagePipe implements PipeTransform {
+  constructor(private translationService: TranslationService) {}
+
   transform(control: FormControl): string {
     const errorKey = Object.keys(control.errors || {})[0];
     const error = control.errors?.[errorKey];
 
     if (error) {
-      return messages[errorKey] || getDefaultErrorMessage(errorKey, error);
+      return messages[errorKey] || this.getDefaultErrorMessage(errorKey, error);
     }
     return '';
   }
-}
 
-function getDefaultErrorMessage(key: string, error: any): string {
-  switch (key) {
-    case 'required':
-      return REQUIRED_ERROR;
-    case 'min':
-      return MIN_ERROR(error as number);
-    case 'max':
-      return MAX_ERROR(error as number);
-    case 'requiredTrue':
-      return REQUIRED_TRUE_ERROR;
-    case 'email':
-      return EMAIL_ERROR;
-    case 'minlength':
-      return MIN_LENGTH_ERROR(error.requiredLength as number);
-    case 'maxlength':
-      return MAX_LENGTH_ERROR(error.requiredLength as number);
-    case 'pattern':
-      return PATTERN_ERROR;
-    default:
-      return '';
+  getDefaultErrorMessage(key: string, error: any): string {
+    switch (key) {
+      case 'required':
+        return this.translationService.translate('validators.errors.required');
+      case 'min':
+        return this.translationService.translate(
+          'validators.errors.min',
+          error
+        );
+      case 'max':
+        return this.translationService.translate(
+          'validators.errors.max',
+          error
+        );
+      case 'requiredTrue':
+        return this.translationService.translate(
+          'validators.errors.requiredTrue'
+        );
+      case 'email':
+        return this.translationService.translate('validators.errors.email');
+      case 'minlength':
+        return this.translationService.translate(
+          'validators.errors.minLength',
+          error
+        );
+      case 'maxlength':
+        return this.translationService.translate(
+          'validators.errors.maxLength',
+          error
+        );
+      case 'pattern':
+        return this.translationService.translate(
+          'validators.errors.pattern',
+          error
+        );
+      default:
+        return '';
+    }
   }
 }

@@ -6,6 +6,7 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
+import { TranslationService } from '../../../services/translation/translation.service';
 
 @Component({
   selector: 'mui-calendar',
@@ -17,20 +18,30 @@ export class CalendarComponent implements OnInit {
   @Input() selectedDate: Date | null = null;
   @Output() dateSelected: EventEmitter<Date> = new EventEmitter();
 
-  weekDays = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'];
+  constructor(private trsnlationService: TranslationService) {}
+
+  weekDays = [
+    this.trsnlationService.translate('calendar.days.monday'),
+    this.trsnlationService.translate('calendar.days.tuesday'),
+    this.trsnlationService.translate('calendar.days.wednesday'),
+    this.trsnlationService.translate('calendar.days.thursday'),
+    this.trsnlationService.translate('calendar.days.friday'),
+    this.trsnlationService.translate('calendar.days.saturday'),
+    this.trsnlationService.translate('calendar.days.sunday'),
+  ];
   months = [
-    'Январь',
-    'Февраль',
-    'Март',
-    'Апрель',
-    'Май',
-    'Июнь',
-    'Июль',
-    'Август',
-    'Сентябрь',
-    'Октябрь',
-    'Ноябрь',
-    'Декабрь',
+    this.trsnlationService.translate('calendar.months.january'),
+    this.trsnlationService.translate('calendar.months.february'),
+    this.trsnlationService.translate('calendar.months.march'),
+    this.trsnlationService.translate('calendar.months.april'),
+    this.trsnlationService.translate('calendar.months.may'),
+    this.trsnlationService.translate('calendar.months.june'),
+    this.trsnlationService.translate('calendar.months.july'),
+    this.trsnlationService.translate('calendar.months.august'),
+    this.trsnlationService.translate('calendar.months.september'),
+    this.trsnlationService.translate('calendar.months.october'),
+    this.trsnlationService.translate('calendar.months.november'),
+    this.trsnlationService.translate('calendar.months.december'),
   ];
   currentDate: Date = new Date();
 

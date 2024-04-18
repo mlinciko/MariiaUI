@@ -88,7 +88,7 @@ export class InputComponent implements ControlValueAccessor, OnInit, OnDestroy {
 
   /*ControlValueAccessor methods */
   onControlChange: (value: string) => void = (value: string) => {
-    //this.onInput.emit(value);
+    return;
   };
 
   onControlTouch: () => void = () => {
@@ -96,7 +96,7 @@ export class InputComponent implements ControlValueAccessor, OnInit, OnDestroy {
   };
 
   writeValue(value: string): void {
-    //this.formControl.setValue(value, { emitEvent: false });
+    return;
   }
 
   registerOnChange(fn: any): void {

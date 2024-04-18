@@ -52,7 +52,9 @@
         (click)="optionClicked(option)">
         {{ option.value }}
       </div>
-      <div *ngIf="!_options.length" class="mui__no-options">Нет данных!</div>
+      <div *ngIf="!_options.length" class="mui__no-options">
+        {{ 'dropdown.noOptions' | translate }}
+      </div>
     </div>
   </div>
 </div>

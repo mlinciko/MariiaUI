@@ -45,61 +45,68 @@
         </tr>
       </thead>
       <tbody>
-        <tr
-          *ngFor="let row of _tableData()"
-          [ngClass]="{ disabled: isRowDisabled(row) }">
-          <td
-            *ngFor="let column of columns; let i = index"
-            [ngStyle]="{ width: column.size || _defaultCoulmnSize }">
-            <ng-container *ngIf="isRowEditing(row); else text">
-              <ng-container [ngSwitch]="column.type">
-                <mui-input
-                  *ngSwitchCase="COLUMN_TYPES.String"
-                  [formControl]="getControl(column)"></mui-input>
-                <mui-numberbox
-                  *ngSwitchCase="COLUMN_TYPES.Number"
-                  [formControl]="getControl(column)"></mui-numberbox>
-                <mui-dropdown
-                  *ngSwitchCase="COLUMN_TYPES.Dropdown"
-                  [formControl]="getControl(column)"
-                  [options]="column.options || []"></mui-dropdown>
+        <ng-container *ngIf="_tableData().length; else noData">
+          <tr
+            *ngFor="let row of _tableData()"
+            [ngClass]="{ disabled: isRowDisabled(row) }">
+            <td
+              *ngFor="let column of columns; let i = index"
+              [ngStyle]="{ width: column.size || _defaultCoulmnSize }">
+              <ng-container *ngIf="isRowEditing(row); else text">
+                <ng-container [ngSwitch]="column.type">
+                  <mui-input
+                    *ngSwitchCase="COLUMN_TYPES.String"
+                    [formControl]="getControl(column)"></mui-input>
+                  <mui-numberbox
+                    *ngSwitchCase="COLUMN_TYPES.Number"
+                    [formControl]="getControl(column)"></mui-numberbox>
+                  <mui-dropdown
+                    *ngSwitchCase="COLUMN_TYPES.Dropdown"
+                    [formControl]="getControl(column)"
+                    [options]="column.options || []"></mui-dropdown>
+                </ng-container>
               </ng-container>
-            </ng-container>
-            <ng-template #text>{{ { row, column } | cellValue }}</ng-template>
-          </td>
-          <td *ngIf="isAnyActionEnabled" class="actions">
-            <ng-container *ngIf="isRowEditing(row); else defaultActions">
-              <div class="mui__table-btn" (click)="saveRow(row)">
-                <mui-save-icon
-                  [width]="'14px'"
-                  [height]="'14px'"></mui-save-icon>
-              </div>
-              <div class="mui__table-btn" (click)="cancelRow()">
-                <mui-cancel-icon
-                  [width]="'14px'"
-                  [height]="'14px'"></mui-cancel-icon>
-              </div>
-            </ng-container>
-            <ng-template #defaultActions>
-              <div
-                *ngIf="editingEnabled"
-                class="mui__table-btn"
-                (click)="editRow(row)">
-                <mui-edit-icon
-                  [width]="'14px'"
-                  [height]="'14px'"></mui-edit-icon>
-              </div>
-              <div
-                *ngIf="deletingEnabled"
-                class="mui__table-btn"
-                (click)="deleteRow(row)">
-                <mui-delete-icon
-                  [width]="'14px'"
-                  [height]="'14px'"></mui-delete-icon>
-              </div>
-            </ng-template>
-          </td>
-        </tr>
+              <ng-template #text>{{ { row, column } | cellValue }}</ng-template>
+            </td>
+            <td *ngIf="isAnyActionEnabled" class="actions">
+              <ng-container *ngIf="isRowEditing(row); else defaultActions">
+                <div class="mui__table-btn" (click)="saveRow(row)">
+                  <mui-save-icon
+                    [width]="'14px'"
+                    [height]="'14px'"></mui-save-icon>
+                </div>
+                <div class="mui__table-btn" (click)="cancelRow()">
+                  <mui-cancel-icon
+                    [width]="'14px'"
+                    [height]="'14px'"></mui-cancel-icon>
+                </div>
+              </ng-container>
+              <ng-template #defaultActions>
+                <div
+                  *ngIf="editingEnabled"
+                  class="mui__table-btn"
+                  (click)="editRow(row)">
+                  <mui-edit-icon
+                    [width]="'14px'"
+                    [height]="'14px'"></mui-edit-icon>
+                </div>
+                <div
+                  *ngIf="deletingEnabled"
+                  class="mui__table-btn"
+                  (click)="deleteRow(row)">
+                  <mui-delete-icon
+                    [width]="'14px'"
+                    [height]="'14px'"></mui-delete-icon>
+                </div>
+              </ng-template>
+            </td>
+          </tr>
+        </ng-container>
+        <ng-template #noData>
+          <tr>
+            <td>{{ 'table.noData' | translate }}</td>
+          </tr>
+        </ng-template>
       </tbody>
     </table>
   </div>

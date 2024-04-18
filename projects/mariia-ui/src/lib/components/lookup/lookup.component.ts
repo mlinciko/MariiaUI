@@ -17,6 +17,7 @@ import {
 } from '@angular/forms';
 import { Subject, debounceTime, takeUntil, tap } from 'rxjs';
 import { TDropdownOption } from '../dropdown/option';
+import { TranslationService } from '../../services/translation/translation.service';
 
 const DEFAULT_VALUE = null;
 
@@ -64,8 +65,12 @@ export class LookupComponent
   _options: TDropdownOption[] = [];
   rawOptions: TDropdownOption[] = [];
   searchControl: FormControl<string | null> = new FormControl(null);
-  searctControlPlaceholder = 'Поиск...';
+  searctControlPlaceholder = this.translationService.translate(
+    'lookup.searchPlaceholder'
+  );
   isOpened = false;
+
+  constructor(private translationService: TranslationService) {}
 
   ngOnInit(): void {
     if (this.disabled) this.formControl.disable();

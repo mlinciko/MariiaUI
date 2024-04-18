@@ -22,6 +22,8 @@ import { TableUtils } from './table-utils';
 import { FormControl } from '@angular/forms';
 import { TableService } from '../../services/table/table.service';
 import { TDropdownOption } from '../dropdown/option';
+import { NotificationService } from '../../services/notification/notification.service';
+import { TranslationService } from '../../services/translation/translation.service';
 
 @Component({
   selector: 'mui-table',
@@ -61,7 +63,11 @@ export class TableComponent implements OnInit {
   protected readonly ADD_COLUMN_KEY = 'add';
   protected readonly COLUMN_TYPES = ColumnTypes;
 
-  constructor(private tableService: TableService) {}
+  constructor(
+    private tableService: TableService,
+    private notification: NotificationService,
+    private translationService: TranslationService
+  ) {}
 
   ngOnInit(): void {
     this._rawData.set(this.data);
@@ -96,9 +102,13 @@ export class TableComponent implements OnInit {
   }
 
   saveRow(row: TRow): void {
-    if (!TableUtils.isRowValid(this._columnControls)) return;
+    if (!TableUtils.isRowValid(this._columnControls)) {
+      this.notification.error(
+        this.translationService.translate('table.rowIsInvalid')
+      );
+      return;
+    }
 
-    //TODO add notification when row is invalid
     this._editingRowId = null;
 
     this._columnControls.forEach((control: FormControl, key) => {

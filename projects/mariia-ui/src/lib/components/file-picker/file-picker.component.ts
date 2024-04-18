@@ -16,6 +16,7 @@ import {
 } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { ButtonTypeEnum } from '../button/button';
+import { TranslationService } from '../../services/translation/translation.service';
 
 @Component({
   selector: 'mui-file-picker',
@@ -53,8 +54,12 @@ export class FilePickerComponent
 
   fileControl: FormControl<string | null> = new FormControl('');
 
-  readonly DEFAULT_BUTTON_LABEL = 'Выбрать файл';
+  readonly DEFAULT_BUTTON_LABEL = this.translationService.translate(
+    'filePicker.buttonLabel'
+  );
   readonly BUTTON_TYPE = ButtonTypeEnum.Flat;
+
+  constructor(private translationService: TranslationService) {}
 
   ngOnInit(): void {
     if (this.disabled) this.formControl.disable();
