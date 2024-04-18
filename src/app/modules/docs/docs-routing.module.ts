@@ -32,6 +32,8 @@ import { TabDocComponent } from './components/tab-doc/tab-doc.component';
 import { TabsDocComponent } from './components/tabs-doc/tabs-doc.component';
 import { TextareaDocComponent } from './components/textarea-doc/textarea-doc.component';
 import { TooltipDocComponent } from './components/tooltip-doc/tooltip-doc.component';
+import { IconsDocComponent } from './components/icons-doc/icons-doc.component';
+import { TranslationComponent } from './components/translation/translation.component';
 
 const routes: Routes = [
   {
@@ -46,6 +48,14 @@ const routes: Routes = [
       {
         path: 'getting-started',
         component: GettingStartedComponent,
+      },
+      {
+        path: 'translation',
+        component: TranslationComponent,
+      },
+      {
+        path: 'icons',
+        component: IconsDocComponent,
       },
       {
         path: 'data-types',

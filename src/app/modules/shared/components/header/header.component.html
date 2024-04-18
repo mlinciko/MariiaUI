@@ -4,7 +4,7 @@
       <div class="header-logo">
         <img src="../.././.././.././../assets/lib-icon.svg" alt="logo" />
       </div>
-      <div class="header-title">Mariia UI</div>
+      <div class="header-title">MariiaUI</div>
     </div>
 
     <div class="header-menu-items">
@@ -13,6 +13,7 @@
         class="menu-item"
         [routerLink]="[item.route]"
         routerLinkActive="menu-item-active">
+        <img *ngIf="item.image" [src]="item.image" alt="logo" />
         <div class="menu-item-title">{{ item.title }}</div>
       </div>
     </div>

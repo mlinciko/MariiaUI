@@ -7,7 +7,6 @@ import { OverviewComponent } from './components/overview/overview.component';
 import { GettingStartedComponent } from './components/getting-started/getting-started.component';
 import { MariiaUiModule } from 'projects/mariia-ui/src/public-api';
 import { AccordionDocComponent } from './components/accordion-doc/accordion-doc.component';
-import { HighlightModule } from 'ngx-highlightjs';
 import { AccordionItemDocComponent } from './components/accordion-item-doc/accordion-item-doc.component';
 import { BarChartDocComponent } from './components/bar-chart-doc/bar-chart-doc.component';
 import { ButtonDocComponent } from './components/button-doc/button-doc.component';
@@ -38,6 +37,8 @@ import { TabDocComponent } from './components/tab-doc/tab-doc.component';
 import { TextareaDocComponent } from './components/textarea-doc/textarea-doc.component';
 import { TooltipDocComponent } from './components/tooltip-doc/tooltip-doc.component';
 import { CodeComponent } from '../shared/components/code/code.component';
+import { IconsDocComponent } from './components/icons-doc/icons-doc.component';
+import { TranslationComponent } from './components/translation/translation.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,8 @@ import { CodeComponent } from '../shared/components/code/code.component';
     TabDocComponent,
     TextareaDocComponent,
     TooltipDocComponent,
+    IconsDocComponent,
+    TranslationComponent,
   ],
   imports: [CommonModule, DocsRoutingModule, MariiaUiModule, CodeComponent],
 })

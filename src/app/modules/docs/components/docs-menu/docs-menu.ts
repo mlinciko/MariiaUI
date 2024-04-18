@@ -21,8 +21,8 @@ export const DOCS_MENU_ITEMS: TMenuItem[] = [
     level: 0,
   },
   {
-    route: 'internationalization',
-    title: 'Internationalization',
+    route: 'translation',
+    title: 'Translation',
     isActive: false,
     level: 0,
   },

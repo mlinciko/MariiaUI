@@ -10,5 +10,6 @@ export const MENU_ITEMS = [
   {
     route: 'blog',
     title: 'Blog',
+    image: '/assets/github-logo.png',
   },
 ];

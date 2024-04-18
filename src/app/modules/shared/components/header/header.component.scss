@@ -43,6 +43,8 @@
 
       .menu-item {
         display: flex;
+        align-items: center;
+        gap: 5px;
         cursor: pointer;
         border: 2px solid #fff;
         padding: 4px 10px;
@@ -50,6 +52,14 @@
 
         .menu-item-title {
           color: #fff;
+        }
+
+        img {
+          display: block;
+          width: 20px;
+          height: 20px;
+          background-color: #fff;
+          border-radius: 50%;
         }
       }
 

@@ -1,0 +1,73 @@
+<app-doc-page
+  [title]="title"
+  [description]="description"
+  [code]="code"
+  [inputs]="inputs"
+  [outputs]="outputs"></app-doc-page>
+
+<div class="component-doc__icons">
+  <div *ngFor="let icon of icons" class="component-doc__icon">
+    <div class="component-doc__icon-elem">
+      <ng-container [ngSwitch]="icon.title">
+        <mui-add-icon
+          *ngSwitchCase="'AddIcon'"
+          [color]="'#4b91f1'"></mui-add-icon>
+        <mui-arrow-down-icon
+          *ngSwitchCase="'ArrowDownIcon'"
+          [color]="'#4b91f1'"></mui-arrow-down-icon>
+        <mui-arrow-up-down-icon
+          *ngSwitchCase="'ArrowUpDownIcon'"
+          [color]="'#4b91f1'"></mui-arrow-up-down-icon>
+        <mui-arrow-up-icon
+          *ngSwitchCase="'ArrowUpIcon'"
+          [color]="'#4b91f1'"></mui-arrow-up-icon>
+        <mui-calendar-icon
+          *ngSwitchCase="'CalendarIcon'"
+          [color]="'#4b91f1'"></mui-calendar-icon>
+        <mui-cancel-icon
+          *ngSwitchCase="'CancelIcon'"
+          [color]="'#4b91f1'"></mui-cancel-icon>
+        <mui-check-icon
+          *ngSwitchCase="'CheckIcon'"
+          [color]="'#4b91f1'"></mui-check-icon>
+        <mui-chevron-down-icon
+          *ngSwitchCase="'ChevronDownIcon'"
+          [color]="'#4b91f1'"></mui-chevron-down-icon>
+        <mui-chevron-left-icon
+          *ngSwitchCase="'ChevronLeftIcon'"
+          [color]="'#4b91f1'"></mui-chevron-left-icon>
+        <mui-chevron-right-icon
+          *ngSwitchCase="'ChevronRightIcon'"
+          [color]="'#4b91f1'"></mui-chevron-right-icon>
+        <mui-chevron-up-icon
+          *ngSwitchCase="'ChevronUpIcon'"
+          [color]="'#4b91f1'"></mui-chevron-up-icon>
+        <mui-circle-chevron-left-icon
+          *ngSwitchCase="'CircleChevronLeftIcon'"
+          [color]="'#4b91f1'"></mui-circle-chevron-left-icon>
+        <mui-circle-chevron-right-icon
+          *ngSwitchCase="'CircleChevronRightIcon'"
+          [color]="'#4b91f1'"></mui-circle-chevron-right-icon>
+        <mui-delete-icon
+          *ngSwitchCase="'DeleteIcon'"
+          [color]="'#4b91f1'"></mui-delete-icon>
+        <mui-edit-icon
+          *ngSwitchCase="'EditIcon'"
+          [color]="'#4b91f1'"></mui-edit-icon>
+        <mui-filter-icon
+          *ngSwitchCase="'FilterIcon'"
+          [color]="'#4b91f1'"></mui-filter-icon>
+        <mui-save-icon
+          *ngSwitchCase="'SaveIcon'"
+          [color]="'#4b91f1'"></mui-save-icon>
+        <mui-xmark-icon
+          *ngSwitchCase="'XmarkIcon'"
+          [color]="'#4b91f1'"></mui-xmark-icon>
+      </ng-container>
+    </div>
+    <div class="component-doc__icon-title">{{ icon.title }}</div>
+    <div class="component-doc__icon-code">
+      <app-code [code]="icon.code"></app-code>
+    </div>
+  </div>
+</div>
