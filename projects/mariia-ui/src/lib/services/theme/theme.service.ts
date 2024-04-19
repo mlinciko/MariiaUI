@@ -10,6 +10,5 @@ export class ThemeService {
   initiTheme(config: ThemeConfig): void {
     this.themeConfig = config;
     document.documentElement.className = `${this.themeConfig.type}-${this.themeConfig.color}`;
-    console.log(document.documentElement);
   }
 }

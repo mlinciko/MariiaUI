@@ -1,10 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TInput, TOutput } from '../../models/doc-data';
-import {
-  NOTIFICATION_TITLE,
-  NOTIFICATION_DESCRIPTION,
-  NOTIFICATION_CODE,
-} from './notification';
+import { NOTIFICATION_TITLE, NOTIFICATION_CODE } from './notification';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-notification-doc',
@@ -13,8 +10,11 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NotificationDocComponent {
+  constructor(private translationService: TranslationService) {}
   title = NOTIFICATION_TITLE;
-  description = NOTIFICATION_DESCRIPTION;
+  description = this.translationService.translate(
+    'docs.notification.description'
+  );
   code = NOTIFICATION_CODE;
 
   inputs: TInput[] = [
@@ -22,20 +22,19 @@ export class NotificationDocComponent {
       name: 'message',
       type: 'string',
       defaultValue: "' '",
-      descr: 'Property allows to set message for the notification component',
+      descr: this.translationService.translate('docs.notification.message'),
     },
     {
       name: 'duration',
       type: 'number',
       defaultValue: '2000',
-      descr:
-        'Property allows to set a duration time in millisecons for the notification component',
+      descr: this.translationService.translate('docs.notification.duration'),
     },
     {
       name: 'type',
       type: 'NotificationTypeEnum',
       defaultValue: 'NotificationTypeEnum.Default',
-      descr: 'Property allows to set type for the notification component',
+      descr: this.translationService.translate('docs.notification.type'),
     },
   ];
 

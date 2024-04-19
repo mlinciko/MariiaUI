@@ -1,6 +1,4 @@
 export const LOOKUP_TITLE = 'Lookup';
-export const LOOKUP_DESCRIPTION =
-  'UI component allows the user to search for and select specific items from a predefined list';
 export const LOOKUP_CODE = `/*Input params */
 @Input() options: TDropdownOption[] = [];
 @Input() label = '';

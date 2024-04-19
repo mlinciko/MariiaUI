@@ -1,6 +1,4 @@
 export const CHECKBOX_TITLE = 'Checkbox';
-export const CHECKBOX_DESCRIPTION =
-  'UI component that allows to select one or more options from a given list';
 export const CHECKBOX_CODE = `/*Input params */
 @Input() label = '';
 @Input() disabled = false;

@@ -1,6 +1,4 @@
 export const TABLE_TITLE = 'Table';
-export const TABLE_DESCRIPTION =
-  'UI component represents an element that is used to display data in the form of a table with rows and columns. It can have filtering, data sorting, and pagination (switching between table pages)';
 export const TABLE_CODE = `/*Input params */
 @Input() data: TRow[] = [];
 @Input() columns: TColumn[] = [];

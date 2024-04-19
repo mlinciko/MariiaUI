@@ -3,47 +3,52 @@
   <div class="component-doc__description">{{ description }}</div>
 
   <div class="component-doc__section">
-    <div class="component-doc__section-title">
-      Creating a new Angular project
-    </div>
-    <div class="component-doc__section-description">
-      If you already have a project skip this part. Create a new Angular project
-      using command:
-    </div>
+    <div
+      class="component-doc__section-title"
+      [innerHTML]="creatingNewAppTitle"></div>
+    <div
+      class="component-doc__section-description"
+      [innerHTML]="creatingNewAppDescr"></div>
     <app-code [code]="ngNewCode" [lang]="'bash'"></app-code>
   </div>
 
   <div class="component-doc__section">
-    <div class="component-doc__section-title">Installation</div>
-    <div class="component-doc__section-description">
-      To install the library, you can use npm or yarn:
-    </div>
+    <div
+      class="component-doc__section-title"
+      [innerHTML]="installationTitle"></div>
+    <div
+      class="component-doc__section-description"
+      [innerHTML]="installationDescr1"></div>
     <app-code [code]="npmInstallCode" [lang]="'bash'"></app-code>
-    <div class="component-doc__section-description">or</div>
+    <div
+      class="component-doc__section-description"
+      [innerHTML]="installationDescr2"></div>
     <app-code [code]="yarnInstallCode" [lang]="'bash'"></app-code>
   </div>
 
   <div class="component-doc__section">
-    <div class="component-doc__section-title">Importing</div>
-    <div class="component-doc__section-description">
-      Import the <b>MariiaUiModule</b> into your Angular application module:
-    </div>
+    <div
+      class="component-doc__section-title"
+      [innerHTML]="importingTitle"></div>
+    <div
+      class="component-doc__section-description"
+      [innerHTML]="importingDescr"></div>
     <app-code [code]="importCode"></app-code>
   </div>
 
   <div class="component-doc__section">
-    <div class="component-doc__section-title">Styles</div>
-    <div class="component-doc__section-description">
-      Import themes.scss file into your global style file:
-    </div>
+    <div class="component-doc__section-title" [innerHTML]="stylesTitle"></div>
+    <div
+      class="component-doc__section-description"
+      [innerHTML]="stylesDesrc"></div>
     <app-code [code]="styleImportCode" [lang]="'css'"></app-code>
   </div>
 
   <div class="component-doc__section">
-    <div class="component-doc__section-title">Using UI-components</div>
-    <div class="component-doc__section-description">
-      Use the components in your templates:
-    </div>
+    <div class="component-doc__section-title" [innerHTML]="usingTitle"></div>
+    <div
+      class="component-doc__section-description"
+      [innerHTML]="usingDescr"></div>
     <app-code [code]="usageCode" [lang]="'html'"></app-code>
   </div>
 </div>

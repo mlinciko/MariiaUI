@@ -1,10 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TInput, TOutput } from '../../models/doc-data';
-import {
-  LINE_CHART_TITLE,
-  LINE_CHART_DESCRIPTION,
-  LINE_CHART_CODE,
-} from './line-chart';
+import { LINE_CHART_TITLE, LINE_CHART_CODE } from './line-chart';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-line-chart-doc',
@@ -13,8 +10,9 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LineChartDocComponent {
+  constructor(private translationService: TranslationService) {}
   title = LINE_CHART_TITLE;
-  description = LINE_CHART_DESCRIPTION;
+  description = this.translationService.translate('docs.lineChart.description');
   code = LINE_CHART_CODE;
 
   inputs: TInput[] = [
@@ -22,37 +20,37 @@ export class LineChartDocComponent {
       name: 'label',
       type: 'string',
       defaultValue: "' '",
-      descr: 'Property allows to set a label for the chart',
+      descr: this.translationService.translate('docs.lineChart.label'),
     },
     {
       name: 'colors',
       type: 'string[]',
       defaultValue: '[]',
-      descr: 'Property allows to set a colors of the lines of the chart',
+      descr: this.translationService.translate('docs.lineChart.colors'),
     },
     {
       name: 'series',
       type: `<a href="/docs/data-types">TLineChartSeries</a>[][]`,
       defaultValue: '[]',
-      descr: 'Property allows to set data for the chart',
+      descr: this.translationService.translate('docs.lineChart.series'),
     },
     {
       name: 'showGrid',
       type: 'boolean',
       defaultValue: 'false',
-      descr: 'Property allows to enable grid for the chart',
+      descr: this.translationService.translate('docs.lineChart.showGrid'),
     },
     {
       name: 'width',
       type: 'number',
       defaultValue: '800',
-      descr: 'Property allows to set width of the chart',
+      descr: this.translationService.translate('docs.lineChart.width'),
     },
     {
       name: 'height',
       type: 'number',
       defaultValue: '400',
-      descr: 'Property allows to set height of the chart',
+      descr: this.translationService.translate('docs.lineChart.height'),
     },
   ];
 
@@ -60,14 +58,16 @@ export class LineChartDocComponent {
     {
       name: 'onPointMouseover',
       returnType: `<a href="/docs/data-types">TLineChartMouseEvent</a>`,
-      descr:
-        'Property emits a new value when the mouse hovers over a chart point',
+      descr: this.translationService.translate(
+        'docs.lineChart.onPointMouseover'
+      ),
     },
     {
       name: 'onPointMouseout',
       returnType: `<a href="/docs/data-types">TLineChartMouseEvent</a>`,
-      descr:
-        'Property emits a new value when the mouse cursor moves away from a chart point',
+      descr: this.translationService.translate(
+        'docs.lineChart.onPointMouseout'
+      ),
     },
   ];
 }

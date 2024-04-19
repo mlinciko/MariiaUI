@@ -3,41 +3,38 @@
   <div class="component-doc__description">{{ description }}</div>
 
   <div class="component-doc__section">
-    <div class="component-doc__section-title">Setting with translations</div>
-    <div class="component-doc__section-description">
-      First, download this file
-      <a href="/assets/i18n/library/example-translation.json" download>
-        example-translation.json
-      </a>
-      and replace the default translations in it with the ones you need. For
-      example:
-    </div>
+    <div class="component-doc__section-title" [innerHTML]="settingTitle"></div>
+    <div
+      class="component-doc__section-description"
+      [innerHTML]="settingDescr1"></div>
     <app-code [code]="oldTranslationsCode"></app-code>
-    <div class="component-doc__section-description">Replace it with:</div>
+    <div
+      class="component-doc__section-description"
+      [innerHTML]="settingDescr2"></div>
     <app-code [code]="newTranslationsCode"></app-code>
   </div>
 
   <div class="component-doc__section">
-    <div class="component-doc__section-title">Params</div>
-    <div class="component-doc__section-description">
-      You can use params for translations. Set your params into {{ paramsMap }}.
-      For example:
-    </div>
+    <div class="component-doc__section-title" [innerHTML]="paramsTitle"></div>
+    <div
+      class="component-doc__section-description"
+      [innerHTML]="paramsDescr1"></div>
     <app-code [code]="paramsCode"></app-code>
-    <div class="component-doc__section-description">
-      max will be replaced with value at this line
-    </div>
+    <div
+      class="component-doc__section-description"
+      [innerHTML]="paramsDescr2"></div>
   </div>
 
   <div class="component-doc__section">
-    <div class="component-doc__section-title">Adding providers</div>
-    <div class="component-doc__section-description">
-      Add created file to your project and then write this code into your
-      AppModule file:
-    </div>
+    <div
+      class="component-doc__section-title"
+      [innerHTML]="providersTitle"></div>
+    <div
+      class="component-doc__section-description"
+      [innerHTML]="providersDescr1"></div>
     <app-code [code]="appModuleCode"></app-code>
-    <div class="component-doc__section-description">
-      Now your application is using your translation file in UI components!
-    </div>
+    <div
+      class="component-doc__section-description"
+      [innerHTML]="providersDescr2"></div>
   </div>
 </div>

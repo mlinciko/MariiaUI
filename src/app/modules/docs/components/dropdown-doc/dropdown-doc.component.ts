@@ -1,10 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TInput, TOutput } from '../../models/doc-data';
-import {
-  DROPDOWN_TITLE,
-  DROPDOWN_DESCRIPTION,
-  DROPDOWN_CODE,
-} from './dropdown';
+import { DROPDOWN_TITLE, DROPDOWN_CODE } from './dropdown';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-dropdown-doc',
@@ -13,8 +10,9 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DropdownDocComponent {
+  constructor(private translationService: TranslationService) {}
   title = DROPDOWN_TITLE;
-  description = DROPDOWN_DESCRIPTION;
+  description = this.translationService.translate('docs.dropdown.description');
   code = DROPDOWN_CODE;
 
   inputs: TInput[] = [
@@ -22,52 +20,49 @@ export class DropdownDocComponent {
       name: 'options',
       type: '<a href="/docs/data-types">TDropdownOption</a>[]',
       defaultValue: '[]',
-      descr: 'Property allows to set options for the dropdown component',
+      descr: this.translationService.translate('docs.dropdown.options'),
     },
     {
       name: 'label',
       type: 'string',
       defaultValue: "' '",
-      descr: 'Property allows to set a title for the dropdown component',
+      descr: this.translationService.translate('docs.dropdown.label'),
     },
     {
       name: 'disabled',
       type: 'boolean',
       defaultValue: 'false',
-      descr: 'Property allows to set disabled state for the dropdown component',
+      descr: this.translationService.translate('docs.dropdown.disabled'),
     },
     {
       name: 'placeholder',
       type: 'string',
       defaultValue: "' '",
-      descr: 'Property allows to set placeholder for the dropdown component',
+      descr: this.translationService.translate('docs.dropdown.placeholder'),
     },
     {
       name: 'readOnly',
       type: 'boolean',
       defaultValue: 'false',
-      descr: 'Property allows to set readOnly state for the dropdown component',
+      descr: this.translationService.translate('docs.dropdown.readOnly'),
     },
     {
       name: 'showClearButton',
       type: 'boolean',
       defaultValue: 'true',
-      descr:
-        'Property allows to set show clear button state for the dropdown component',
+      descr: this.translationService.translate('docs.dropdown.showClearButton'),
     },
     {
       name: 'visible',
       type: 'boolean',
       defaultValue: 'true',
-      descr:
-        'Property allows to set visiblity state for the dropdown component',
+      descr: this.translationService.translate('docs.dropdown.visible'),
     },
     {
       name: 'formControl',
       type: '<a href="https://angular.io/api/forms/FormControl">FormControl&lt;<a href="/docs/data-types">TDropdownOption</a> | null&gt;</a>',
       defaultValue: 'FormControl<TDropdownOption | null>(null)',
-      descr:
-        'Property allows to set native angular form control to dropdown component',
+      descr: this.translationService.translate('docs.dropdown.formControl'),
     },
   ];
 
@@ -75,14 +70,16 @@ export class DropdownDocComponent {
     {
       name: 'onSelectionChange',
       returnType: '<a href="/docs/data-types">TDropdownOption</a>',
-      descr:
-        'Property emits an event when the dropdown component gets new value',
+      descr: this.translationService.translate(
+        'docs.dropdown.onSelectionChange'
+      ),
     },
     {
       name: 'onOptionsVisibilityChange',
       returnType: 'boolean',
-      descr:
-        'Property emits an event when the dropdown component options visibility state changes',
+      descr: this.translationService.translate(
+        'docs.dropdown.onOptionsVisibilityChange'
+      ),
     },
   ];
 }

@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TInput, TOutput } from '../../models/doc-data';
-import { TOOLTIP_TITLE, TOOLTIP_DESCRIPTION, TOOLTIP_CODE } from './tooltip';
+import { TOOLTIP_TITLE, TOOLTIP_CODE } from './tooltip';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-tooltip-doc',
@@ -9,8 +10,9 @@ import { TOOLTIP_TITLE, TOOLTIP_DESCRIPTION, TOOLTIP_CODE } from './tooltip';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TooltipDocComponent {
+  constructor(private translationService: TranslationService) {}
   title = TOOLTIP_TITLE;
-  description = TOOLTIP_DESCRIPTION;
+  description = this.translationService.translate('docs.tooltip.description');
   code = TOOLTIP_CODE;
 
   inputs: TInput[] = [
@@ -18,7 +20,7 @@ export class TooltipDocComponent {
       name: 'tooltipText',
       type: 'string',
       defaultValue: "' '",
-      descr: 'Property allows to set a tooltip text for the tooltip component',
+      descr: this.translationService.translate('docs.tooltip.tooltipText'),
     },
   ];
 

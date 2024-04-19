@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TInput, TOutput } from '../../models/doc-data';
-import { SLIDER_TITLE, SLIDER_DESCRIPTION, SLIDER_CODE } from './slider';
+import { SLIDER_TITLE, SLIDER_CODE } from './slider';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-slider-doc',
@@ -9,8 +10,9 @@ import { SLIDER_TITLE, SLIDER_DESCRIPTION, SLIDER_CODE } from './slider';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SliderDocComponent {
+  constructor(private translationService: TranslationService) {}
   title = SLIDER_TITLE;
-  description = SLIDER_DESCRIPTION;
+  description = this.translationService.translate('docs.slider.description');
   code = SLIDER_CODE;
 
   inputs: TInput[] = [
@@ -18,27 +20,25 @@ export class SliderDocComponent {
       name: 'showDots',
       type: 'boolean',
       defaultValue: 'true',
-      descr: 'Property allows to set navigation dots for the slider component',
+      descr: this.translationService.translate('docs.slider.showDots'),
     },
     {
       name: 'width',
       type: 'string',
       defaultValue: '100%',
-      descr: 'Property allows to set width for the slider component',
+      descr: this.translationService.translate('docs.slider.width'),
     },
     {
       name: 'slideWidth',
       type: 'number',
       defaultValue: '200',
-      descr:
-        'Property allows to set width of the slide for the slider component',
+      descr: this.translationService.translate('docs.slider.slideWidth'),
     },
     {
       name: 'gap',
       type: 'number',
       defaultValue: '20',
-      descr:
-        'Property allows to set width of the gap between slide items for the slider component',
+      descr: this.translationService.translate('docs.slider.gap'),
     },
   ];
 
@@ -46,8 +46,9 @@ export class SliderDocComponent {
     {
       name: 'onSlideActiveChange',
       returnType: 'number',
-      descr:
-        'Property emits an event when the active slide item changes. Returns index of active slide item',
+      descr: this.translationService.translate(
+        'docs.slider.onSlideActiveChange'
+      ),
     },
   ];
 }

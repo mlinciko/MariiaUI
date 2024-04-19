@@ -1,10 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TInput, TOutput } from '../../models/doc-data';
-import {
-  SLIDER_ITEM_TITLE,
-  SLIDER_ITEM_DESCRIPTION,
-  SLIDER_ITEM_CODE,
-} from './slider-item';
+import { SLIDER_ITEM_TITLE, SLIDER_ITEM_CODE } from './slider-item';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-slider-item-doc',
@@ -13,8 +10,11 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SliderItemDocComponent {
+  constructor(private translationService: TranslationService) {}
   title = SLIDER_ITEM_TITLE;
-  description = SLIDER_ITEM_DESCRIPTION;
+  description = this.translationService.translate(
+    'docs.sliderItem.description'
+  );
   code = SLIDER_ITEM_CODE;
 
   inputs: TInput[] = [
@@ -22,8 +22,7 @@ export class SliderItemDocComponent {
       name: 'isActive',
       type: 'boolean',
       defaultValue: 'false',
-      descr:
-        'Property allows to set active state for the slider-item component',
+      descr: this.translationService.translate('docs.sliderItem.isActive'),
     },
   ];
 

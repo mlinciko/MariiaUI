@@ -1,6 +1,4 @@
 export const TEXTAREA_TITLE = 'Textarea';
-export const TEXTAREA_DESCRIPTION =
-  'UI component is text field for entering data in several lines. Allows the user to enter text using standard input sources. Has a counter of entered characters';
 export const TEXTAREA_CODE = `/*Input params */
 @Input() label = '';
 @Input() disabled = false;

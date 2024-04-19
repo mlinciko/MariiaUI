@@ -1,10 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TInput, TOutput } from '../../models/doc-data';
-import {
-  CHECKBOX_TITLE,
-  CHECKBOX_DESCRIPTION,
-  CHECKBOX_CODE,
-} from './checkbox';
+import { CHECKBOX_TITLE, CHECKBOX_CODE } from './checkbox';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-checkbox-doc',
@@ -13,8 +10,9 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CheckboxDocComponent {
+  constructor(private translationService: TranslationService) {}
   title = CHECKBOX_TITLE;
-  description = CHECKBOX_DESCRIPTION;
+  description = this.translationService.translate('docs.checkbox.description');
   code = CHECKBOX_CODE;
 
   inputs: TInput[] = [
@@ -22,33 +20,31 @@ export class CheckboxDocComponent {
       name: 'label',
       type: 'string',
       defaultValue: "' '",
-      descr: 'Property allows to set a title for the checkbox component',
+      descr: this.translationService.translate('docs.checkbox.label'),
     },
     {
       name: 'disabled',
       type: 'boolean',
       defaultValue: 'false',
-      descr: 'Property allows to set disabled state for the checkbox component',
+      descr: this.translationService.translate('docs.checkbox.disabled'),
     },
     {
       name: 'readOnly',
       type: 'boolean',
       defaultValue: 'false',
-      descr: 'Property allows to set readOnly state for the checkbox component',
+      descr: this.translationService.translate('docs.checkbox.readOnly'),
     },
     {
       name: 'visible',
       type: 'boolean',
       defaultValue: 'true',
-      descr:
-        'Property allows to set visiblity state for the checkbox component',
+      descr: this.translationService.translate('docs.checkbox.visible'),
     },
     {
       name: 'formControl',
       type: '<a href="https://angular.io/api/forms/FormControl">FormControl&lt;boolean | null&gt;</a>',
       defaultValue: 'FormControl<boolean | null>(null)',
-      descr:
-        'Property allows to set native angular form control to checkbox component',
+      descr: this.translationService.translate('docs.checkbox.formControl'),
     },
   ];
 
@@ -56,7 +52,7 @@ export class CheckboxDocComponent {
     {
       name: 'onChange',
       returnType: 'boolean | null',
-      descr: 'Emits an event when the checkbox component gets new value',
+      descr: this.translationService.translate('docs.checkbox.onChange'),
     },
   ];
 }

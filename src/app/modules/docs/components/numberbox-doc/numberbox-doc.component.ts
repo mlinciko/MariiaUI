@@ -1,10 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TInput, TOutput } from '../../models/doc-data';
-import {
-  NUMBERBOX_TITLE,
-  NUMBERBOX_DESCRIPTION,
-  NUMBERBOX_CODE,
-} from './numberbox';
+import { NUMBERBOX_TITLE, NUMBERBOX_CODE } from './numberbox';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-numberbox-doc',
@@ -13,8 +10,9 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NumberboxDocComponent {
+  constructor(private translationService: TranslationService) {}
   title = NUMBERBOX_TITLE;
-  description = NUMBERBOX_DESCRIPTION;
+  description = this.translationService.translate('docs.numberbox.description');
   code = NUMBERBOX_CODE;
 
   inputs: TInput[] = [
@@ -22,48 +20,45 @@ export class NumberboxDocComponent {
       name: 'label',
       type: 'string',
       defaultValue: "' '",
-      descr: 'Property allows to set a title for the numberbox component',
+      descr: this.translationService.translate('docs.numberbox.label'),
     },
     {
       name: 'disabled',
       type: 'boolean',
       defaultValue: 'false',
-      descr:
-        'Property allows to set disabled state for the numberbox component',
+      descr: this.translationService.translate('docs.numberbox.disabled'),
     },
     {
       name: 'placeholder',
       type: 'string',
       defaultValue: "' '",
-      descr: 'Property allows to set placeholder for the numberbox component',
+      descr: this.translationService.translate('docs.numberbox.placeholder'),
     },
     {
       name: 'readOnly',
       type: 'boolean',
       defaultValue: 'false',
-      descr:
-        'Property allows to set readOnly state for the numberbox component',
+      descr: this.translationService.translate('docs.numberbox.readOnly'),
     },
     {
       name: 'showClearButton',
       type: 'boolean',
       defaultValue: 'true',
-      descr:
-        'Property allows to set show clear button state for the numberbox component',
+      descr: this.translationService.translate(
+        'docs.numberbox.showClearButton'
+      ),
     },
     {
       name: 'visible',
       type: 'boolean',
       defaultValue: 'true',
-      descr:
-        'Property allows to set visiblity state for the numberbox component',
+      descr: this.translationService.translate('docs.numberbox.visible'),
     },
     {
       name: 'formControl',
       type: '<a href="https://angular.io/api/forms/FormControl">FormControl</a>&lt;number&gt;',
       defaultValue: 'FormControl<number>(0)',
-      descr:
-        'Property allows to set native angular form control to numberbox component',
+      descr: this.translationService.translate('docs.numberbox.formControl'),
     },
   ];
 
@@ -71,67 +66,61 @@ export class NumberboxDocComponent {
     {
       name: 'onInput',
       returnType: 'number',
-      descr:
-        'Property emits an event when the numberbox component gets new symbol',
+      descr: this.translationService.translate('docs.numberbox.onInput'),
     },
     {
       name: 'onChange',
       returnType:
         '<a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a>',
-      descr:
-        'Property emits an event when the numberbox component gets new value',
+      descr: this.translationService.translate('docs.numberbox.onChange'),
     },
     {
       name: 'onFocus',
       returnType:
         '<a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a>',
-      descr: 'Property emits an event when the numberbox component gets focus',
+      descr: this.translationService.translate('docs.numberbox.onFocus'),
     },
     {
       name: 'onBlur',
       returnType:
         '<a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a>',
-      descr: 'Property emits an event when the numberbox component loses focus',
+      descr: this.translationService.translate('docs.numberbox.onBlur'),
     },
     {
       name: 'onKeydown',
       returnType:
         '<a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a>',
-      descr:
-        'Property emits an event when any key is down in the numberbox component',
+      descr: this.translationService.translate('docs.numberbox.onKeydown'),
     },
     {
       name: 'onKeyup',
       returnType:
         '<a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a>',
-      descr: 'Property emits an event when any key is up in the v component',
+      descr: this.translationService.translate('docs.numberbox.onKeyup'),
     },
     {
       name: 'onKeypress',
       returnType:
         '<a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a>',
-      descr:
-        'Property emits an event when any key is press in the numberbox component',
+      descr: this.translationService.translate('docs.numberbox.onKeypress'),
     },
     {
       name: 'onMousedown',
       returnType:
         '<a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a>',
-      descr:
-        'Property emits an event when mouse key is down in the numberbox component',
+      descr: this.translationService.translate('docs.numberbox.onMousedown'),
     },
     {
       name: 'onMouseup',
       returnType:
         '<a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a>',
-      descr:
-        'Property emits an event when mouse key is up in the numberbox component',
+      descr: this.translationService.translate('docs.numberbox.onMouseup'),
     },
     {
       name: 'onClick',
       returnType:
         '<a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a>',
-      descr: 'Property emits an event when the numberbox component is clicked',
+      descr: this.translationService.translate('docs.numberbox.onClick'),
     },
   ];
 }

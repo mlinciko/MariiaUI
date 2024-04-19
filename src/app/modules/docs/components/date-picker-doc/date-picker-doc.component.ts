@@ -1,10 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TInput, TOutput } from '../../models/doc-data';
-import {
-  DATE_PICKER_TITLE,
-  DATE_PICKER_DESCRIPTION,
-  DATE_PICKER_CODE,
-} from './date-picker';
+import { DATE_PICKER_TITLE, DATE_PICKER_CODE } from './date-picker';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-date-picker-doc',
@@ -13,8 +10,11 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DatePickerDocComponent {
+  constructor(private translationService: TranslationService) {}
   title = DATE_PICKER_TITLE;
-  description = DATE_PICKER_DESCRIPTION;
+  description = this.translationService.translate(
+    'docs.datePicker.description'
+  );
   code = DATE_PICKER_CODE;
 
   inputs: TInput[] = [
@@ -22,55 +22,51 @@ export class DatePickerDocComponent {
       name: 'label',
       type: 'string',
       defaultValue: "' '",
-      descr: 'Property allows to set a title for the date-picker component',
+      descr: this.translationService.translate('docs.datePicker.label'),
     },
     {
       name: 'disabled',
       type: 'boolean',
       defaultValue: 'false',
-      descr:
-        'Property allows to set disabled state for the date-picker component',
+      descr: this.translationService.translate('docs.datePicker.disabled'),
     },
     {
       name: 'placeholder',
       type: 'string',
       defaultValue: "' '",
-      descr: 'Property allows to set placeholder for the date-picker component',
+      descr: this.translationService.translate('docs.datePicker.placeholder'),
     },
     {
       name: 'readOnly',
       type: 'boolean',
       defaultValue: 'false',
-      descr:
-        'Property allows to set readOnly state for the date-picker component',
+      descr: this.translationService.translate('docs.datePicker.readOnly'),
     },
     {
       name: 'showClearButton',
       type: 'boolean',
       defaultValue: 'true',
-      descr:
-        'Property allows to set show clear button state for the date-picker component',
+      descr: this.translationService.translate(
+        'docs.datePicker.showClearButton'
+      ),
     },
     {
       name: 'visible',
       type: 'boolean',
       defaultValue: 'true',
-      descr:
-        'Property allows to set visiblity state for the date-picker component',
+      descr: this.translationService.translate('docs.datePicker.visible'),
     },
     {
       name: 'dateMask',
       type: 'string',
       defaultValue: 'dd.MM.YYYY',
-      descr:
-        'Property allows to set date mask state for the date-picker component',
+      descr: this.translationService.translate('docs.datePicker.dateMask'),
     },
     {
       name: 'formControl',
       type: '<a href="https://angular.io/api/forms/FormControl">FormControl&lt;Date | null&gt;</a>',
       defaultValue: 'FormControl<Date | null>(null)',
-      descr:
-        'Property allows to set native angular form control to date-picker component',
+      descr: this.translationService.translate('docs.datePicker.formControl'),
     },
   ];
 
@@ -79,19 +75,20 @@ export class DatePickerDocComponent {
       name: 'onChange',
       returnType:
         '<a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a>',
-      descr: 'Emits an event when the date-picker component gets new value',
+      descr: this.translationService.translate('docs.datePicker.onChange'),
     },
     {
       name: 'onClick',
       returnType:
         '<a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a>',
-      descr: 'Emits an event when the date-picker component is clicked',
+      descr: this.translationService.translate('docs.datePicker.onClick'),
     },
     {
       name: 'onCalendarVisibilityChanged',
       returnType: 'boolean',
-      descr:
-        "Emits an event when the date-picker component calender's visibility state changes",
+      descr: this.translationService.translate(
+        'docs.datePicker.onCalendarVisibilityChanged'
+      ),
     },
   ];
 }

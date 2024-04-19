@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TInput, TOutput } from '../../models/doc-data';
-import { TABLE_TITLE, TABLE_DESCRIPTION, TABLE_CODE } from './table';
+import { TABLE_TITLE, TABLE_CODE } from './table';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-table-doc',
@@ -9,8 +10,9 @@ import { TABLE_TITLE, TABLE_DESCRIPTION, TABLE_CODE } from './table';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TableDocComponent {
+  constructor(private translationService: TranslationService) {}
   title = TABLE_TITLE;
-  description = TABLE_DESCRIPTION;
+  description = this.translationService.translate('docs.table.description');
   code = TABLE_CODE;
 
   inputs: TInput[] = [
@@ -18,68 +20,67 @@ export class TableDocComponent {
       name: 'data',
       type: '<a href="/docs/data-types">TRow</a>[]',
       defaultValue: '[]',
-      descr: 'Property allows to set data for the table component',
+      descr: this.translationService.translate('docs.table.data'),
     },
     {
       name: 'columns',
       type: '<a href="/docs/data-types">TColumn</a>[]',
       defaultValue: '[]',
-      descr: 'Property allows to set columns for the table component',
+      descr: this.translationService.translate('docs.table.columns'),
     },
     {
       name: 'addingEnabled',
       type: 'boolean',
       defaultValue: 'false',
-      descr: 'Property allows to enable adding for the table component',
+      descr: this.translationService.translate('docs.table.addingEnabled'),
     },
     {
       name: 'editingEnabled',
       type: 'boolean',
       defaultValue: 'false',
-      descr: 'Property allows to enable editing for the table component',
+      descr: this.translationService.translate('docs.table.editingEnabled'),
     },
     {
       name: 'deletingEnabled',
       type: 'boolean',
       defaultValue: 'false',
-      descr: 'Property allows to enable deleting for the table component',
+      descr: this.translationService.translate('docs.table.deletingEnabled'),
     },
     {
       name: 'sortingEnabled',
       type: 'boolean',
       defaultValue: 'false',
-      descr: 'Property allows to enable sorting for the table component',
+      descr: this.translationService.translate('docs.table.sortingEnabled'),
     },
     {
       name: 'filteringEnabled',
       type: 'boolean',
       defaultValue: 'false',
-      descr: 'Property allows to enable filtering for the table component',
+      descr: this.translationService.translate('docs.table.filteringEnabled'),
     },
     {
       name: 'paginationEnabled',
       type: 'boolean',
       defaultValue: 'false',
-      descr: 'Property allows to enable pagination for the table component',
+      descr: this.translationService.translate('docs.table.paginationEnabled'),
     },
     {
       name: 'pageSizes',
       type: 'number[]',
       defaultValue: '[10, 25, 50, 100]',
-      descr:
-        'Property allows to set page sizes for pagination for the table component',
+      descr: this.translationService.translate('docs.table.pageSizes'),
     },
     {
       name: 'width',
       type: 'string',
       defaultValue: 'auto',
-      descr: 'Property allows to set width for the table component',
+      descr: this.translationService.translate('docs.table.width'),
     },
     {
       name: 'height',
       type: 'string',
       defaultValue: '100%',
-      descr: 'Property allows to set height for the table component',
+      descr: this.translationService.translate('docs.table.height'),
     },
   ];
 
@@ -87,43 +88,37 @@ export class TableDocComponent {
     {
       name: 'onRowAdded',
       returnType: '<a href="/docs/data-types">TRow</a>',
-      descr:
-        'Property emits an event when the new row is added to table component',
+      descr: this.translationService.translate('docs.table.onRowAdded'),
     },
     {
       name: 'onRowSaved',
       returnType: '<a href="/docs/data-types">TRow</a>',
-      descr:
-        'Property emits an event when the new row is saved in table component',
+      descr: this.translationService.translate('docs.table.onRowSaved'),
     },
     {
       name: 'onRowEdited',
       returnType: '<a href="/docs/data-types">TRow</a>',
-      descr:
-        'Property emits an event when the row is edited in table component',
+      descr: this.translationService.translate('docs.table.onRowEdited'),
     },
     {
       name: 'onRowDeleted',
       returnType: '<a href="/docs/data-types">TRow</a>',
-      descr:
-        'Property emits an event when the row is deleted in table component',
+      descr: this.translationService.translate('docs.table.onRowDeleted'),
     },
     {
       name: 'onFilterChange',
       returnType: '<a href="/docs/data-types">TCell</a>[]',
-      descr:
-        'Property emits an event when the table component filtering changes',
+      descr: this.translationService.translate('docs.table.onFilterChange'),
     },
     {
       name: 'onSortingChange',
       returnType: '<a href="/docs/data-types">TSorting</a>',
-      descr: 'Property emits an event when the table component sorting changes',
+      descr: this.translationService.translate('docs.table.onSortingChange'),
     },
     {
       name: 'onPaginationChange',
       returnType: '<a href="/docs/data-types">TPageParams</a>',
-      descr:
-        'Property emits an event when the table component pagination changes',
+      descr: this.translationService.translate('docs.table.onPaginationChange'),
     },
   ];
 }

@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TInput, TOutput } from '../../models/doc-data';
-import { INPUT_TITLE, INPUT_DESCRIPTION, INPUT_CODE } from './input';
+import { INPUT_TITLE, INPUT_CODE } from './input';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-input-doc',
@@ -9,8 +10,9 @@ import { INPUT_TITLE, INPUT_DESCRIPTION, INPUT_CODE } from './input';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputDocComponent {
+  constructor(private translationService: TranslationService) {}
   title = INPUT_TITLE;
-  description = INPUT_DESCRIPTION;
+  description = this.translationService.translate('docs.input.description');
   code = INPUT_CODE;
 
   inputs: TInput[] = [
@@ -18,45 +20,43 @@ export class InputDocComponent {
       name: 'label',
       type: 'string',
       defaultValue: "' '",
-      descr: 'Property allows to set a title for the input component',
+      descr: this.translationService.translate('docs.input.label'),
     },
     {
       name: 'disabled',
       type: 'boolean',
       defaultValue: 'false',
-      descr: 'Property allows to set disabled state for the input component',
+      descr: this.translationService.translate('docs.input.disabled'),
     },
     {
       name: 'placeholder',
       type: 'string',
       defaultValue: "' '",
-      descr: 'Property allows to set placeholder for the input component',
+      descr: this.translationService.translate('docs.input.placeholder'),
     },
     {
       name: 'readOnly',
       type: 'boolean',
       defaultValue: 'false',
-      descr: 'Property allows to set readOnly state for the input component',
+      descr: this.translationService.translate('docs.input.readOnly'),
     },
     {
       name: 'showClearButton',
       type: 'boolean',
       defaultValue: 'true',
-      descr:
-        'Property allows to set show clear button state for the input component',
+      descr: this.translationService.translate('docs.input.showClearButton'),
     },
     {
       name: 'visible',
       type: 'boolean',
       defaultValue: 'true',
-      descr: 'Property allows to set visiblity state for the input component',
+      descr: this.translationService.translate('docs.input.visible'),
     },
     {
       name: 'formControl',
       type: '<a href="https://angular.io/api/forms/FormControl">FormControl</a>&lt;string&gt;',
       defaultValue: "FormControl<string>('')",
-      descr:
-        'Property allows to set native angular form control to input component',
+      descr: this.translationService.translate('docs.input.formControl'),
     },
   ];
 
@@ -64,66 +64,61 @@ export class InputDocComponent {
     {
       name: 'onInput',
       returnType: 'string',
-      descr: 'Property emits an event when the input component gets new symbol',
+      descr: this.translationService.translate('docs.input.onInput'),
     },
     {
       name: 'onChange',
       returnType:
         '<a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a>',
-      descr: 'Property emits an event when the input component gets new value',
+      descr: this.translationService.translate('docs.input.onChange'),
     },
     {
       name: 'onFocus',
       returnType:
         '<a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a>',
-      descr: 'Property emits an event when the input component gets focus',
+      descr: this.translationService.translate('docs.input.onFocus'),
     },
     {
       name: 'onBlur',
       returnType:
         '<a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a>',
-      descr: 'Property emits an event when the input component loses focus',
+      descr: this.translationService.translate('docs.input.onBlur'),
     },
     {
       name: 'onKeydown',
       returnType:
         '<a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a>',
-      descr:
-        'Property emits an event when any key is down in the input component',
+      descr: this.translationService.translate('docs.input.onKeydown'),
     },
     {
       name: 'onKeyup',
       returnType:
         '<a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a>',
-      descr:
-        'Property emits an event when any key is up in the input component',
+      descr: this.translationService.translate('docs.input.onKeyup'),
     },
     {
       name: 'onKeypress',
       returnType:
         '<a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a>',
-      descr:
-        'Property emits an event when any key is press in the input component',
+      descr: this.translationService.translate('docs.input.onKeypress'),
     },
     {
       name: 'onMousedown',
       returnType:
         '<a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a>',
-      descr:
-        'Property emits an event when mouse key is down in the input component',
+      descr: this.translationService.translate('docs.input.onMousedown'),
     },
     {
       name: 'onMouseup',
       returnType:
         '<a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a>',
-      descr:
-        'Property emits an event when mouse key is up in the input component',
+      descr: this.translationService.translate('docs.input.onMouseup'),
     },
     {
       name: 'onClick',
       returnType:
         '<a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a>',
-      descr: 'Property emits an event when the input component is clicked',
+      descr: this.translationService.translate('docs.input.onClick'),
     },
   ];
 }

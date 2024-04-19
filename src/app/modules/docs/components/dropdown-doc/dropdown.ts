@@ -1,6 +1,4 @@
 export const DROPDOWN_TITLE = 'Dropdown';
-export const DROPDOWN_DESCRIPTION =
-  'UI component allows the user to select one option from a predefined list that appears when clicking on a field';
 export const DROPDOWN_CODE = `/*Input params */
 @Input() options: TDropdownOption[] = [];
 @Input() label = '';

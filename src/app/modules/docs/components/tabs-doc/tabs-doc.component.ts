@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TInput, TOutput } from '../../models/doc-data';
-import { TABS_TITLE, TABS_DESCRIPTION, TABS_CODE } from './tabs';
+import { TABS_TITLE, TABS_CODE } from './tabs';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-tabs-doc',
@@ -9,8 +10,9 @@ import { TABS_TITLE, TABS_DESCRIPTION, TABS_CODE } from './tabs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TabsDocComponent {
+  constructor(private translationService: TranslationService) {}
   title = TABS_TITLE;
-  description = TABS_DESCRIPTION;
+  description = this.translationService.translate('docs.tabs.description');
   code = TABS_CODE;
 
   inputs: TInput[] = [];
@@ -19,8 +21,7 @@ export class TabsDocComponent {
     {
       name: 'onSelectionChange',
       returnType: '<a href="/docs/data-types">Tab</a>',
-      descr:
-        'Property emits an event when the active tab changes in tabs component',
+      descr: this.translationService.translate('docs.tabs.onSelectionChange'),
     },
   ];
 }

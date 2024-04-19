@@ -1,10 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TInput, TOutput } from '../../models/doc-data';
-import {
-  SCROLL_LAYOUT_TITLE,
-  SCROLL_LAYOUT_DESCRIPTION,
-  SCROLL_LAYOUT_CODE,
-} from './scroll-layout';
+import { SCROLL_LAYOUT_TITLE, SCROLL_LAYOUT_CODE } from './scroll-layout';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-scroll-layout-doc',
@@ -13,8 +10,11 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ScrollLayoutDocComponent {
+  constructor(private translationService: TranslationService) {}
   title = SCROLL_LAYOUT_TITLE;
-  description = SCROLL_LAYOUT_DESCRIPTION;
+  description = this.translationService.translate(
+    'docs.scrollLayout.description'
+  );
   code = SCROLL_LAYOUT_CODE;
 
   inputs: TInput[] = [
@@ -22,20 +22,19 @@ export class ScrollLayoutDocComponent {
       name: 'width',
       type: 'string',
       defaultValue: '100%',
-      descr: 'Property allows to set width for the scroll-layout component',
+      descr: this.translationService.translate('docs.scrollLayout.width'),
     },
     {
       name: 'height',
       type: 'string',
       defaultValue: 'auto',
-      descr: 'Property allows to set height for the scroll-layout component',
+      descr: this.translationService.translate('docs.scrollLayout.height'),
     },
     {
       name: 'direction',
       type: '<a href="/docs/data-types">TScrollDirection</a>',
       defaultValue: 'vertical',
-      descr:
-        'Property allows to set direction of scroll for the scroll-layout component',
+      descr: this.translationService.translate('docs.scrollLayout.direction'),
     },
   ];
 

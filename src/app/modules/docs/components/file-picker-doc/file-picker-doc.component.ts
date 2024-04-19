@@ -1,10 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TInput, TOutput } from '../../models/doc-data';
-import {
-  FILE_PICKER_TITLE,
-  FILE_PICKER_DESCRIPTION,
-  FILE_PICKER_CODE,
-} from './file-picker';
+import { FILE_PICKER_TITLE, FILE_PICKER_CODE } from './file-picker';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-file-picker-doc',
@@ -13,8 +10,11 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FilePickerDocComponent {
+  constructor(private translationService: TranslationService) {}
   title = FILE_PICKER_TITLE;
-  description = FILE_PICKER_DESCRIPTION;
+  description = this.translationService.translate(
+    'docs.filePicker.description'
+  );
   code = FILE_PICKER_CODE;
 
   inputs: TInput[] = [
@@ -22,62 +22,57 @@ export class FilePickerDocComponent {
       name: 'label',
       type: 'string',
       defaultValue: "' '",
-      descr: 'Property allows to set a title for the file-picker component',
+      descr: this.translationService.translate('docs.filePicker.label'),
     },
     {
       name: 'buttonLabel',
       type: 'string',
       defaultValue: "' '",
-      descr:
-        'Property allows to set a title for button of the file-picker component',
+      descr: this.translationService.translate('docs.filePicker.buttonLabel'),
     },
     {
       name: 'allowedTypes',
       type: 'string[]',
       defaultValue: '[]',
-      descr:
-        'Property allows to set allowed file types for the file-picker component',
+      descr: this.translationService.translate('docs.filePicker.allowedTypes'),
     },
     {
       name: 'showClearButton',
       type: 'boolean',
       defaultValue: 'true',
-      descr:
-        'Property allows to enable clear button for the file-picker component',
+      descr: this.translationService.translate(
+        'docs.filePicker.showClearButton'
+      ),
     },
     {
       name: 'disabled',
       type: 'boolean',
       defaultValue: 'false',
-      descr:
-        'Property allows to set disabled state for the file-picker component',
+      descr: this.translationService.translate('docs.filePicker.disabled'),
     },
     {
       name: 'placeholder',
       type: 'string',
       defaultValue: "' '",
-      descr: 'Property allows to set placeholder for the file-picker component',
+      descr: this.translationService.translate('docs.filePicker.placeholder'),
     },
     {
       name: 'readOnly',
       type: 'boolean',
       defaultValue: 'false',
-      descr:
-        'Property allows to set readOnly state for the file-picker component',
+      descr: this.translationService.translate('docs.filePicker.readOnly'),
     },
     {
       name: 'visible',
       type: 'boolean',
       defaultValue: 'true',
-      descr:
-        'Property allows to set visiblity state for the file-picker component',
+      descr: this.translationService.translate('docs.filePicker.visible'),
     },
     {
       name: 'formControl',
       type: '<a href="https://angular.io/api/forms/FormControl">FormControl&lt;<a href="https://developer.mozilla.org/en-US/docs/Web/API/File">File</a> | null&gt;</a>',
       defaultValue: 'FormControl<File | null>(null)',
-      descr:
-        'Property allows to set native angular form control to file-picker component',
+      descr: this.translationService.translate('docs.filePicker.formControl'),
     },
   ];
 
@@ -86,15 +81,15 @@ export class FilePickerDocComponent {
       name: 'onFileSelected',
       returnType:
         '<a href="https://developer.mozilla.org/en-US/docs/Web/API/File">File</a> | null',
-      descr:
-        'Property emits an event when the file-picker component gets new value',
+      descr: this.translationService.translate(
+        'docs.filePicker.onFileSelected'
+      ),
     },
     {
       name: 'onFileDeleted',
       returnType:
         '<a href="https://developer.mozilla.org/en-US/docs/Web/API/File">File</a> | null',
-      descr:
-        'Property emits an event when the file is deleted from the file-picker component',
+      descr: this.translationService.translate('docs.filePicker.onFileDeleted'),
     },
   ];
 }

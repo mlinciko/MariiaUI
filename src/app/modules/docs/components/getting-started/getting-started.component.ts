@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-getting-started',
@@ -7,9 +8,50 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GettingStartedComponent {
-  title = 'Getting started';
-  description =
-    'This section will guide you through the initial steps required to start using our library in your Angular applications.';
+  constructor(private translationService: TranslationService) {}
+  title = this.translationService.translate('docs.gettingStarted.title');
+  description = this.translationService.translate(
+    'docs.gettingStarted.description'
+  );
+
+  creatingNewAppTitle = this.translationService.translate(
+    'docs.gettingStarted.creatingNewApp.title'
+  );
+  creatingNewAppDescr = this.translationService.translate(
+    'docs.gettingStarted.creatingNewApp.description'
+  );
+
+  installationTitle = this.translationService.translate(
+    'docs.gettingStarted.installation.title'
+  );
+  installationDescr1 = this.translationService.translate(
+    'docs.gettingStarted.installation.description1'
+  );
+  installationDescr2 = this.translationService.translate(
+    'docs.gettingStarted.installation.description2'
+  );
+
+  importingTitle = this.translationService.translate(
+    'docs.gettingStarted.importing.title'
+  );
+  importingDescr = this.translationService.translate(
+    'docs.gettingStarted.importing.description'
+  );
+
+  stylesTitle = this.translationService.translate(
+    'docs.gettingStarted.styles.title'
+  );
+  stylesDesrc = this.translationService.translate(
+    'docs.gettingStarted.styles.description'
+  );
+
+  usingTitle = this.translationService.translate(
+    'docs.gettingStarted.using.title'
+  );
+  usingDescr = this.translationService.translate(
+    'docs.gettingStarted.using.description'
+  );
+
   ngNewCode = 'ng new angular-project';
   npmInstallCode = 'npm install mariia-ui@latest --save';
   yarnInstallCode = 'yarn add mariia-ui@latest';

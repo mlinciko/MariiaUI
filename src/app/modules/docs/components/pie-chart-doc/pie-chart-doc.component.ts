@@ -1,10 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TInput, TOutput } from '../../models/doc-data';
-import {
-  PIE_CHART_TITLE,
-  PIE_CHART_DESCRIPTION,
-  PIE_CHART_CODE,
-} from './pie-chart';
+import { PIE_CHART_TITLE, PIE_CHART_CODE } from './pie-chart';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-pie-chart-doc',
@@ -13,8 +10,9 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PieChartDocComponent {
+  constructor(private translationService: TranslationService) {}
   title = PIE_CHART_TITLE;
-  description = PIE_CHART_DESCRIPTION;
+  description = this.translationService.translate('docs.pieChart.description');
   code = PIE_CHART_CODE;
 
   inputs: TInput[] = [
@@ -22,31 +20,31 @@ export class PieChartDocComponent {
       name: 'label',
       type: 'string',
       defaultValue: "' '",
-      descr: 'Property allows to set a label for the chart',
+      descr: this.translationService.translate('docs.pieChart.label'),
     },
     {
       name: 'colors',
       type: 'string[]',
       defaultValue: '[]',
-      descr: 'Property allows to set a colors of the sectors of the chart',
+      descr: this.translationService.translate('docs.pieChart.colors'),
     },
     {
       name: 'series',
       type: `<a href="/docs/data-types">TPieChartSeries</a>[]`,
       defaultValue: '[]',
-      descr: 'Property allows to set data for the chart',
+      descr: this.translationService.translate('docs.pieChart.series'),
     },
     {
       name: 'width',
       type: 'number',
       defaultValue: '400',
-      descr: 'Property allows to set width of the chart',
+      descr: this.translationService.translate('docs.pieChart.width'),
     },
     {
       name: 'height',
       type: 'number',
       defaultValue: '400',
-      descr: 'Property allows to set height of the chart',
+      descr: this.translationService.translate('docs.pieChart.height'),
     },
   ];
 
@@ -54,14 +52,16 @@ export class PieChartDocComponent {
     {
       name: 'onSectorMouseover',
       returnType: `<a href="/docs/data-types">TPieChartMouseEvent</a>`,
-      descr:
-        'Property emits a new value when the mouse hovers over a chart sector',
+      descr: this.translationService.translate(
+        'docs.pieChart.onSectorMouseover'
+      ),
     },
     {
       name: 'onSectorMouseout',
       returnType: `<a href="/docs/data-types">TPieChartMouseEvent</a>`,
-      descr:
-        'Property emits a new value when the mouse cursor moves away from a chart sector',
+      descr: this.translationService.translate(
+        'docs.pieChart.onSectorMouseout'
+      ),
     },
   ];
 }

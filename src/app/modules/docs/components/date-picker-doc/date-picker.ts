@@ -1,6 +1,4 @@
 export const DATE_PICKER_TITLE = 'DatePicker';
-export const DATE_PICKER_DESCRIPTION =
-  'UI components that allows the user to select a date from the calendar. The component has calendar navigation';
 export const DATE_PICKER_CODE = `/*Input params */
 @Input() label = '';
 @Input() disabled = false;

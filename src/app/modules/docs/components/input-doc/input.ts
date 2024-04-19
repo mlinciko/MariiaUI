@@ -1,6 +1,4 @@
 export const INPUT_TITLE = 'Input';
-export const INPUT_DESCRIPTION =
-  'UI component allows the user to enter text using standard input sources';
 export const INPUT_CODE = `/*Input params */
 @Input() label = '';
 @Input() disabled = false;

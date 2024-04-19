@@ -1,10 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import {
-  ACCORDION_CODE,
-  ACCORDION_DESCRIPTION,
-  ACCORDION_TITLE,
-} from './accordion';
+import { ACCORDION_CODE, ACCORDION_TITLE } from './accordion';
 import { TInput, TOutput } from '../../models/doc-data';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-accordion-doc',
@@ -13,8 +10,9 @@ import { TInput, TOutput } from '../../models/doc-data';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AccordionDocComponent {
+  constructor(private translationService: TranslationService) {}
   title = ACCORDION_TITLE;
-  description = ACCORDION_DESCRIPTION;
+  description = this.translationService.translate('docs.accordion.description');
   code = ACCORDION_CODE;
 
   inputs: TInput[] = [
@@ -22,7 +20,7 @@ export class AccordionDocComponent {
       name: 'label',
       type: 'string',
       defaultValue: "' '",
-      descr: 'Property allows to set a title for the entire component',
+      descr: this.translationService.translate('docs.accordion.label'),
     },
   ];
 
@@ -30,8 +28,9 @@ export class AccordionDocComponent {
     {
       name: 'onItemVisibilityChange',
       returnType: 'string',
-      descr:
-        'Property emits an event when a component element changes its visibility. Returns the label of the element that changed visibility',
+      descr: this.translationService.translate(
+        'docs.accordion.onItemVisibilityChange'
+      ),
     },
   ];
 }

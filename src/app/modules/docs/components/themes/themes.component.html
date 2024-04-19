@@ -3,29 +3,32 @@
   <div class="component-doc__description">{{ description }}</div>
 
   <div class="component-doc__section">
-    <div class="component-doc__section-title">Import styles</div>
-    <div class="component-doc__section-description">
-      Import themes.scss file into your global style file:
-    </div>
+    <div class="component-doc__section-title" [innerHTML]="importTitle"></div>
+    <div
+      class="component-doc__section-description"
+      [innerHTML]="importDescr"></div>
     <app-code [code]="styleImportCode" [lang]="'css'"></app-code>
   </div>
 
   <div class="component-doc__section">
-    <div class="component-doc__section-title">Adding providers</div>
-    <div class="component-doc__section-description">
-      Add theme provider into AppModule in your applection
-    </div>
+    <div
+      class="component-doc__section-title"
+      [innerHTML]="providersTitle"></div>
+    <div
+      class="component-doc__section-description"
+      [innerHTML]="providersDescr1"></div>
     <app-code [code]="providerCode"></app-code>
-    <div class="component-doc__section-description">ThemeConfig has type:</div>
+    <div
+      class="component-doc__section-description"
+      [innerHTML]="providersDescr2"></div>
     <app-code [code]="themeConfig"></app-code>
   </div>
 
   <div class="component-doc__section">
-    <div class="component-doc__section-title">Custom theme</div>
-    <div class="component-doc__section-description">
-      You can also provide custom colors for UI components. Add this CSS code to
-      your global styles file:
-    </div>
+    <div class="component-doc__section-title" [innerHTML]="customTitle"></div>
+    <div
+      class="component-doc__section-description"
+      [innerHTML]="customDescr"></div>
     <app-code [code]="customColorsCode" [lang]="'css'"></app-code>
   </div>
 </div>

@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TInput, TOutput } from '../../models/doc-data';
-import { LIST_TITLE, LIST_DESCRIPTION, LIST_CODE } from './list';
+import { LIST_TITLE, LIST_CODE } from './list';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-list-doc',
@@ -9,8 +10,9 @@ import { LIST_TITLE, LIST_DESCRIPTION, LIST_CODE } from './list';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ListDocComponent {
+  constructor(private translationService: TranslationService) {}
   title = LIST_TITLE;
-  description = LIST_DESCRIPTION;
+  description = this.translationService.translate('docs.list.description');
   code = LIST_CODE;
 
   inputs: TInput[] = [
@@ -18,25 +20,25 @@ export class ListDocComponent {
       name: 'label',
       type: 'string',
       defaultValue: "' '",
-      descr: 'Property allows to set a label for the list',
+      descr: this.translationService.translate('docs.list.label'),
     },
     {
       name: 'items',
       type: 'any[]',
       defaultValue: '[]',
-      descr: 'Property allows to set data for the list',
+      descr: this.translationService.translate('docs.list.items'),
     },
     {
       name: 'isNumbered',
       type: 'boolean',
       defaultValue: 'false',
-      descr: 'Property allows to enable numbered list',
+      descr: this.translationService.translate('docs.list.isNumbered'),
     },
     {
       name: 'accessor',
       type: '(item: any) => any',
       defaultValue: '(item: any) => item',
-      descr: 'Property allows to set accessor function for list data',
+      descr: this.translationService.translate('docs.list.accessor'),
     },
   ];
 

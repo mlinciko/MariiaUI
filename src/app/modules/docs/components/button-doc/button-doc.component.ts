@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TInput, TOutput } from '../../models/doc-data';
-import { BUTTON_TITLE, BUTTON_DESCRIPTION, BUTON_CODE } from './button';
+import { BUTTON_TITLE, BUTON_CODE } from './button';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-button-doc',
@@ -9,8 +10,9 @@ import { BUTTON_TITLE, BUTTON_DESCRIPTION, BUTON_CODE } from './button';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonDocComponent {
+  constructor(private translationService: TranslationService) {}
   title = BUTTON_TITLE;
-  description = BUTTON_DESCRIPTION;
+  description = this.translationService.translate('docs.button.description');
   code = BUTON_CODE;
 
   inputs: TInput[] = [
@@ -18,19 +20,19 @@ export class ButtonDocComponent {
       name: 'label',
       type: 'string',
       defaultValue: "' '",
-      descr: 'Property allows to set a title for the button',
+      descr: this.translationService.translate('docs.button.label'),
     },
     {
       name: 'type',
       type: '<a href="/docs/data-types">ButtonTypeEnum</a>',
       defaultValue: 'ButtonTypeEnum.Default',
-      descr: 'Property allows to set type for the button from enum',
+      descr: this.translationService.translate('docs.button.type'),
     },
     {
       name: 'disabled',
       type: 'boolean',
       defaultValue: 'false',
-      descr: 'Property allows to set disabled state for the button',
+      descr: this.translationService.translate('docs.button.disabled'),
     },
   ];
 
@@ -39,7 +41,7 @@ export class ButtonDocComponent {
       name: 'onClick',
       returnType:
         '<a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a>',
-      descr: 'Property emits an event when the button is clicked',
+      descr: this.translationService.translate('docs.button.onClick'),
     },
   ];
 }

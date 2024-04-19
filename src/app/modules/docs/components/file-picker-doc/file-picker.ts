@@ -1,6 +1,4 @@
 export const FILE_PICKER_TITLE = 'FilePicker';
-export const FILE_PICKER_DESCRIPTION =
-  'UI component allows the user to select files from their local device';
 export const FILE_PICKER_CODE = `/*Input params */
 @Input() label = '';
 @Input() buttonLabel = '';

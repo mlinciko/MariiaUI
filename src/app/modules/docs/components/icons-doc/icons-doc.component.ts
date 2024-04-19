@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TInput, TOutput } from '../../models/doc-data';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-icons-doc',
@@ -8,9 +9,9 @@ import { TInput, TOutput } from '../../models/doc-data';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IconsDocComponent {
-  title = 'Icons';
-  description =
-    'Icons are visual elements that can be used to complement a user interface';
+  constructor(private translationService: TranslationService) {}
+  title = this.translationService.translate('docs.icons.title');
+  description = this.translationService.translate('docs.icons.description');
   code = `/*Input params */
 @Input() color = '#cecece';
 @Input() width = '18px';
@@ -21,19 +22,19 @@ export class IconsDocComponent {
       name: 'color',
       type: 'string',
       defaultValue: '#cecece',
-      descr: 'Property allows to set color of icon',
+      descr: this.translationService.translate('docs.icons.inputs.color'),
     },
     {
       name: 'width',
       type: 'string',
       defaultValue: '18px',
-      descr: 'Property allows to set width of icon',
+      descr: this.translationService.translate('docs.icons.inputs.width'),
     },
     {
       name: 'height',
       type: 'string',
       defaultValue: '18px',
-      descr: 'Property allows to set height of icon',
+      descr: this.translationService.translate('docs.icons.inputs.height'),
     },
   ];
   outputs: TOutput[] = [];

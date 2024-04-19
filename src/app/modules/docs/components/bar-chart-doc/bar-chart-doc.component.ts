@@ -1,10 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TInput, TOutput } from '../../models/doc-data';
-import {
-  BAR_CHART_TITLE,
-  BAR_CHART_DESCRIPTION,
-  BAR_CHART_CODE,
-} from './bar-chart';
+import { BAR_CHART_TITLE, BAR_CHART_CODE } from './bar-chart';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-bar-chart-doc',
@@ -13,8 +10,9 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BarChartDocComponent {
+  constructor(private translationService: TranslationService) {}
   title = BAR_CHART_TITLE;
-  description = BAR_CHART_DESCRIPTION;
+  description = this.translationService.translate('docs.barChart.description');
   code = BAR_CHART_CODE;
 
   inputs: TInput[] = [
@@ -22,37 +20,37 @@ export class BarChartDocComponent {
       name: 'label',
       type: 'string',
       defaultValue: "' '",
-      descr: 'Property allows to set a label for the chart',
+      descr: this.translationService.translate('docs.barChart.label'),
     },
     {
       name: 'barColor',
       type: 'string',
       defaultValue: '#F05454',
-      descr: 'Property allows to set a color of the bars for the chart',
+      descr: this.translationService.translate('docs.barChart.barColor'),
     },
     {
       name: 'series',
       type: `<a href="/docs/data-types">TBarChartSeries</a>[]`,
       defaultValue: '[]',
-      descr: 'Property allows to set data for the chart',
+      descr: this.translationService.translate('docs.barChart.series'),
     },
     {
       name: 'showGrid',
       type: 'boolean',
       defaultValue: 'false',
-      descr: 'Property allows to enable grid for the chart',
+      descr: this.translationService.translate('docs.barChart.showGrid'),
     },
     {
       name: 'width',
       type: 'number',
       defaultValue: '800',
-      descr: 'Property allows to set width of the chart',
+      descr: this.translationService.translate('docs.barChart.width'),
     },
     {
       name: 'height',
       type: 'number',
       defaultValue: '400',
-      descr: 'Property allows to set height of the chart',
+      descr: this.translationService.translate('docs.barChart.height'),
     },
   ];
 
@@ -60,14 +58,12 @@ export class BarChartDocComponent {
     {
       name: 'onBarMouseover',
       returnType: `<a href="/docs/data-types">TBarChartMouseEvent</a>`,
-      descr:
-        'Property emits a new value when the mouse hovers over a chart column',
+      descr: this.translationService.translate('docs.barChart.onBarMouseover'),
     },
     {
       name: 'onBarMouseout',
       returnType: `<a href="/docs/data-types">TBarChartMouseEvent</a>`,
-      descr:
-        'Property emits a new value when the mouse cursor moves away from a chart column',
+      descr: this.translationService.translate('docs.barChart.onBarMouseout'),
     },
   ];
 }

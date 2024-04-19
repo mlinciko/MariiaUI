@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TInput, TOutput } from '../../models/doc-data';
-import { TAB_TITLE, TAB_DESCRIPTION, TAB_CODE } from './tab';
+import { TAB_TITLE, TAB_CODE } from './tab';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-tab-doc',
@@ -9,8 +10,9 @@ import { TAB_TITLE, TAB_DESCRIPTION, TAB_CODE } from './tab';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TabDocComponent {
+  constructor(private translationService: TranslationService) {}
   title = TAB_TITLE;
-  description = TAB_DESCRIPTION;
+  description = this.translationService.translate('docs.tab.description');
   code = TAB_CODE;
 
   inputs: TInput[] = [
@@ -18,19 +20,19 @@ export class TabDocComponent {
       name: 'label',
       type: 'string',
       defaultValue: "' '",
-      descr: 'Property allows to set a label for the tab component',
+      descr: this.translationService.translate('docs.tab.label'),
     },
     {
       name: 'isActive',
       type: 'boolean',
       defaultValue: 'false',
-      descr: 'Property allows to set active state for the tab component',
+      descr: this.translationService.translate('docs.tab.isActive'),
     },
     {
       name: 'id',
       type: 'string | number | null',
       defaultValue: 'null',
-      descr: 'Property allows to set id for the tab component',
+      descr: this.translationService.translate('docs.tab.id'),
     },
   ];
 

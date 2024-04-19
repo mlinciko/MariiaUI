@@ -1,6 +1,4 @@
 export const POPUP_TITLE = 'Popup';
-export const POPUP_DESCRIPTION =
-  'UI component is a small pop-up window that appears on top of the main interface content. Component can have confirmation/cancel buttons';
 export const POPUP_CODE = `/*Input params */
 @Input() title = '';
 @Input() buttons: TPopupButton[] = [];

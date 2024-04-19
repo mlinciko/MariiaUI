@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-translation',
@@ -7,9 +8,42 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TranslationComponent {
-  title = 'Translation';
-  description =
-    'This section is dedicated to the ability to add translations for error texts/headings, etc. to the library';
+  constructor(private translationService: TranslationService) {}
+  title = this.translationService.translate('docs.translation.title');
+  description = this.translationService.translate(
+    'docs.translation.description'
+  );
+
+  settingTitle = this.translationService.translate(
+    'docs.translation.setting.title'
+  );
+  settingDescr1 = this.translationService.translate(
+    'docs.translation.setting.description1'
+  );
+  settingDescr2 = this.translationService.translate(
+    'docs.translation.setting.description2'
+  );
+
+  paramsTitle = this.translationService.translate(
+    'docs.translation.params.title'
+  );
+  paramsDescr1 = this.translationService.translate(
+    'docs.translation.params.description1'
+  );
+  paramsDescr2 = this.translationService.translate(
+    'docs.translation.params.description2'
+  );
+
+  providersTitle = this.translationService.translate(
+    'docs.translation.providers.title'
+  );
+  providersDescr1 = this.translationService.translate(
+    'docs.translation.providers.description1'
+  );
+  providersDescr2 = this.translationService.translate(
+    'docs.translation.providers.description2'
+  );
+
   oldTranslationsCode = `{
     "calendar": {
       "months": {

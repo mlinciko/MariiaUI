@@ -1,10 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TInput, TOutput } from '../../models/doc-data';
-import {
-  RADIO_GROUP_TITLE,
-  RADIO_GROUP_DESCRIPTION,
-  RADIO_GROUP_CODE,
-} from './radio-group';
+import { RADIO_GROUP_TITLE, RADIO_GROUP_CODE } from './radio-group';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-radio-group-doc',
@@ -13,8 +10,11 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RadioGroupDocComponent {
+  constructor(private translationService: TranslationService) {}
   title = RADIO_GROUP_TITLE;
-  description = RADIO_GROUP_DESCRIPTION;
+  description = this.translationService.translate(
+    'docs.radioGroup.description'
+  );
   code = RADIO_GROUP_CODE;
 
   inputs: TInput[] = [
@@ -22,28 +22,25 @@ export class RadioGroupDocComponent {
       name: 'label',
       type: 'string',
       defaultValue: "' '",
-      descr: 'Property allows to set a label for the radio-group component',
+      descr: this.translationService.translate('docs.radioGroup.label'),
     },
     {
       name: 'disabled',
       type: 'boolean',
       defaultValue: 'false',
-      descr:
-        'Property allows to set disabled state for the radio-group component',
+      descr: this.translationService.translate('docs.radioGroup.disabled'),
     },
     {
       name: 'readOnly',
       type: 'boolean',
       defaultValue: 'false',
-      descr:
-        'Property allows to set readOnly state for the radio-group component',
+      descr: this.translationService.translate('docs.radioGroup.readOnly'),
     },
     {
       name: 'visible',
       type: 'boolean',
       defaultValue: 'true',
-      descr:
-        'Property allows to set visiblity state for the radio-group component',
+      descr: this.translationService.translate('docs.radioGroup.visible'),
     },
   ];
 
@@ -51,8 +48,7 @@ export class RadioGroupDocComponent {
     {
       name: 'onChange',
       returnType: `string | null`,
-      descr:
-        'Property emits a new value when radio-group selected element changed',
+      descr: this.translationService.translate('docs.radioGroup.onChange'),
     },
   ];
 }

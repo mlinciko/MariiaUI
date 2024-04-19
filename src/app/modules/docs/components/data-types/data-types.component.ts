@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-data-types',
@@ -7,6 +8,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DataTypesComponent {
+  constructor(private translationService: TranslationService) {}
+  title = this.translationService.translate('docs.dataTypes.title');
+  description = this.translationService.translate('docs.dataTypes.description');
   types: { name: string; code: string }[] = [
     {
       name: 'TBarChartSeries',

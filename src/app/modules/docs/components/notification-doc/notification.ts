@@ -1,5 +1,4 @@
-export const NOTIFICATION_TITLE = '';
-export const NOTIFICATION_DESCRIPTION = '';
+export const NOTIFICATION_TITLE = 'Notification';
 export const NOTIFICATION_CODE = `/*Input params */
 @Input() message = '';
 @Input() duration = 2000;

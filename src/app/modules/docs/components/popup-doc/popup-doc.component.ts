@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TInput, TOutput } from '../../models/doc-data';
-import { POPUP_TITLE, POPUP_DESCRIPTION, POPUP_CODE } from './popup';
+import { POPUP_TITLE, POPUP_CODE } from './popup';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-popup-doc',
@@ -9,8 +10,9 @@ import { POPUP_TITLE, POPUP_DESCRIPTION, POPUP_CODE } from './popup';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PopupDocComponent {
+  constructor(private translationService: TranslationService) {}
   title = POPUP_TITLE;
-  description = POPUP_DESCRIPTION;
+  description = this.translationService.translate('docs.popup.description');
   code = POPUP_CODE;
 
   inputs: TInput[] = [
@@ -18,50 +20,49 @@ export class PopupDocComponent {
       name: 'title',
       type: 'string',
       defaultValue: "' '",
-      descr: 'Property allows to set a header title for the popup',
+      descr: this.translationService.translate('docs.popup.title'),
     },
     {
       name: 'buttons',
       type: '<a href="/docs/data-types">TPopupButton</a>[]',
       defaultValue: '[]',
-      descr: 'Property allows to set buttons for the popup component',
+      descr: this.translationService.translate('docs.popup.buttons'),
     },
     {
       name: 'showCloseBtn',
       type: 'boolean',
       defaultValue: 'true',
-      descr: 'Property allows to enable close button for the popup component',
+      descr: this.translationService.translate('docs.popup.showCloseBtn'),
     },
     {
       name: 'visible',
       type: 'boolean',
       defaultValue: 'false',
-      descr:
-        'Property allows to enable visibility status for the popup component',
+      descr: this.translationService.translate('docs.popup.visible'),
     },
     {
       name: 'width',
       type: 'number',
       defaultValue: '400',
-      descr: 'Property allows to set width in pixels of the popup component',
+      descr: this.translationService.translate('docs.popup.width'),
     },
     {
       name: 'height',
       type: 'number',
       defaultValue: '200',
-      descr: 'Property allows to set height in pixels of the popup component',
+      descr: this.translationService.translate('docs.popup.height'),
     },
     {
       name: 'top',
       type: 'number',
       defaultValue: '40',
-      descr: 'Property allows to set top in percent of the popup component',
+      descr: this.translationService.translate('docs.popup.top'),
     },
     {
       name: 'left',
       type: 'number',
       defaultValue: '38',
-      descr: 'Property allows to set left in percent of the popup component',
+      descr: this.translationService.translate('docs.popup.left'),
     },
   ];
 
@@ -69,14 +70,12 @@ export class PopupDocComponent {
     {
       name: 'onPopupClose',
       returnType: `void`,
-      descr:
-        "Property emits a new value when the popup component's close button is clicked",
+      descr: this.translationService.translate('docs.popup.onPopupClose'),
     },
     {
       name: 'visibleChange',
       returnType: `boolean`,
-      descr:
-        'Property emits a new value when visible input of the component changes',
+      descr: this.translationService.translate('docs.popup.visibleChange'),
     },
   ];
 }

@@ -1,6 +1,4 @@
 export const NUMBERBOX_TITLE = 'Numberbox';
-export const NUMBERBOX_DESCRIPTION =
-  'UI component allows to enter numbers using standard input sources';
 export const NUMBERBOX_CODE = `/*Input params */
 @Input() label = '';
 @Input() disabled = false;

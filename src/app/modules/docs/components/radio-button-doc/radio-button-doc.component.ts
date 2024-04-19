@@ -1,10 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TInput, TOutput } from '../../models/doc-data';
-import {
-  RADIO_BUTTON_TITLE,
-  RADIO_BUTTON_DESCRIPTION,
-  RADIO_BUTTON_CODE,
-} from './radio-button';
+import { RADIO_BUTTON_TITLE, RADIO_BUTTON_CODE } from './radio-button';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-radio-button-doc',
@@ -13,8 +10,11 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RadioButtonDocComponent {
+  constructor(private translationService: TranslationService) {}
   title = RADIO_BUTTON_TITLE;
-  description = RADIO_BUTTON_DESCRIPTION;
+  description = this.translationService.translate(
+    'docs.radioButton.description'
+  );
   code = RADIO_BUTTON_CODE;
 
   inputs: TInput[] = [
@@ -22,14 +22,13 @@ export class RadioButtonDocComponent {
       name: 'label',
       type: 'string',
       defaultValue: "' '",
-      descr: 'Property allows to set a label for the radio-button component',
+      descr: this.translationService.translate('docs.radioButton.label'),
     },
     {
       name: 'isChecked',
       type: 'boolean',
       defaultValue: 'false',
-      descr:
-        'Property allows to set checked state for the radio-button component',
+      descr: this.translationService.translate('docs.radioButton.isChecked'),
     },
   ];
 
@@ -37,8 +36,7 @@ export class RadioButtonDocComponent {
     {
       name: 'onChange',
       returnType: `void`,
-      descr:
-        'Property emits a new event when radio-button checked status changes',
+      descr: this.translationService.translate('docs.radioButton.onChange'),
     },
   ];
 }

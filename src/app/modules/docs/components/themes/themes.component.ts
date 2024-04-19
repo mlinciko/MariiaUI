@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-themes',
@@ -7,8 +8,30 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ThemesComponent {
-  title = 'Themes';
-  description = "This section describes the library's ability to select themes";
+  constructor(private translationService: TranslationService) {}
+  title = this.translationService.translate('docs.themes.title');
+  description = this.translationService.translate('docs.themes.description');
+
+  importTitle = this.translationService.translate('docs.themes.import.title');
+  importDescr = this.translationService.translate(
+    'docs.themes.import.description'
+  );
+
+  providersTitle = this.translationService.translate(
+    'docs.themes.providers.title'
+  );
+  providersDescr1 = this.translationService.translate(
+    'docs.themes.providers.description1'
+  );
+  providersDescr2 = this.translationService.translate(
+    'docs.themes.providers.description2'
+  );
+
+  customTitle = this.translationService.translate('docs.themes.custom.title');
+  customDescr = this.translationService.translate(
+    'docs.themes.custom.description'
+  );
+
   styleImportCode = `@import url(../node_modules/mariia-ui/src/lib/styles/themes.scss);`;
   providerCode = `import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';

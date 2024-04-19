@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TInput, TOutput } from '../../models/doc-data';
-import { SPINNER_TITLE, SPINNER_DESCRIPTION, SPINNER_CODE } from './spinner';
+import { SPINNER_TITLE, SPINNER_CODE } from './spinner';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-spinner-doc',
@@ -9,8 +10,9 @@ import { SPINNER_TITLE, SPINNER_DESCRIPTION, SPINNER_CODE } from './spinner';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SpinnerDocComponent {
+  constructor(private translationService: TranslationService) {}
   title = SPINNER_TITLE;
-  description = SPINNER_DESCRIPTION;
+  description = this.translationService.translate('docs.spinner.description');
   code = SPINNER_CODE;
 
   inputs: TInput[] = [
@@ -18,32 +20,31 @@ export class SpinnerDocComponent {
       name: 'visible',
       type: 'boolean',
       defaultValue: 'false',
-      descr:
-        'Property allows to set visibility state for the spinner component',
+      descr: this.translationService.translate('docs.spinner.visible'),
     },
     {
       name: 'color',
       type: 'string',
       defaultValue: '#cecece',
-      descr: 'Property allows to set color for the spinner component',
+      descr: this.translationService.translate('docs.spinner.color'),
     },
     {
       name: 'width',
       type: 'string',
       defaultValue: '18px',
-      descr: 'Property allows to set width for the spinner component',
+      descr: this.translationService.translate('docs.spinner.width'),
     },
     {
       name: 'height',
       type: 'string',
       defaultValue: '18px',
-      descr: 'Property allows to set height for the spinner component',
+      descr: this.translationService.translate('docs.spinner.height'),
     },
     {
       name: 'mode',
       type: '<a href="/docs/data-types">TSpinnerMode</a>',
       defaultValue: 'line',
-      descr: 'Property allows to set mode for the spinner component',
+      descr: this.translationService.translate('docs.spinner.mode'),
     },
   ];
 

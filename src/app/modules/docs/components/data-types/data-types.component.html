@@ -1,8 +1,13 @@
-<div class="data-types">
-  <div *ngFor="let type of types" class="data-type">
-    <div class="data-type__name">{{ type.name }}</div>
-    <div class="data-type__code">
-      <app-code [code]="type.code"></app-code>
+<div class="component-doc">
+  <div class="component-doc__title">{{ title }}</div>
+  <div class="component-doc__description">{{ description }}</div>
+
+  <div class="data-types">
+    <div *ngFor="let type of types" class="data-type">
+      <div class="data-type__name">{{ type.name }}</div>
+      <div class="data-type__code">
+        <app-code [code]="type.code"></app-code>
+      </div>
     </div>
   </div>
 </div>

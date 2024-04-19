@@ -1,10 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import {
-  ACCORDION_ITEM_CODE,
-  ACCORDION_ITEM_DESCRIPTION,
-  ACCORDION_TITLE,
-} from './accordion-item';
+import { ACCORDION_ITEM_CODE, ACCORDION_TITLE } from './accordion-item';
 import { TInput, TOutput } from '../../models/doc-data';
+import { TranslationService } from 'src/app/services/translation.service';
 
 @Component({
   selector: 'app-accordion-item-doc',
@@ -13,8 +10,11 @@ import { TInput, TOutput } from '../../models/doc-data';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AccordionItemDocComponent {
+  constructor(private translationService: TranslationService) {}
   title = ACCORDION_TITLE;
-  description = ACCORDION_ITEM_DESCRIPTION;
+  description = this.translationService.translate(
+    'docs.accordionItem.description'
+  );
   code = ACCORDION_ITEM_CODE;
 
   inputs: TInput[] = [
@@ -22,15 +22,13 @@ export class AccordionItemDocComponent {
       name: 'label',
       type: 'string',
       defaultValue: "' '",
-      descr:
-        'Property allows to set a label for one element of the Accordion component',
+      descr: this.translationService.translate('docs.accordionItem.label'),
     },
     {
       name: 'isExpanded',
       type: 'boolean',
       defaultValue: 'false',
-      descr:
-        'Property allows to specify whether an element is expanded by default or not',
+      descr: this.translationService.translate('docs.accordionItem.isExpanded'),
     },
   ];
 
@@ -38,7 +36,7 @@ export class AccordionItemDocComponent {
     {
       name: 'onChange',
       returnType: 'void',
-      descr: "Property emits an event when the element's title is clicked",
+      descr: this.translationService.translate('docs.accordionItem.onChange'),
     },
   ];
 }
