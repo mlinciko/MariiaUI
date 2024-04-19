@@ -11,7 +11,7 @@ import { INITIAL_SORTING, TColumn, TSorting } from '../table';
 @Component({
   selector: 'mui-header-sorting',
   templateUrl: './header-sorting.component.html',
-  styleUrls: ['./header-sorting.component.css'],
+  styleUrls: ['./header-sorting.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderSortingComponent {

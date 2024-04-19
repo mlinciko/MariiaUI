@@ -50,8 +50,9 @@
         padding: 4px 10px;
         border-radius: 20px;
 
-        .menu-item-title {
+        .menu-item-title, .menu-item-title a {
           color: #fff;
+          text-decoration: none;
         }
 
         img {

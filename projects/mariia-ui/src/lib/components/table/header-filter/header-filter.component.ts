@@ -17,7 +17,7 @@ import { FormControl } from '@angular/forms';
 @Component({
   selector: 'mui-header-filter',
   templateUrl: './header-filter.component.html',
-  styleUrls: ['./header-filter.component.css'],
+  styleUrls: ['./header-filter.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderFilterComponent implements OnInit {

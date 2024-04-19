@@ -23,7 +23,7 @@ const DEFAULT_VALUE = null;
 @Component({
   selector: 'mui-dropdown',
   templateUrl: './dropdown.component.html',
-  styleUrls: ['./dropdown.component.css'],
+  styleUrls: ['./dropdown.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {

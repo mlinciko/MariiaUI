@@ -24,7 +24,7 @@ const DEFAULT_VALUE = null;
 @Component({
   selector: 'mui-lookup',
   templateUrl: './lookup.component.html',
-  styleUrls: ['./lookup.component.css'],
+  styleUrls: ['./lookup.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {

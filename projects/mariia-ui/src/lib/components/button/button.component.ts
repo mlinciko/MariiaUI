@@ -11,7 +11,7 @@ import { ButtonTypeEnum } from './button';
 @Component({
   selector: 'mui-button',
   templateUrl: './button.component.html',
-  styleUrls: ['./button.component.css'],
+  styleUrls: ['./button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent {

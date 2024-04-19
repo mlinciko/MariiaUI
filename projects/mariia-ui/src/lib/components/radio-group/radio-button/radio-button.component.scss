@@ -1,0 +1,40 @@
+@import '../../../styles/font-style.scss';
+@import '../../../styles/themes.scss';
+
+.mui__radio-option {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 3px;
+  margin-bottom: 2px;
+  color: var(--label-color);
+  border-radius: 6px;
+}
+
+.mui__radio-option-circle {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+}
+
+.mui__radio-option-circle:hover {
+  border-color: var(--primary-color);
+}
+
+.mui__radio-option-circle.checked {
+  border-color: var(--primary-color);
+}
+
+.mui__radio-option-circle.checked::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+}

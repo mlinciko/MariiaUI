@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  OnDestroy,
-  OnInit,
-} from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NotificationService } from '../../services/notification/notification.service';
 import { NotificationTypeEnum, TNotification } from './notification';
 import { Subject, takeUntil, tap } from 'rxjs';
@@ -11,7 +6,7 @@ import { Subject, takeUntil, tap } from 'rxjs';
 @Component({
   selector: 'mui-notification',
   templateUrl: './notification.component.html',
-  styleUrls: ['./notification.component.css'],
+  styleUrls: ['./notification.component.scss'],
 })
 export class NotificationComponent implements OnInit, OnDestroy {
   notifications: TNotification[] = [];

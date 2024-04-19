@@ -2,6 +2,13 @@
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../dist/mariia-ui",
   "lib": {
-    "entryFile": "src/public-api.ts"
-  }
+    "entryFile": "src/public-api.ts",
+    "styleIncludePaths": [
+      "src/lib/styles/themes.scss"
+    ]
+  },
+  "assets": [
+    "src/lib/styles/themes.scss",
+    "src/lib/**/*.scss"
+  ]
 }

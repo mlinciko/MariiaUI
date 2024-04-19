@@ -16,7 +16,7 @@ import { Subject, takeUntil } from 'rxjs';
 @Component({
   selector: 'mui-accordion',
   templateUrl: './accordion.component.html',
-  styleUrls: ['./accordion.component.css'],
+  styleUrls: ['./accordion.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AccordionComponent implements AfterContentInit, OnDestroy {

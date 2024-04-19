@@ -17,7 +17,7 @@ import {
 @Component({
   selector: 'mui-checkbox',
   templateUrl: './checkbox.component.html',
-  styleUrls: ['./checkbox.component.css'],
+  styleUrls: ['./checkbox.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {

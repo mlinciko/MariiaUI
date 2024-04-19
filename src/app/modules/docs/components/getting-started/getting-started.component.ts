@@ -33,4 +33,5 @@ export class GettingStartedComponent {
 	[label]="'Click'"
 	[type]="ButtonTypeEnum.Default"
 	(onClick)="handleBtnClick($event)"></mui-button>`;
+  styleImportCode = `@import url(../node_modules/mariia-ui/src/lib/styles/themes.scss);`;
 }

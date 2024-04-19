@@ -10,7 +10,7 @@ import {
 @Component({
   selector: 'mui-accordion-item',
   templateUrl: './accordion-item.component.html',
-  styleUrls: ['./accordion-item.component.css'],
+  styleUrls: ['./accordion-item.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AccordionItemComponent {

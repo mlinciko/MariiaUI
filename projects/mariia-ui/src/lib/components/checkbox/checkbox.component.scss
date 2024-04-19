@@ -1,0 +1,52 @@
+@import '../../styles/font-style.scss';
+@import '../../styles/error-style.scss';
+@import '../../styles/themes.scss';
+
+.mui__container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 26px;
+  cursor: pointer;
+  user-select: none;
+  padding: 2px;
+  border-radius: 6px;
+}
+
+.mui__label {
+  color: var(--label-color);
+}
+
+.mui__checkbox {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.mui__checkbox:hover {
+  border-color: var(--primary-color);
+}
+
+.mui__checkbox.checked {
+  border-color: var(--primary-color);
+}
+
+/* Disabled */
+.mui__container.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Readonly */
+.mui__container.readonly {
+  pointer-events: none;
+}
+
+:host ::ng-deep {
+  .mui__checkbox path {
+    fill: var(--primary-color) !important;
+  }
+}

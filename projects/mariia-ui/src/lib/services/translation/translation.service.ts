@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { DEFAULT_LANG } from '../../mariia-ui.module';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of, tap } from 'rxjs';
 import { DEFAULT_TRANSLATIONS } from './translation';
+import { DEFAULT_LANG } from '../../config/translation-injectors';
 
 @Injectable({
   providedIn: 'root',

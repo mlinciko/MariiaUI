@@ -14,7 +14,7 @@ import { TabComponent } from './tab/tab.component';
 @Component({
   selector: 'mui-tabs',
   templateUrl: './tabs.component.html',
-  styleUrls: ['./tabs.component.css'],
+  styleUrls: ['./tabs.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TabsComponent implements AfterContentInit {

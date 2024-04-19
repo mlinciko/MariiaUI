@@ -1,0 +1,32 @@
+@import '../../styles/font-style.scss';
+@import '../../styles/error-style.scss';
+@import '../../styles/field-style.scss';
+@import '../../styles/themes.scss';
+
+/* Стили для самого ввода */
+.mui__container input[type="text"] {
+  width: 100%;
+  padding: 4px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Стили для элемента ввода при фокусировке */
+.mui__container input[type="text"]:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+/* Стили для элемента ввода при наведении */
+.mui__container input[type="text"]:hover {
+  border-color: var(--primary-color);
+}
+
+/* Стили для элемента ввода при активации */
+.mui__container input[type="text"]:active {
+  border-color: var(--primary-color);
+}

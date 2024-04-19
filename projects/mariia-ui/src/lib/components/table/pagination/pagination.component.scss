@@ -1,0 +1,47 @@
+@import '../../../styles/themes.scss';
+
+.mui__pagination {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.mui__pagination-page-sizes {
+  display: flex;
+  gap: 10px;
+}
+
+.mui__pagination-page-size {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  line-height: 30px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.mui__pagination-page-size.active {
+  background-color: var(--primary-color);
+  color: var(--active-text-color);
+}
+
+.mui__pagination-pages-btn {
+  cursor: pointer;
+}
+
+.mui__pagination-pages-btn.disabled {
+  pointer-events: none;
+  opacity:0.4;
+}
+
+.mui__pagination-pages {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+:host ::ng-deep {
+  .mui__pagination-pages-btn:hover path {
+    fill: var(--primary-color)!important;
+  }
+}

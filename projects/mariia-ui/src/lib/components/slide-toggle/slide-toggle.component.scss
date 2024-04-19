@@ -1,0 +1,37 @@
+@import '../../styles/font-style.scss';
+@import '../../styles/field-style.scss';
+@import '../../styles/error-style.scss';
+@import '../../styles/themes.scss';
+
+.mui__slide-toggle {
+  padding-top: 6px;
+  cursor: pointer;
+}
+
+.mui__slide-toggle-line {
+  position: relative;
+  width: 60px;
+  height: 10px;
+  background-color: var(--secondary-color);
+  border-radius: 6px;
+}
+
+.mui__slide-toggle.checked .mui__slide-toggle-line {
+  background-color: var(--hover-color);
+}
+
+.mui__slide-toggle-circle {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: -5px;
+  left: 0;
+  background-color: var(--icon-color);
+  border-radius: 50%;
+  transition: .3s;
+}
+
+.mui__slide-toggle.checked .mui__slide-toggle-circle {
+  background-color: var(--primary-color);
+  transform: translate(40px, 0);
+}

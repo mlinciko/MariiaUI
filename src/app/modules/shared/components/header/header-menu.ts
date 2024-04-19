@@ -8,8 +8,9 @@ export const MENU_ITEMS = [
     title: 'Docs',
   },
   {
-    route: 'blog',
+    route: null,
     title: 'Blog',
+    link: 'https://github.com/mlinciko/UILib/issues',
     image: '/assets/github-logo.png',
   },
 ];

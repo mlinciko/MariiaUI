@@ -1,0 +1,36 @@
+@import '../../styles/font-style.scss';
+@import '../../styles//themes.scss';
+
+.mui__notifications {
+  position: absolute;
+  bottom: 0;
+  left: 42%;
+}
+
+.mui__notification {
+  padding: 15px 30px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.mui__notification.default {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+.mui__notification.warning {
+  color: #F9813A;
+  background-color: #FCF1F1;
+}
+
+.mui__notification.error {
+  background-color: #AF2D2D;
+  color: #fff;
+}
+
+.mui__notification.success {
+  color: #1d5628;
+  background-color: #9FC452;
+}

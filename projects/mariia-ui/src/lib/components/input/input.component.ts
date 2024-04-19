@@ -21,7 +21,7 @@ const DEFAULT_VALUE = '';
 @Component({
   selector: 'mui-input',
   templateUrl: './input.component.html',
-  styleUrls: ['./input.component.css'],
+  styleUrls: ['./input.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {

@@ -28,7 +28,7 @@ import { TranslationService } from '../../services/translation/translation.servi
 @Component({
   selector: 'mui-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css'],
+  styleUrls: ['./table.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TableComponent implements OnInit {

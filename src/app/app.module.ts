@@ -3,14 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {
-  MUI_LANGUAGE,
-  MUI_TRANSLATION_FILE_URL,
-  MariiaUiModule,
-} from '../../projects/mariia-ui/src/lib/mariia-ui.module';
+import { MariiaUiModule } from '../../projects/mariia-ui/src/lib/mariia-ui.module';
 import { HeaderComponent } from './modules/shared/components/header/header.component';
 import { FooterComponent } from './modules/shared/components/footer/footer.component';
 import { HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
+import { MUI_THEME } from 'projects/mariia-ui/src/lib/config/theme-injector';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent],
@@ -33,6 +30,7 @@ import { HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
     //   provide: MUI_TRANSLATION_FILE_URL,
     //   useValue: '/assets/i18n/library/ru.json',
     // },
+    { provide: MUI_THEME, useValue: { type: 'light', color: 'blue' } },
   ],
   bootstrap: [AppComponent],
 })

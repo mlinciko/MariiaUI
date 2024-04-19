@@ -18,7 +18,7 @@ import { Subject } from 'rxjs';
 @Component({
   selector: 'mui-slide-toggle',
   templateUrl: './slide-toggle.component.html',
-  styleUrls: ['./slide-toggle.component.css'],
+  styleUrls: ['./slide-toggle.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {

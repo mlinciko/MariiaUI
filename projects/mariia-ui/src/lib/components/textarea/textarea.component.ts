@@ -21,7 +21,7 @@ const DEFAULT_VALUE = null;
 @Component({
   selector: 'mui-textarea',
   templateUrl: './textarea.component.html',
-  styleUrls: ['./textarea.component.css'],
+  styleUrls: ['./textarea.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {

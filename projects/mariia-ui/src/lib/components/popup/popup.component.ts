@@ -17,7 +17,7 @@ import { TPopupButton } from './popup';
 @Component({
   selector: 'mui-popup',
   templateUrl: './popup.component.html',
-  styleUrls: ['./popup.component.css'],
+  styleUrls: ['./popup.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PopupComponent implements OnChanges {

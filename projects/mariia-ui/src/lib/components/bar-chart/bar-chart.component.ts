@@ -14,7 +14,7 @@ import { TBarChartMouseEvent, TBarChartSeries } from './bar-chart';
 @Component({
   selector: 'mui-bar-chart',
   templateUrl: './bar-chart.component.html',
-  styleUrls: ['./bar-chart.component.css'],
+  styleUrls: ['./bar-chart.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BarChartComponent implements OnInit {

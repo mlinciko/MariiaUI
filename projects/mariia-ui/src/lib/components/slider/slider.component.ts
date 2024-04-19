@@ -15,7 +15,7 @@ import { TNavigationDot } from './slider';
 @Component({
   selector: 'mui-slider',
   templateUrl: './slider.component.html',
-  styleUrls: ['./slider.component.css'],
+  styleUrls: ['./slider.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SliderComponent implements AfterContentInit {

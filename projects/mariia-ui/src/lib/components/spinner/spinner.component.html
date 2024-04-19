@@ -5,11 +5,15 @@
   <ng-container [ngSwitch]="mode">
     <ng-container *ngSwitchCase="'line'">
       <mui-spinner-line-icon
+        [color]="color"
         [width]="width"
         [height]="height"></mui-spinner-line-icon>
     </ng-container>
     <ng-container *ngSwitchCase="'bubbles'">
-      <mui-spinner-icon [width]="width" [height]="height"></mui-spinner-icon>
+      <mui-spinner-icon
+        [color]="color"
+        [width]="width"
+        [height]="height"></mui-spinner-icon>
     </ng-container>
   </ng-container>
 </div>

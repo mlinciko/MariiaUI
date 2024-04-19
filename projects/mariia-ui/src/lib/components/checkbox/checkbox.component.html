@@ -9,7 +9,7 @@
         type="checkbox"
         [formControl]="formControl" />
       <div class="mui__checkbox" [ngClass]="{ checked: checked }">
-        <mui-check-icon *ngIf="checked" [color]="'#113d6a'"></mui-check-icon>
+        <mui-check-icon *ngIf="checked"></mui-check-icon>
       </div>
 
       <div *ngIf="formControl | showError" class="mui__error">

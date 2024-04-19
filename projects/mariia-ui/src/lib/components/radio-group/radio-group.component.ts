@@ -16,7 +16,7 @@ import { Subject, takeUntil } from 'rxjs';
 @Component({
   selector: 'mui-radio-group',
   templateUrl: './radio-group.component.html',
-  styleUrls: ['./radio-group.component.css'],
+  styleUrls: ['./radio-group.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RadioGroupComponent implements AfterContentInit, OnDestroy {

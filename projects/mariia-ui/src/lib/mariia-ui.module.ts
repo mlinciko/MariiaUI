@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, InjectionToken, NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { MariiaUiComponent } from './mariia-ui.component';
 import { InputComponent } from './components/input/input.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -65,28 +65,14 @@ import { PopupComponent } from './components/popup/popup.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TranslationService } from './services/translation/translation.service';
 import { TranslatePipe } from './pipes/translate/translate.pipe';
-
-// Создаем InjectionToken для языка библиотеки
-export const MUI_LANGUAGE = new InjectionToken<string>('Library Language');
-export const DEFAULT_LANG = 'en';
-
-// Создаем InjectionToken для ссылки на файл переводов
-export const MUI_TRANSLATION_FILE_URL = new InjectionToken<string>(
-  'Translation File URL'
-);
-
-function initializeLib(
-  initializeService: InitializeService,
-  translationService: TranslationService,
-  language: string,
-  translationFileUrl: string
-) {
-  return () => {
-    initializeService.renderInitialComponents();
-
-    return translationService.getTranslations(language, translationFileUrl);
-  };
-}
+import {
+  MUI_LANGUAGE,
+  DEFAULT_LANG,
+  MUI_TRANSLATION_FILE_URL,
+} from './config/translation-injectors';
+import { initializeLib } from './config/initialize-lib';
+import { MUI_THEME, DEFAULT_THEME } from './config/theme-injector';
+import { ThemeService } from './services/theme/theme.service';
 
 @NgModule({
   declarations: [
@@ -209,14 +195,17 @@ function initializeLib(
       provide: MUI_TRANSLATION_FILE_URL,
       useValue: null,
     },
+    { provide: MUI_THEME, useValue: DEFAULT_THEME },
     {
       provide: APP_INITIALIZER,
       useFactory: initializeLib,
       deps: [
         InitializeService,
         TranslationService,
+        ThemeService,
         MUI_LANGUAGE,
         MUI_TRANSLATION_FILE_URL,
+        MUI_THEME,
       ],
       multi: true,
     },

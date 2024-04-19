@@ -14,7 +14,7 @@ import { TPieChartMouseEvent, TPieChartSeries } from './pie-chart';
 @Component({
   selector: 'mui-pie-chart',
   templateUrl: './pie-chart.component.html',
-  styleUrls: ['./pie-chart.component.css'],
+  styleUrls: ['./pie-chart.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PieChartComponent implements OnInit {

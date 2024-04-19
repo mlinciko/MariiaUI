@@ -11,7 +11,7 @@ import { TranslationService } from '../../../services/translation/translation.se
 @Component({
   selector: 'mui-calendar',
   templateUrl: './calendar.component.html',
-  styleUrls: ['./calendar.component.css'],
+  styleUrls: ['./calendar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CalendarComponent implements OnInit {

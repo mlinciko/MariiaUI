@@ -1,0 +1,47 @@
+@import '../../styles/font-style.scss';
+@import '../../styles/error-style.scss';
+@import '../../styles/field-style.scss';
+@import '../../styles/themes.scss';
+
+/* Стили для самого ввода */
+.mui__container textarea {
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  padding: 4px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Стили для элемента ввода при фокусировке */
+.mui__container textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+/* Стили для элемента ввода при наведении */
+.mui__container textarea:hover {
+  border-color: var(--primary-color);
+}
+
+/* Стили для элемента ввода при активации */
+.mui__container textarea:active {
+  border-color: var(--primary-color);
+}
+
+.mui__counter {
+  position: absolute;
+  bottom: 7px;
+  right: 10px;
+  color: #999;
+  font-size: 12px;
+}
+
+.mui__error {
+  bottom: -10px;
+  top:unset;
+}

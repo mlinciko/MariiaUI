@@ -1,8 +1,5 @@
 <div class="mui__filters-btn" (click)="changeFiltersVisibility(true, $event)">
-  <mui-filter-icon
-    [color]="'#fff'"
-    [width]="'14px'"
-    [height]="'14px'"></mui-filter-icon>
+  <mui-filter-icon [width]="'14px'" [height]="'14px'"></mui-filter-icon>
 </div>
 <div *ngIf="isOpened" class="mui__filters">
   <div class="mui__filters-title">{{ column.name }}</div>

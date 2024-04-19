@@ -1,0 +1,26 @@
+@import '../../styles/font-style.scss';
+@import '../../styles/themes.scss';
+
+.mui__tabs-header {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.mui_tab {
+  width: auto;
+  text-align: center;
+  background-color: var(--secondary-color);
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  cursor: pointer;
+  color: var(--text-color);
+  padding: 6px 10px;
+}
+
+.mui_tab.active {
+  color:var(--primary-color);
+  font-weight: bold;
+  background-color: var(--hover-color);
+}

@@ -21,7 +21,7 @@ import { TranslationService } from '../../services/translation/translation.servi
 @Component({
   selector: 'mui-file-picker',
   templateUrl: './file-picker.component.html',
-  styleUrls: ['./file-picker.component.css'],
+  styleUrls: ['./file-picker.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {

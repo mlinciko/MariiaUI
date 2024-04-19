@@ -1,0 +1,19 @@
+@import '../../../styles/themes.scss';
+
+.mui__sorting-btn {
+  cursor: pointer;
+  width: 22px;
+  max-height: 22px;
+  border-radius: 50%;
+  padding-top: 5px;
+}
+
+.mui__sorting-btn:hover {
+  background-color: var(--hover-color);
+}
+
+:host ::ng-deep {
+  .mui__sorting-btn path {
+    fill: var(--active-text-color)!important;
+  }
+}

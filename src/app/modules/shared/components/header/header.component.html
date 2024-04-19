@@ -14,7 +14,14 @@
         [routerLink]="[item.route]"
         routerLinkActive="menu-item-active">
         <img *ngIf="item.image" [src]="item.image" alt="logo" />
-        <div class="menu-item-title">{{ item.title }}</div>
+        <div class="menu-item-title">
+          <ng-container *ngIf="item.link; else noLink">
+            <a [href]="item.link" target="_blank">
+              {{ item.title }}
+            </a>
+          </ng-container>
+          <ng-template #noLink>{{ item.title }}</ng-template>
+        </div>
       </div>
     </div>
   </div>

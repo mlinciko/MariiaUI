@@ -4,7 +4,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 @Component({
   selector: 'mui-radio-button',
   templateUrl: './radio-button.component.html',
-  styleUrls: ['./radio-button.component.css'],
+  styleUrls: ['./radio-button.component.scss'],
 })
 export class RadioButtonComponent {
   /*Input params */

@@ -22,6 +22,12 @@ export class SpinnerDocComponent {
         'Property allows to set visibility state for the spinner component',
     },
     {
+      name: 'color',
+      type: 'string',
+      defaultValue: '#cecece',
+      descr: 'Property allows to set color for the spinner component',
+    },
+    {
       name: 'width',
       type: 'string',
       defaultValue: '18px',

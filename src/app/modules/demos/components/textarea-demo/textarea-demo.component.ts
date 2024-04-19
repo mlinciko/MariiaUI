@@ -39,4 +39,6 @@ export class TextareaDemoComponent {
   placeholder = 'Enter description';
   maxLength = 1000;
   texareaControl: FormControl<string | null> = new FormControl('Text');
+  texareaDisabledControl: FormControl<string | null> = new FormControl('Text');
+  texareaReadOnlyControl: FormControl<string | null> = new FormControl('Text');
 }

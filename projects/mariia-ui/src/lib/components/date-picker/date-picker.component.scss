@@ -1,0 +1,49 @@
+@import '../../styles/font-style.scss';
+@import '../../styles/error-style.scss';
+@import '../../styles/field-style.scss';
+@import '../../styles/themes.scss';
+
+/* Стили для самого ввода */
+.mui__container .mui__input {
+  width: 100%;
+  height: 26px;
+  padding: 6px 4px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Стили для элемента ввода при фокусировке */
+.mui__container .mui__input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+/* Стили для элемента ввода при наведении */
+.mui__container .mui__input:hover {
+  border-color: var(--primary-color);
+}
+
+/* Стили для элемента ввода при активации */
+.mui__container .mui__input:active {
+  border-color: var(--primary-color);
+}
+
+.mui__calendar-btn {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 3px;
+  right: 28px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+:host ::ng-deep {
+  .mui__calendar-btn:hover path {
+    fill: var(--primary-color)!important;
+  }
+}

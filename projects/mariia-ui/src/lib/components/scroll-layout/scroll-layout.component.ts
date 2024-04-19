@@ -4,7 +4,7 @@ import { TScrollDirection } from './scroll-layout';
 @Component({
   selector: 'mui-scroll-layout',
   templateUrl: './scroll-layout.component.html',
-  styleUrls: ['./scroll-layout.component.css'],
+  styleUrls: ['./scroll-layout.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ScrollLayoutComponent {

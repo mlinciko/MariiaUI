@@ -1,0 +1,65 @@
+@import '../../../styles/themes.scss';
+
+.mui__calendar {
+  position: absolute;
+  top: 26px;
+  left: 0;
+  width: 300px;
+  z-index: 10000;
+  height: 310px;
+  background-color: var(--background-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+}
+
+.mui__calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #cecece;
+  color: var(--text-color);
+}
+
+.mui__calendar-btn {
+  cursor: pointer;
+}
+
+.mui__calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding: 10px 20px;
+}
+
+.mui__calendar-day {
+  cursor: pointer;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+}
+
+.mui__calendar-day.current {
+  border: 1px solid #cecece;
+}
+
+.mui__calendar-day.selected {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.mui__calendar-day:hover:not(.selected) {
+  background-color: var(--hover-color);
+}
+
+.mui__calendar-week-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding: 10px 20px;
+  color: var(--text-color);
+}
+
+.mui__calendar-week-day {
+  text-align: center;
+}

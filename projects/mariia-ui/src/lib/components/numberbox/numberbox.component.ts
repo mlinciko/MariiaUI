@@ -21,7 +21,7 @@ const DEFAULT_VALUE = 0;
 @Component({
   selector: 'mui-numberbox',
   templateUrl: './numberbox.component.html',
-  styleUrls: ['./numberbox.component.css'],
+  styleUrls: ['./numberbox.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
