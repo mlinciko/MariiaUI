@@ -34,6 +34,7 @@ import { TextareaDocComponent } from './components/textarea-doc/textarea-doc.com
 import { TooltipDocComponent } from './components/tooltip-doc/tooltip-doc.component';
 import { IconsDocComponent } from './components/icons-doc/icons-doc.component';
 import { TranslationComponent } from './components/translation/translation.component';
+import { ThemesComponent } from './components/themes/themes.component';
 
 const routes: Routes = [
   {
@@ -48,6 +49,10 @@ const routes: Routes = [
       {
         path: 'getting-started',
         component: GettingStartedComponent,
+      },
+      {
+        path: 'themes',
+        component: ThemesComponent,
       },
       {
         path: 'translation',

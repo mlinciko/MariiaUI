@@ -39,6 +39,7 @@ import { TooltipDocComponent } from './components/tooltip-doc/tooltip-doc.compon
 import { CodeComponent } from '../shared/components/code/code.component';
 import { IconsDocComponent } from './components/icons-doc/icons-doc.component';
 import { TranslationComponent } from './components/translation/translation.component';
+import { ThemesComponent } from './components/themes/themes.component';
 
 @NgModule({
   declarations: [
@@ -78,6 +79,7 @@ import { TranslationComponent } from './components/translation/translation.compo
     TooltipDocComponent,
     IconsDocComponent,
     TranslationComponent,
+    ThemesComponent,
   ],
   imports: [CommonModule, DocsRoutingModule, MariiaUiModule, CodeComponent],
 })
