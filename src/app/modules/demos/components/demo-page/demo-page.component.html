@@ -17,13 +17,13 @@
       <app-code [code]="componentCode"></app-code>
     </mui-tab>
     <mui-tab *ngIf="showTemplate" [label]="'demo.component.html'">
-      <app-code [code]="templateCode"></app-code>
+      <app-code [code]="templateCode" [lang]="'html'"></app-code>
     </mui-tab>
     <mui-tab *ngIf="showService" [label]="'demo.service.ts'">
       <app-code [code]="serviceCode"></app-code>
     </mui-tab>
     <mui-tab *ngIf="showCSS" [label]="'demo.component.css'">
-      <app-code [code]="cssCode"></app-code>
+      <app-code [code]="cssCode" [lang]="'css'"></app-code>
     </mui-tab>
   </mui-tabs>
 </div>

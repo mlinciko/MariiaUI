@@ -12,5 +12,5 @@ import { HighlightModule } from 'ngx-highlightjs';
 })
 export class CodeComponent {
   @Input() code = '';
-  @Input() languages: string[] = ['typescript', 'html', 'css', 'bash'];
+  @Input() lang: 'typescript' | 'html' | 'css' | 'bash' = 'typescript';
 }

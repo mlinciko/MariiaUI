@@ -7,7 +7,7 @@
     <div class="component-doc__section-description">
       Import themes.scss file into your global style file:
     </div>
-    <app-code [code]="styleImportCode"></app-code>
+    <app-code [code]="styleImportCode" [lang]="'css'"></app-code>
   </div>
 
   <div class="component-doc__section">
@@ -15,7 +15,7 @@
     <div class="component-doc__section-description">
       Add theme provider into AppModule in your applection
     </div>
-    <app-code [code]="styleImportCode"></app-code>
+    <app-code [code]="providerCode"></app-code>
     <div class="component-doc__section-description">ThemeConfig has type:</div>
     <app-code [code]="themeConfig"></app-code>
   </div>
@@ -26,6 +26,6 @@
       You can also provide custom colors for UI components. Add this CSS code to
       your global styles file:
     </div>
-    <app-code [code]="customColorsCode"></app-code>
+    <app-code [code]="customColorsCode" [lang]="'css'"></app-code>
   </div>
 </div>

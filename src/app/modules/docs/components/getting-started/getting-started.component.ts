@@ -14,21 +14,21 @@ export class GettingStartedComponent {
   npmInstallCode = 'npm install mariia-ui@latest --save';
   yarnInstallCode = 'yarn add mariia-ui@latest';
   importCode = `import { NgModule } from '@angular/core';
-  import { BrowserModule } from '@angular/platform-browser';
-  import { MariiaUiModule } from '@mariia-ui';
+import { BrowserModule } from '@angular/platform-browser';
+import { MariiaUiModule } from '@mariia-ui';
   
-  @NgModule({
-    declarations: [
-      // your components
-    ],
-    imports: [
-      BrowserModule,
-      MariiaUiModule
-    ],
-    providers: [],
-    bootstrap: [AppComponent]
-  })
-  export class AppModule { }`;
+@NgModule({
+  declarations: [
+    // your components
+  ],
+  imports: [
+    BrowserModule,
+    MariiaUiModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }`;
   usageCode = `<mui-button
 	[label]="'Click'"
 	[type]="ButtonTypeEnum.Default"

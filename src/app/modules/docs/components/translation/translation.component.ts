@@ -28,27 +28,27 @@ export class TranslationComponent {
         ...`;
 
   appModuleCode = `import { NgModule } from '@angular/core';
-  import { BrowserModule } from '@angular/platform-browser';
-  import { MariiaUiModule, MUI_LANGUAGE, MUI_TRANSLATION_FILE_URL } from '@mariia-ui';
+import { BrowserModule } from '@angular/platform-browser';
+import { MariiaUiModule, MUI_LANGUAGE, MUI_TRANSLATION_FILE_URL } from '@mariia-ui';
   
-  @NgModule({
-    declarations: [
-      // your components
-    ],
-    imports: [
-      BrowserModule,
-      MariiaUiModule
-    ],
-    providers: [
-      { provide: MUI_LANGUAGE, useValue: 'ru' },
-      {
-        provide: MUI_TRANSLATION_FILE_URL,
-        useValue: '/assets/i18n/library/ru.json',
-      },
-    ],
-    bootstrap: [AppComponent]
-  })
-  export class AppModule { }`;
+@NgModule({
+  declarations: [
+    // your components
+  ],
+  imports: [
+    BrowserModule,
+    MariiaUiModule
+  ],
+  providers: [
+    { provide: MUI_LANGUAGE, useValue: 'ru' },
+    {
+      provide: MUI_TRANSLATION_FILE_URL,
+      useValue: '/assets/i18n/library/ru.json',
+    },
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }`;
   paramsMap = '${}';
   paramsCode = `
   ...
