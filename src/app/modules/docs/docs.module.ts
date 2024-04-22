@@ -40,6 +40,7 @@ import { CodeComponent } from '../shared/components/code/code.component';
 import { IconsDocComponent } from './components/icons-doc/icons-doc.component';
 import { TranslationComponent } from './components/translation/translation.component';
 import { ThemesComponent } from './components/themes/themes.component';
+import { StylingComponent } from './components/styling/styling.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { ThemesComponent } from './components/themes/themes.component';
     IconsDocComponent,
     TranslationComponent,
     ThemesComponent,
+    StylingComponent,
   ],
   imports: [CommonModule, DocsRoutingModule, MariiaUiModule, CodeComponent],
 })

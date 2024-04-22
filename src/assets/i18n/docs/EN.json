@@ -79,6 +79,19 @@
         "description": "You can also provide custom colors for UI components. Add this CSS code to your global styles file:"
       }
     },
+    "styling": {
+      "title": "Styling",
+      "description": "This section is dedicated to the possibilities of customizing components by setting your own styles",
+      "defineStyles": {
+        "title": "Define styles",
+        "description": "Write the styles that you want to set for the component and save them to a variable"
+      },
+      "directive": {
+        "title": "Applying directive",
+        "description1": "Apply the directive <b>muiStyles</b> to the component whose styles you want to change. Pass defined styles to the directive",
+        "description2": "Now the component uses your custom styles. For example:"
+      }
+    },
     "icons": {
       "title": "Icons",
       "description": "Icons are visual elements that can be used to complement a user interface",

@@ -35,6 +35,7 @@ import { TooltipDocComponent } from './components/tooltip-doc/tooltip-doc.compon
 import { IconsDocComponent } from './components/icons-doc/icons-doc.component';
 import { TranslationComponent } from './components/translation/translation.component';
 import { ThemesComponent } from './components/themes/themes.component';
+import { StylingComponent } from './components/styling/styling.component';
 
 const routes: Routes = [
   {
@@ -53,6 +54,10 @@ const routes: Routes = [
       {
         path: 'themes',
         component: ThemesComponent,
+      },
+      {
+        path: 'styling',
+        component: StylingComponent,
       },
       {
         path: 'translation',

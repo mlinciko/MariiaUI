@@ -73,6 +73,7 @@ import {
 import { initializeLib } from './config/initialize-lib';
 import { MUI_THEME, DEFAULT_THEME } from './config/theme-injector';
 import { ThemeService } from './services/theme/theme.service';
+import { StylesDirective } from './directives/custom-styles/custom-styles.directive';
 
 @NgModule({
   declarations: [
@@ -137,6 +138,7 @@ import { ThemeService } from './services/theme/theme.service';
     PaginationComponent,
     PopupComponent,
     TranslatePipe,
+    StylesDirective,
   ],
   imports: [CommonModule, ReactiveFormsModule, HttpClientModule],
   exports: [
@@ -188,6 +190,9 @@ import { ThemeService } from './services/theme/theme.service';
     CalendarIconComponent,
     CircleChevronLeftIconComponent,
     CircleChevronRightIconComponent,
+
+    /*Directives */
+    StylesDirective,
   ],
   providers: [
     { provide: MUI_LANGUAGE, useValue: DEFAULT_LANG },

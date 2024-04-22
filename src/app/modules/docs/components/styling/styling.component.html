@@ -1,0 +1,30 @@
+<div class="component-doc">
+  <div class="component-doc__title">{{ title }}</div>
+  <div class="component-doc__description">{{ description }}</div>
+
+  <div class="component-doc__section">
+    <div
+      class="component-doc__section-title"
+      [innerHTML]="defineStylesTtitle"></div>
+    <div
+      class="component-doc__section-description"
+      [innerHTML]="defineStylesDescr"></div>
+    <app-code [code]="defineStylesCode"></app-code>
+  </div>
+
+  <div class="component-doc__section">
+    <div
+      class="component-doc__section-title"
+      [innerHTML]="directiveTitle"></div>
+    <div
+      class="component-doc__section-description"
+      [innerHTML]="directiveDescr1"></div>
+    <app-code [code]="directiveCode" [lang]="'html'"></app-code>
+
+    <div
+      class="component-doc__section-description"
+      [innerHTML]="directiveDescr2"></div>
+
+    <mui-button [muiStyles]="customStyles" [label]="'Click'"></mui-button>
+  </div>
+</div>
