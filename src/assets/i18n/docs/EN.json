@@ -92,6 +92,22 @@
         "description2": "Now the component uses your custom styles. For example:"
       }
     },
+    "overview": {
+      "title": "Overview",
+      "description": "Welcome to the official documentation of our Angular UI Components Library - MariiaUI! This library provides a robust, customizable set of UI components designed to facilitate the rapid development of modern, responsive, and accessible web applications using Angular",
+      "keyFeatures": {
+        "title": "Key Features",
+        "description": "<p><b>Pre-built Components:</b>A comprehensive suite of components including buttons, dialogs, tabs, accordions, and more to enhance your application's UI.</p><p><b>High Customizability:</b>Style and behavior of components can be easily customized to fit the branding and functionality needs of your applications.</p><p><b>Ready to use:</b>All components are ready to use out of the box; they do not require additional configuration, unless you yourself want to change their behavior.</p><p><b>Responsive Design:</b>Built to work across various devices and screen sizes using responsive design principles.</p>"
+      },
+      "feedback": {
+        "title": "Feedback and Support",
+        "description": "<p>We value your feedback! If you have any questions, suggestions, or issues regarding our Angular UI Components Library, please don't hesitate to reach out to us. Check out our community <a href=\"https://github.com/mlinciko/MariiaUI/issues\">GitHub issues</a></p><p>Thank you for choosing our Angular UI Components Library! We hope you find it helpful and enjoy building amazing Angular applications with it.</p>"
+      },
+      "contribution": {
+        "title": "Contribution",
+        "description": "<p>Contributions to our library are always welcome! Whether it's improving documentation, adding new features, or fixing bugs, we appreciate all contributions that help make this library better.</p><p>We hope this overview helps you get started with our library. Dive deeper into specific components and advanced usage in other sections of this documentation. Enjoy building your next project with our tools at your disposal!</p>"
+      }
+    },
     "icons": {
       "title": "Icons",
       "description": "Icons are visual elements that can be used to complement a user interface",

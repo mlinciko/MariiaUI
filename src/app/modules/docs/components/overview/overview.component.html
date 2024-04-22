@@ -1,1 +1,31 @@
-<p>overview works!</p>
+<div class="component-doc">
+  <div class="component-doc__title">{{ title }}</div>
+  <div class="component-doc__description">{{ description }}</div>
+
+  <div class="component-doc__section">
+    <div
+      class="component-doc__section-title"
+      [innerHTML]="keyFeaturesTitle"></div>
+    <div
+      class="component-doc__section-description"
+      [innerHTML]="keyFeaturesDescr"></div>
+  </div>
+
+  <div class="component-doc__section">
+    <div
+      class="component-doc__section-title"
+      [innerHTML]="feedbackTtitle"></div>
+    <div
+      class="component-doc__section-description"
+      [innerHTML]="feedbackDescr"></div>
+  </div>
+
+  <div class="component-doc__section">
+    <div
+      class="component-doc__section-title"
+      [innerHTML]="contributionTitle"></div>
+    <div
+      class="component-doc__section-description"
+      [innerHTML]="contributionDescr"></div>
+  </div>
+</div>
