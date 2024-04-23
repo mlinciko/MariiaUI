@@ -75,7 +75,10 @@
       }
     }
 
-    .header-languages {
+    .header-settings {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       padding-top: 10px;
     }
   }
@@ -91,7 +94,15 @@
     right: 5px !important;
   }
 
-  .mui__container {
-    width: 60px;
+  .header-languages {
+    .mui__container {
+      width: 60px;
+    }
+  }
+
+  .header-themes {
+    .mui__container {
+      width: 100px;
+    }
   }
 }

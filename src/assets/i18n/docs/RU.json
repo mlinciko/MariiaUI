@@ -5,7 +5,8 @@
       "docs": "Документация",
       "blog": "Блог"
     },
-    "dropdownLabel": "Язык"
+    "dropdownLabel": "Язык",
+    "themesLabel": "Тема"
   },
   "docs": {
     "menu": {

@@ -77,7 +77,6 @@ import { StylesDirective } from './directives/custom-styles/custom-styles.direct
 
 @NgModule({
   declarations: [
-    MariiaUiComponent,
     InputComponent,
     XmarkIconComponent,
     ShowErrorPipe,

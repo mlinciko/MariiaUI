@@ -7,8 +7,11 @@ import { ThemeConfig } from '../../config/theme-injector';
 export class ThemeService {
   private themeConfig!: ThemeConfig;
 
-  initiTheme(config: ThemeConfig): void {
+  setTheme(config: ThemeConfig): void {
     this.themeConfig = config;
+    const element = document.documentElement;
+    element.classList.forEach(classItem => element.classList.remove(classItem));
+
     document.documentElement.className = `${this.themeConfig.type}-${this.themeConfig.color}`;
   }
 }

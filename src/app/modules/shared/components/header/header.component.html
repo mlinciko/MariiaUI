@@ -25,14 +25,25 @@
       </div>
     </div>
 
-    <div class="header-languages">
-      <mui-dropdown
-        [options]="languages"
-        [label]="label"
-        [showClearButton]="false"
-        [formControl]="dropdownControl"
-        (onSelectionChange)="onSelectionChange($event)">
-      </mui-dropdown>
+    <div class="header-settings">
+      <div class="header-themes">
+        <mui-dropdown
+          [options]="themes"
+          [label]="themesLabel"
+          [showClearButton]="false"
+          [formControl]="themesControl"
+          (onSelectionChange)="onThemeChange($event)">
+        </mui-dropdown>
+      </div>
+      <div class="header-languages">
+        <mui-dropdown
+          [options]="languages"
+          [label]="languageLabel"
+          [showClearButton]="false"
+          [formControl]="dropdownControl"
+          (onSelectionChange)="onLanguageChange($event)">
+        </mui-dropdown>
+      </div>
     </div>
   </div>
 </div>

@@ -13,7 +13,7 @@ export function initializeLib(
 ) {
   return () => {
     initializeService.renderInitialComponents();
-    themeService.initiTheme(themeConfig);
+    themeService.setTheme(themeConfig);
     return translationService.getTranslations(language, translationFileUrl);
   };
 }

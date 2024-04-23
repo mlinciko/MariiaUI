@@ -5,6 +5,20 @@ import {
   LangEnum,
   TranslationService,
 } from 'src/app/services/translation.service';
+import { ThemeService } from 'projects/mariia-ui/src/public-api';
+import {
+  ThemeColor,
+  ThemeType,
+} from 'projects/mariia-ui/src/lib/config/theme-injector';
+
+export enum ThemesEnum {
+  LightBlue = 'light-blue',
+  LightViolet = 'light-violet',
+  LightGreen = 'light-green',
+  DarkBlue = 'dark-blue',
+  DarkViolet = 'dark-violet',
+  DarkGreen = 'dark-green',
+}
 
 @Component({
   selector: 'app-header',
@@ -30,16 +44,24 @@ export class HeaderComponent implements OnInit {
     },
   ];
 
-  constructor(private translationService: TranslationService) {}
+  constructor(
+    private translationService: TranslationService,
+    private themeService: ThemeService
+  ) {}
 
   languages: TDropdownOption[] = [
     { key: 1, value: LangEnum.RU },
     { key: 2, value: LangEnum.EN },
   ];
-  label = this.translationService.translate('header.dropdownLabel');
+  languageLabel = this.translationService.translate('header.dropdownLabel');
   dropdownControl: FormControl = new FormControl<TDropdownOption | null>(null);
 
   ngOnInit(): void {
+    this.setLanguage();
+    this.setTheme();
+  }
+
+  setLanguage(): void {
     const langOption = this.languages.find(
       option => option.value === this.translationService.lang
     );
@@ -48,7 +70,34 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  onSelectionChange(option: TDropdownOption): void {
+  setTheme(): void {
+    const themeOption = JSON.parse(localStorage.getItem('theme') || '');
+    const theme = this.themes.find(option => option.key === themeOption?.key);
+    if (theme) this.themesControl.setValue(theme);
+    else this.themesControl.setValue(this.themes[0]);
+  }
+
+  onLanguageChange(option: TDropdownOption): void {
     this.translationService.setLang(option.value as LangEnum);
+  }
+
+  themes: TDropdownOption[] = [
+    { key: 1, value: ThemesEnum.LightBlue },
+    { key: 2, value: ThemesEnum.LightViolet },
+    { key: 3, value: ThemesEnum.LightGreen },
+    { key: 4, value: ThemesEnum.DarkBlue },
+    { key: 5, value: ThemesEnum.DarkViolet },
+    { key: 6, value: ThemesEnum.DarkGreen },
+  ];
+  themesLabel = this.translationService.translate('header.themesLabel');
+  themesControl: FormControl = new FormControl<TDropdownOption | null>(null);
+
+  onThemeChange(option: TDropdownOption): void {
+    localStorage.setItem('theme', JSON.stringify(option));
+    const [type, color] = option.value.split('-');
+    this.themeService.setTheme({
+      type: type as ThemeType,
+      color: color as ThemeColor,
+    });
   }
 }

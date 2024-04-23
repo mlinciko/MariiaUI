@@ -54,3 +54,4 @@ export * from './lib/icons/circle-chevron-right-icon/circle-chevron-right-icon.c
 
 /*Services */
 export * from './lib/services/notification/notification.service';
+export * from './lib/services/theme/theme.service';
