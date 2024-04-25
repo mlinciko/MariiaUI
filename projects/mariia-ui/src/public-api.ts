@@ -55,3 +55,17 @@ export * from './lib/icons/circle-chevron-right-icon/circle-chevron-right-icon.c
 /*Services */
 export * from './lib/services/notification/notification.service';
 export * from './lib/services/theme/theme.service';
+
+/*DataTypes */
+export * from './lib/components/table/table';
+export * from './lib/components/bar-chart/bar-chart';
+export * from './lib/components/dropdown/option';
+export * from './lib/components/line-chart/line-chart';
+export * from './lib/components/notification/notification';
+export * from './lib/components/pie-chart/pie-chart';
+export * from './lib/components/popup/popup';
+export * from './lib/components/button/button';
+export * from './lib/components/scroll-layout/scroll-layout';
+export * from './lib/components/slider/slider';
+export * from './lib/components/spinner/spinner';
+export * from './lib/components/tabs/tabs';
