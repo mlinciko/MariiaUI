@@ -23,6 +23,10 @@ export class TableDemoComponent {
     styleUrls: ['./demo.component.scss'],
   })
   export class DemoComponent {
+    /*
+      You can provide api instead of defined data
+      tableData = new MuiTableSource('http://localhost:3000/api/users');
+    */
     tableData = [
       { id: 1, name: 'Mariia', age: 22, sex: { key: 1, value: 'F' } },
       { id: 2, name: 'Kristina', age: 22, sex: { key: 1, value: 'F' } },
@@ -69,7 +73,7 @@ export class TableDemoComponent {
   `;
   templateCode = `
   <mui-table
-  [data]="tableData"
+  [dataSource]="tableData"
   [columns]="columns"
   [addingEnabled]="true"
   [editingEnabled]="true"
@@ -78,13 +82,13 @@ export class TableDemoComponent {
   [sortingEnabled]="true"
   [paginationEnabled]="true"></mui-table>`;
 
-  // tableData = [
-  //   { id: 1, name: 'Mariia', age: 22, sex: { key: 1, value: 'F' } },
-  //   { id: 2, name: 'Kristina', age: 22, sex: { key: 1, value: 'F' } },
-  //   { id: 3, name: 'Karina', age: 21, sex: { key: 1, value: 'F' } },
-  //   { id: 4, name: 'Ulyana', age: 21, sex: { key: 1, value: 'F' } },
-  // ];
-  tableData = new MuiTableSource('http://localhost:3000/api/users');
+  tableData = [
+    { id: 1, name: 'Mariia', age: 22, sex: { key: 1, value: 'F' } },
+    { id: 2, name: 'Kristina', age: 22, sex: { key: 1, value: 'F' } },
+    { id: 3, name: 'Karina', age: 21, sex: { key: 1, value: 'F' } },
+    { id: 4, name: 'Ulyana', age: 21, sex: { key: 1, value: 'F' } },
+  ];
+  //tableData = new MuiTableSource('http://localhost:3000/api/users');
   columns: TColumn[] = [
     {
       id: 1,

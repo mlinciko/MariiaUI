@@ -109,6 +109,12 @@ export class DocsMenuComponent implements OnInit {
       level: 0,
     },
     {
+      route: 'data-binding',
+      title: this.translationService.translate('docs.menu.dataBinding'),
+      isActive: false,
+      level: 0,
+    },
+    {
       route: 'ui-components',
       title: this.translationService.translate('docs.menu.uiComponents'),
       isActive: false,

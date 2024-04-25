@@ -53,7 +53,6 @@ export class MuiTableSource {
   httpClient!: HttpClient;
   constructor(dataUrl: string) {
     this.dataUrl = dataUrl;
-    //this.httpClient = httpClient;
   }
 
   defineHttpClient(httpClient: HttpClient): void {

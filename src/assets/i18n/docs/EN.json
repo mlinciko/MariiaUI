@@ -17,7 +17,28 @@
       "styling": "Styling",
       "icons": "Icons",
       "dataTypes": "Data types",
+      "dataBinding": "Data Binding",
       "uiComponents": "UI Components"
+    },
+    "dataBinding": {
+      "title": "Data Binding",
+      "description": "Our library offers the ability to use an API to retrieve data from components such as <a href=\"http://localhost:4200/docs/table\">Table</a>",
+      "creatingSource": {
+        "title": "Creating <b>MuiTableSource</b>",
+        "description": "Create a new instance of the <a href=\"http://localhost:4200/docs/data-types\">MuiTableSource</a> class. As an argument, pass a link to the API that will work with the data for the table"
+      },
+      "definingApi": {
+        "title": "API Definition",
+        "description1": "The API that will work via the specified link must have a set of CRUD operations",
+        "description2": "<b>GET</b> -> returns all elements of a set. May have parameters for pagination and sorting. For example:",
+        "description3": "<b>POST</b> -> allows you to add a new element to the set. The body of the request contains an element with a string structure similar to that returned from GET",
+        "description4": "<b>PATCH</b> -> allows you to update one element of the set. The body of the request contains an element with a structure similar to that returned from GET (not all fields of the structure can be received)",
+        "description5": "<b>DELETE</b> -> allows you to remove an element from a set. Removal must occur based on the unique id of the element"
+      },
+      "template": {
+        "title": "Table template",
+        "description": "Add defined source to your table component"
+      }
     },
     "gettingStarted": {
       "title": "Getting started",

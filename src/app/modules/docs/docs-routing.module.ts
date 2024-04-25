@@ -36,6 +36,7 @@ import { IconsDocComponent } from './components/icons-doc/icons-doc.component';
 import { TranslationComponent } from './components/translation/translation.component';
 import { ThemesComponent } from './components/themes/themes.component';
 import { StylingComponent } from './components/styling/styling.component';
+import { DataBindingComponent } from './components/data-binding/data-binding.component';
 
 const routes: Routes = [
   {
@@ -70,6 +71,10 @@ const routes: Routes = [
       {
         path: 'data-types',
         component: DataTypesComponent,
+      },
+      {
+        path: 'data-binding',
+        component: DataBindingComponent,
       },
       {
         path: 'accordion',

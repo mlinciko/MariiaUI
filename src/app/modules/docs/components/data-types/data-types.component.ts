@@ -13,6 +13,21 @@ export class DataTypesComponent {
   description = this.translationService.translate('docs.dataTypes.description');
   types: { name: string; code: string }[] = [
     {
+      name: 'MuiTableSource',
+      code: `export class MuiTableSource {
+      dataUrl = '';
+
+      constructor(dataUrl: string) {
+        this.dataUrl = dataUrl;
+      }
+
+      getAll(params: { pagination?: TPageParams; sorting?: TSorting; }): Observable<PaginationResponse> {};
+      updateRow(rowData: TRow): Observable<TRow> {};
+      addRow(rowData: TRow): Observable<TRow> {};
+      deleteRow(id: number): Observable<TRow> {};
+    };`,
+    },
+    {
       name: 'TBarChartSeries',
       code: `type TBarChartSeries = {
         value: number;

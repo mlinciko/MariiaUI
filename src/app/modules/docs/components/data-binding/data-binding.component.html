@@ -1,0 +1,44 @@
+<div class="component-doc">
+  <div class="component-doc__title">{{ title }}</div>
+  <div class="component-doc__description" [innerHTML]="description"></div>
+
+  <div class="component-doc__section">
+    <div
+      class="component-doc__section-title"
+      [innerHTML]="creatingSourceTitle"></div>
+    <div
+      class="component-doc__section-description"
+      [innerHTML]="creatingSourceDescr"></div>
+    <app-code [code]="componentCode"></app-code>
+  </div>
+
+  <div class="component-doc__section">
+    <div
+      class="component-doc__section-title"
+      [innerHTML]="definingApiTitle"></div>
+    <div
+      class="component-doc__section-description"
+      [innerHTML]="definingApiDescr1"></div>
+    <div
+      class="component-doc__section-description"
+      [innerHTML]="definingApiDescr2"></div>
+    <app-code [code]="definingApiCode" [lang]="'bash'"></app-code>
+    <div
+      class="component-doc__section-description"
+      [innerHTML]="definingApiDescr3"></div>
+    <div
+      class="component-doc__section-description"
+      [innerHTML]="definingApiDescr4"></div>
+    <div
+      class="component-doc__section-description"
+      [innerHTML]="definingApiDescr5"></div>
+  </div>
+
+  <div class="component-doc__section">
+    <div class="component-doc__section-title" [innerHTML]="templateTitle"></div>
+    <div
+      class="component-doc__section-description"
+      [innerHTML]="templateDescr"></div>
+    <app-code [code]="templateCode" [lang]="'html'"></app-code>
+  </div>
+</div>

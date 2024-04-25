@@ -41,6 +41,7 @@ import { IconsDocComponent } from './components/icons-doc/icons-doc.component';
 import { TranslationComponent } from './components/translation/translation.component';
 import { ThemesComponent } from './components/themes/themes.component';
 import { StylingComponent } from './components/styling/styling.component';
+import { DataBindingComponent } from './components/data-binding/data-binding.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +83,7 @@ import { StylingComponent } from './components/styling/styling.component';
     TranslationComponent,
     ThemesComponent,
     StylingComponent,
+    DataBindingComponent,
   ],
   imports: [CommonModule, DocsRoutingModule, MariiaUiModule, CodeComponent],
 })
