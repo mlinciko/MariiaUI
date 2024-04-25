@@ -12,6 +12,8 @@ import {
 import {
   ColumnTypes,
   DEFAULT_PAGES_AMOUNT,
+  MuiTableSource,
+  PaginationResponse,
   TCell,
   TColumn,
   TPageParams,
@@ -24,6 +26,8 @@ import { TableService } from '../../services/table/table.service';
 import { TDropdownOption } from '../dropdown/option';
 import { NotificationService } from '../../services/notification/notification.service';
 import { TranslationService } from '../../services/translation/translation.service';
+import { tap } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'mui-table',
@@ -33,7 +37,7 @@ import { TranslationService } from '../../services/translation/translation.servi
 })
 export class TableComponent implements OnInit {
   /*Input params */
-  @Input() data: TRow[] = [];
+  @Input() dataSource: TRow[] | MuiTableSource = [];
   @Input() columns: TColumn[] = [];
   @Input() addingEnabled = false;
   @Input() editingEnabled = false;
@@ -60,21 +64,59 @@ export class TableComponent implements OnInit {
   protected _defaultCoulmnSize = 'auto';
   protected _editingRowId: number | null = null;
 
+  private pagination!: TPageParams;
+  private sorting!: TSorting;
+  protected totalCount: WritableSignal<number> = signal(0);
+  protected currentAction!: 'edit' | 'add';
+
   protected readonly ADD_COLUMN_KEY = 'add';
   protected readonly COLUMN_TYPES = ColumnTypes;
 
   constructor(
     private tableService: TableService,
     private notification: NotificationService,
-    private translationService: TranslationService
+    private translationService: TranslationService,
+    private http: HttpClient
   ) {}
 
   ngOnInit(): void {
-    this._rawData.set(this.data);
     if (this.paginationEnabled) {
-      this.setPagination(0, this.pageSizes[0]);
-    } else this.refreshTable();
+      this.pagination = { skip: 0, take: this.pageSizes[0] };
+    }
+    this.setTableData();
     this.setColumns();
+  }
+
+  setTableData(): void {
+    if (this.isArray) {
+      this._rawData.set(this.dataSource as TRow[]);
+      if (this.paginationEnabled) {
+        this.setPagination(0, this.pageSizes[0]);
+      }
+      this.totalCount.set(this._rawData().length);
+      this.refreshTable();
+    } else if (this.isMuiTableSource) {
+      (this.dataSource as MuiTableSource).defineHttpClient(this.http);
+      this.loadTableData();
+    }
+  }
+
+  loadTableData(): void {
+    const args: any = { pagination: undefined, sorting: undefined };
+    if (this.paginationEnabled && this.pagination)
+      args.pagination = this.pagination;
+    if (this.sortingEnabled && this.sorting) args.sorting = this.sorting;
+
+    (this.dataSource as MuiTableSource)
+      .getAll(args)
+      .pipe(
+        tap((res: PaginationResponse) => {
+          this._rawData.set(res.data);
+          this.totalCount.set(res.totalCount);
+          this.refreshTable();
+        })
+      )
+      .subscribe();
   }
 
   setColumns(): void {
@@ -98,7 +140,7 @@ export class TableComponent implements OnInit {
     this._tableData.set([...this._tableData(), row]);
 
     this.onRowAdded.emit(row);
-    this.editRow(row);
+    this.editRow(row, 'add');
   }
 
   saveRow(row: TRow): void {
@@ -115,9 +157,39 @@ export class TableComponent implements OnInit {
       row[key] = control.value;
     });
 
-    this._rawData.set(structuredClone(this._tableData()));
+    if (this.isArray) this._rawData.set(structuredClone(this._tableData()));
+    else if (this.isMuiTableSource) {
+      if (this.currentAction === 'edit') this.updareRequest(row);
+      else if (this.currentAction === 'add') this.addRequest(row);
+    }
     this.onRowSaved.emit(row);
     this.tableService.updateFilters$.next(this._rawData());
+  }
+
+  updareRequest(row: TRow): void {
+    (this.dataSource as MuiTableSource)
+      .updateRow(row)
+      .pipe(tap(() => this._rawData.set(structuredClone(this._tableData()))))
+      .subscribe();
+  }
+
+  addRequest(row: TRow): void {
+    (this.dataSource as MuiTableSource)
+      .addRow(row)
+      .pipe(tap(() => this._rawData.set(structuredClone(this._tableData()))))
+      .subscribe();
+  }
+
+  deleteRequest(id: number, index: number): void {
+    (this.dataSource as MuiTableSource)
+      .deleteRow(id)
+      .pipe(
+        tap(() => {
+          this.sliceData(index);
+          this.refreshTable();
+        })
+      )
+      .subscribe();
   }
 
   cancelRow(): void {
@@ -125,7 +197,8 @@ export class TableComponent implements OnInit {
     this.refreshTable();
   }
 
-  editRow(row: TRow): void {
+  editRow(row: TRow, action: 'edit' | 'add'): void {
+    this.currentAction = action;
     this._editingRowId = row.id;
 
     Object.keys(row).forEach(key => {
@@ -141,9 +214,18 @@ export class TableComponent implements OnInit {
 
     if (index < 0) return;
 
-    this._rawData.set(this._rawData().splice(index, 1));
+    if (this.isArray) {
+      this.sliceData(index);
+      this.refreshTable();
+    } else if (this.isMuiTableSource) this.deleteRequest(row.id, index);
     this.onRowDeleted.emit(row);
-    this.refreshTable();
+  }
+
+  sliceData(index: number): void {
+    this._rawData.set([
+      ...this._rawData().slice(0, index),
+      ...this._rawData().slice(index + 1),
+    ]);
   }
 
   onFilterChanged(selectedOptions: TCell[], column: TColumn): void {
@@ -162,16 +244,27 @@ export class TableComponent implements OnInit {
   }
 
   onSortingChanged(sorting: TSorting): void {
-    if (sorting.direction === '') {
+    this.sorting = sorting;
+    if (this.isArray) {
+      this.sort();
+    } else if (this.isMuiTableSource) {
+      this.loadTableData();
+    }
+
+    this.onSortingChange.emit(this.sorting);
+  }
+
+  sort(): void {
+    if (this.sorting.direction === '') {
       this.refreshTable();
       return;
     }
-    const column = this.columns.find(col => col.key === sorting.columnKey);
+    const column = this.columns.find(col => col.key === this.sorting.columnKey);
     if (!column) return;
 
     this._tableData().sort((a, b) => {
-      let valueA = a[sorting.columnKey];
-      let valueB = b[sorting.columnKey];
+      let valueA = a[this.sorting.columnKey];
+      let valueB = b[this.sorting.columnKey];
 
       switch (column.type) {
         case ColumnTypes.Dropdown:
@@ -185,15 +278,15 @@ export class TableComponent implements OnInit {
       }
 
       return (
-        (valueA < valueB ? -1 : 1) * (sorting.direction === 'asc' ? 1 : -1)
+        (valueA < valueB ? -1 : 1) * (this.sorting.direction === 'asc' ? 1 : -1)
       );
     });
-
-    this.onSortingChange.emit(sorting);
   }
 
   paginationChanged(pageParams: TPageParams): void {
-    this.setPagination(pageParams.skip, pageParams.take);
+    this.pagination = pageParams;
+    if (this.isArray) this.setPagination(pageParams.skip, pageParams.take);
+    else if (this.isMuiTableSource) this.loadTableData();
     this.onPaginationChange.emit(pageParams);
   }
 
@@ -226,7 +319,11 @@ export class TableComponent implements OnInit {
     return this.addingEnabled || this.editingEnabled || this.editingEnabled;
   }
 
-  get totalCount(): number {
-    return this.data.length;
+  get isArray(): boolean {
+    return Array.isArray(this.dataSource);
+  }
+
+  get isMuiTableSource(): boolean {
+    return this.dataSource instanceof MuiTableSource;
   }
 }

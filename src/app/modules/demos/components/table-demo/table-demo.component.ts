@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import {
   ColumnTypes,
+  MuiTableSource,
   TColumn,
 } from 'projects/mariia-ui/src/lib/components/table/table';
 
@@ -77,12 +78,13 @@ export class TableDemoComponent {
   [sortingEnabled]="true"
   [paginationEnabled]="true"></mui-table>`;
 
-  tableData = [
-    { id: 1, name: 'Mariia', age: 22, sex: { key: 1, value: 'F' } },
-    { id: 2, name: 'Kristina', age: 22, sex: { key: 1, value: 'F' } },
-    { id: 3, name: 'Karina', age: 21, sex: { key: 1, value: 'F' } },
-    { id: 4, name: 'Ulyana', age: 21, sex: { key: 1, value: 'F' } },
-  ];
+  // tableData = [
+  //   { id: 1, name: 'Mariia', age: 22, sex: { key: 1, value: 'F' } },
+  //   { id: 2, name: 'Kristina', age: 22, sex: { key: 1, value: 'F' } },
+  //   { id: 3, name: 'Karina', age: 21, sex: { key: 1, value: 'F' } },
+  //   { id: 4, name: 'Ulyana', age: 21, sex: { key: 1, value: 'F' } },
+  // ];
+  tableData = new MuiTableSource('http://localhost:3000/api/users');
   columns: TColumn[] = [
     {
       id: 1,

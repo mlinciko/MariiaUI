@@ -73,8 +73,10 @@ export class HeaderComponent implements OnInit {
   setTheme(): void {
     const themeOption = JSON.parse(localStorage.getItem('theme') || '');
     const theme = this.themes.find(option => option.key === themeOption?.key);
-    if (theme) this.themesControl.setValue(theme);
-    else this.themesControl.setValue(this.themes[0]);
+    if (theme) {
+      this.themesControl.setValue(theme);
+      this.onThemeChange(theme);
+    } else this.themesControl.setValue(this.themes[0]);
   }
 
   onLanguageChange(option: TDropdownOption): void {

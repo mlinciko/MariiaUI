@@ -8,12 +8,13 @@
 
 .mui__table-content {
   overflow-y: auto;
+  border-radius: 6px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 .mui__table {
   border-collapse: collapse;
   border-radius: 6px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 .mui__table th {

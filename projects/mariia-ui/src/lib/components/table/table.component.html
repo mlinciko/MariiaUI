@@ -85,7 +85,7 @@
                 <div
                   *ngIf="editingEnabled"
                   class="mui__table-btn"
-                  (click)="editRow(row)">
+                  (click)="editRow(row, 'edit')">
                   <mui-edit-icon
                     [width]="'14px'"
                     [height]="'14px'"></mui-edit-icon>
@@ -113,7 +113,7 @@
   <div *ngIf="paginationEnabled" class="mui__table-pagination">
     <mui-pagination
       [pageSizes]="pageSizes"
-      [totalCount]="totalCount"
+      [totalCount]="totalCount()"
       (onPaginationChange)="paginationChanged($event)"></mui-pagination>
   </div>
 </div>

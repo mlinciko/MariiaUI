@@ -4,8 +4,10 @@ import {
   Component,
   EventEmitter,
   Input,
+  OnChanges,
   OnInit,
   Output,
+  SimpleChanges,
 } from '@angular/core';
 import { TPageParams } from '../table';
 
@@ -15,7 +17,7 @@ import { TPageParams } from '../table';
   styleUrls: ['./pagination.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PaginationComponent implements OnInit {
+export class PaginationComponent implements OnChanges {
   @Input({ required: true }) pageSizes!: number[];
   @Input({ required: true }) totalCount!: number;
   @Output() onPaginationChange: EventEmitter<TPageParams> = new EventEmitter();
@@ -24,7 +26,7 @@ export class PaginationComponent implements OnInit {
   currentPage!: number;
   pages: number[] = [];
 
-  ngOnInit(): void {
+  ngOnChanges(): void {
     this.currentPageSize = this.pageSizes[0];
     this.setPages();
   }
