@@ -351,6 +351,7 @@ THIS SOFTWARE.
 
 
 mariia-ui
+MIT
 
 ngx-highlightjs
 MIT
