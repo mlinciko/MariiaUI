@@ -50,12 +50,12 @@ export class AppModule { }
 ## Documentation and demos
 
 Documentation and example of usage (demos) are presented at official doc Web site: 
-http://
+[http://](https://mlinciko.github.io/MariiaUI/)
 
 ## Customization
 
 All components support customization through input properties and CSS classes. You can adjust the appearance and behavior of each component to fit your application's design requirements.
-More information: http://
+More information: [http://](https://mlinciko.github.io/MariiaUI/)
 
 ## Contribution
 
