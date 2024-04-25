@@ -8,6 +8,11 @@
     "dropdownLabel": "Language",
     "themesLabel": "Theme"
   },
+  "main": {
+    "title": "Create a user interface easily</br> and quickly!",
+    "description": "The MariiaUI library provides a large set of UI components,</br> as well as configuration and customization functionality</br> for your application",
+    "btnLabel": "Start"
+  },
   "docs": {
     "menu": {
       "overview": "Overview",

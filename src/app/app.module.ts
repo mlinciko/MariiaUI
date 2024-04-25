@@ -14,6 +14,7 @@ import {
   TranslationService,
 } from './services/translation.service';
 import { HttpClientModule } from '@angular/common/http';
+import { MainComponent } from './modules/shared/components/main/main.component';
 
 function initializeApp(translationService: TranslationService) {
   return () => {
@@ -26,7 +27,7 @@ function initializeApp(translationService: TranslationService) {
 }
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent],
+  declarations: [AppComponent, HeaderComponent, FooterComponent, MainComponent],
   imports: [BrowserModule, AppRoutingModule, MariiaUiModule, HttpClientModule],
   providers: [
     {

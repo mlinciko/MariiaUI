@@ -24,7 +24,7 @@ export class TableDemoComponent {
   })
   export class DemoComponent {
     /*
-      You can provide api instead of defined data
+      You can provide API instead of predefined data
       tableData = new MuiTableSource('http://localhost:3000/api/users');
     */
     tableData = [

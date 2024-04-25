@@ -1,0 +1,15 @@
+<div class="main-wrapper">
+  <div class="main-wrapper__left"></div>
+  <div class="main-wrapper__right">
+    <div class="main-wrapper__title" [innerHTML]="title"></div>
+    <div class="main-wrapper__subtitle" [innerHTML]="subtitle"></div>
+    <button [routerLink]="'docs'" class="main-wrapper__btn">
+      {{ btnLabel }}
+    </button>
+    <div class="main-wrapper__images">
+      <img src="../../../../../assets/images/image1.png" alt="image" />
+      <img src="../../../../../assets/images/image2.png" alt="image" />
+      <img src="../../../../../assets/images/image3.png" alt="image" />
+    </div>
+  </div>
+</div>

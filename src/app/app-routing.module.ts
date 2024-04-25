@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MainComponent } from './modules/shared/components/main/main.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,10 @@ const routes: Routes = [
     path: 'docs',
     loadChildren: () =>
       import('./modules/docs/docs.module').then(m => m.DocsModule),
+  },
+  {
+    path: '',
+    component: MainComponent,
   },
 ];
 
