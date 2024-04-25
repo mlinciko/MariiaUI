@@ -1,0 +1,56 @@
+{
+  "calendar": {
+    "months": {
+      "january": "Январь",
+      "february": "Февраль",
+      "march": "Март",
+      "april": "Апрель",
+      "may": "Май",
+      "june": "Июнь",
+      "july": "Июль",
+      "august": "Август",
+      "september": "Сентябрь",
+      "october": "Октябрь",
+      "november": "Ноябрь",
+      "december": "Декабрь"
+    },
+    "days": {
+      "monday": "Пн",
+      "tuesday": "Вт",
+      "wednesday": "Ср",
+      "thursday": "Чт",
+      "friday": "Пт",
+      "saturday": "Сб",
+      "sunday": "Вс"
+    }
+  },
+  "dropdown": {
+    "noOptions": "Нет вариантов!"
+  },
+  "filePicker": {
+    "buttonLabel": "Выберите файл"
+  },
+  "lookup": {
+    "searchPlaceholder": "Введите для поиска..."
+  },
+  "table": {
+    "rowIsInvalid": "Строка некорректна!",
+    "noData": "Данные не предоставлены!",
+    "filtering": {
+      "trueValue": "Да",
+      "falseValue": "Нет"
+    }
+  },
+  "validators": {
+    "errors": {
+      "required": "Обязательное поле",
+      "min": "Минимальное значение должно быть не менее ${min}",
+      "max": "Максимальное значение должно быть не более ${max}",
+      "requiredTrue": "Требуется подтверждение",
+      "email": "Неверный адрес электронной почты",
+      "minLength": "Минимальная длина должна быть не менее ${minLength} символов",
+      "maxLength": "Максимальная длина должна быть не более ${maxLength} символов",
+      "pattern": "Неверный формат"
+    }
+  }
+}

@@ -69,3 +69,6 @@ export * from './lib/components/scroll-layout/scroll-layout';
 export * from './lib/components/slider/slider';
 export * from './lib/components/spinner/spinner';
 export * from './lib/components/tabs/tabs';
+
+/*Directives */
+export * from './lib/directives/custom-styles/custom-styles.directive';
