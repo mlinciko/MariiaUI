@@ -1,6 +1,6 @@
 {
   "name": "mariia-ui",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "MIT",
   "author": "Ovcharenko Mariia",
   "peerDependencies": {
@@ -12,5 +12,10 @@
   "dependencies": {
     "tslib": "^2.3.0"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "homepage": "https://mlinciko.github.io/MariiaUI/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mlinciko/MariiaUI"
+  }
 }

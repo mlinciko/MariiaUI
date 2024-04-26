@@ -1,24 +1,62 @@
-# MariiaUi
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
+# MariiaUI is an Angular UI Components Library
 
-## Code scaffolding
+This library provides a set of reusable UI components for Angular applications. These components are designed to enhance the user experience and accelerate development by providing consistent and customizable UI elements.
 
-Run `ng generate component component-name --project mariia-ui` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project mariia-ui`.
-> Note: Don't forget to add `--project mariia-ui` or else it will be added to the default project in your `angular.json` file. 
+## Installation
 
-## Build
+To install the library, you can use npm or yarn:
 
-Run `ng build mariia-ui` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+npm install mariia-ui@latest --save
+```
+or
+```bash
+yarn add mariia-ui@latest
+```
 
-## Publishing
+## Usage
 
-After building your library with `ng build mariia-ui`, go to the dist folder `cd dist/mariia-ui` and run `npm publish`.
+1. Import the `MariiaUiModule` into your Angular application module:
 
-## Running unit tests
+```typescript
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { MariiaUiModule } from '@mariia-ui';
 
-Run `ng test mariia-ui` to execute the unit tests via [Karma](https://karma-runner.github.io).
+@NgModule({
+  declarations: [
+    // your components
+  ],
+  imports: [
+    BrowserModule,
+    MariiaUiModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
 
-## Further help
+2. Use the components in your templates:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```html
+<mui-button
+	[label]="'Click'"
+	[type]="ButtonTypeEnum.Default"
+	(onClick)="handleBtnClick($event)"></mui-button>
+```
+
+## Documentation and demos
+
+Documentation and example of usage (demos) are presented at official doc Web site: 
+[MariiaUIDocs](https://mlinciko.github.io/MariiaUI/)
+
+## Customization
+
+All components support customization through input properties and CSS classes. You can adjust the appearance and behavior of each component to fit your application's design requirements.
+More information: [MariiaUIDocs](https://mlinciko.github.io/MariiaUI/)
+
+## Contribution
+
+Contributions are welcome! If you encounter any issues or have suggestions for new features, please open an issue on GitHub. Pull requests are also appreciated.
